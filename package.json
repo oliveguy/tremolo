@@ -1,0 +1,17 @@
+{
+  "name": "e-learning",
+  "version": "1.0.0",
+  "description": "on-line guitar lesson website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Collin Park",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongodb": "^4.11.0"
+  }
+}

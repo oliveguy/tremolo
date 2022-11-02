@@ -1,0 +1,25 @@
+// Color BG //
+$main : #000;
+$sub : #f4f4f4ab;
+$accent : #48c6b5;
+$text : #fff;
+// Size //
+    // Font
+    $t_regular : 1rem;
+    $t_mini : .75rem;
+    $t_large : 1.5rem;
+// Font
+$t_title :;
+$t_body :;
+$t_accent :;
+
+@mixin button() {
+    padding: 1rem;
+    border: 1px solid $accent;
+    font-size: $t_mini;
+    color: $text;
+}
+
+.main_btn{
+    @include button();
+}
