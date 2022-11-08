@@ -2,27 +2,28 @@ const express = require('express');
 const app = express();
 
 app.use(express.urlencoded({extended: true})); // POST Value transfer
-app.set('view engine','ejs');
+app.use(express.static('assets')); // Static files support in directory of assets
+app.set('view engine','ejs'); // Templete Engine
 
-//MONGO DB ---------------------------------------------------------
+app.listen(8080,()=>{
+    console.log('listening on 8080')
+})
+//MONGO DB Connection---------------------------------------------------------
 const MongoClient = require('mongodb').MongoClient;
 var data;
 MongoClient.connect('mongodb+srv://admin:--mongopark85@cluster0.maab1cf.mongodb.net/?retryWrites=true&w=majority',(err, client)=>{
     if(err) return console.log(err);
     data = client.db('e-learning'); // client.db('DB name')
-    app.listen(8080,()=>{
-        console.log('listening on 8080')
-    })
 })
 
-
-// GET REQUEST
+// GET REQ (main.ejs)
 app.get('/',(req,res)=>{
-    res.sendFile(__dirname+'/pages/index.html');
+    res.render('main.ejs');
 })
-
+// GET REQ (signup.html)
 app.get('/signup',(req,res)=>{
-    res.sendFile(__dirname+'/pages/signup.html');
+    res.render('signup.ejs');
+    // res.sendFile(__dirname+'/pages/signup.html');
 })
 
 // POST REQUEST
@@ -49,3 +50,9 @@ app.get('/list',(req,res)=>{
         res.render('list.ejs',{users:result});
     }); 
 })
+
+/* Functionalities
+    - Login
+    - Signup
+
+*/
