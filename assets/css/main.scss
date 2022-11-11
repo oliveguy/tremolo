@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600&display=swap');
 // Color BG //
-$main : #000;
+$main : linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(16,40,92,1) 100%);;
 $sub : #f4f4f4ab;
-$accent : #48c6b5;
+$accent : #7bfff4;
+$accent_dark : #20857c;
 $text : #fff;
 // Size //
     // Font
@@ -9,17 +11,85 @@ $text : #fff;
     $t_mini : .75rem;
     $t_large : 1.5rem;
 // Font
-$t_title :;
-$t_body :;
-$t_accent :;
+// $t_title :;
+$t_body :'Dosis', 'times','sans-serif';
+// $t_accent :;
 
-@mixin button() {
-    padding: 1rem;
-    border: 1px solid $accent;
-    font-size: $t_mini;
+// Spacing //
+$view_max : 90ch;
+
+@mixin button(){
+    padding: .5rem 1rem;
+    background-color: $accent_dark;
+    font-weight: bold;
     color: $text;
+    border: none;
+    border-radius: 25px;
+}
+*{
+    box-sizing:border-box;
+}
+body{
+    font-family: $t_body;
+    background: $main;
+    color:$text;
+    height:100vh;
+    margin:0;
+}
+a{
+    color:$text;
+    text-decoration: none;
+}
+// HEADER
+header{
+    margin: 0 auto;
+    padding: 1rem 0;
+    max-width: $view_max;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul.navigation{
+    display:flex;
+    li{
+        padding: 0 1rem;
+        list-style-type: none;
+        font-weight: bold;
+    }
+}
+a#signup{
+    color:$accent;
+    text-decoration: underline;
 }
 
-.main_btn{
+form#login_modal{
+    display:none;
+    transition: .5s all;
+}
+section#top_banner{
+    height:20rem;
+    position: relative;
+    div#top_banner_contents{
+        position: relative;
+        max-width: $view_max;
+        margin: 0 auto;
+        padding: 5rem 0;
+        z-index: 5;
+        height:100%;
+    }
+    div#blur_bg{
+        position: absolute;
+        z-index: 1;
+        width:100%;
+        height:100%;
+        top:0;
+        bottom: 0;
+        background-color: rgba(37, 27, 19, 0.5);
+    }
+}
+p#banner_intro{
+    max-width: 50ch;
+}
+button.banner_btn{
     @include button();
 }
