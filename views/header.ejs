@@ -1,16 +1,17 @@
 <header>
     <a href="/"><img src="images/logo.png" alt="tremolo logo" width="150" height="auto"></a>
+    <h1>Tremolo</h1>
     <nav>
         <ul class="navigation">
             <li><a href="#">About</a></li>
-            <li><a href="#">Course</a></li>
-            <li>
+            <li><a href="/course">Course</a></li>
+            <li id="loginListItem">
                 <a href="#" id="login_modal_trigger">Login</a>
-                <form action="login" method="POST" id="login_modal">
+                <form action="login" method="POST" class="login_modal hidden">
                     <label for="login_id">ID</label>
-                    <input type="text" name="login_id" placeholder="Type your ID">
+                    <input type="text" name="login_id" placeholder="Type your ID" class="login_input">
                     <label for="login_pwd">Password</label>
-                    <input type="text" name="login_pwd" placeholder="Type your password">
+                    <input type="password" name="login_pwd" placeholder="Type your password" class="login_input">
                     <input type="submit" value="Login">
                 </form>
             </li>

@@ -25,6 +25,10 @@ header {
   align-items: center;
 }
 
+h1 {
+  display: none;
+}
+
 ul.navigation {
   display: flex;
 }
@@ -33,15 +37,41 @@ ul.navigation li {
   list-style-type: none;
   font-weight: bold;
 }
+ul.navigation li#loginListItem {
+  position: relative;
+}
 
 a#signup {
   color: #7bfff4;
   text-decoration: underline;
 }
 
-form#login_modal {
-  display: none;
-  transition: 0.5s all;
+form.login_modal {
+  position: absolute;
+  z-index: 99;
+  top: 1.5rem;
+  right: 0;
+  padding: 2rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+form.login_modal input.login_input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 1rem;
+}
+form.login_modal input[type=submit] {
+  padding: 0.5rem 1rem;
+  background-color: #20857c;
+  font-weight: bold;
+  font-family: "Dosis", "times", "sans-serif";
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  width: 100%;
+  border-radius: 0;
 }
 
 section#top_banner {
@@ -66,6 +96,26 @@ section#top_banner div#blur_bg {
   background-color: rgba(37, 27, 19, 0.5);
 }
 
+li.user_field {
+  display: flex;
+}
+li.user_field img.user_photo {
+  border-radius: 20px;
+}
+li.user_field div.user_field_text {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0.5rem;
+}
+
+span.user_name, span.user_email {
+  font-weight: 400;
+}
+
+span.user_email {
+  font-size: 0.85rem;
+}
+
 p#banner_intro {
   max-width: 50ch;
 }
@@ -74,6 +124,7 @@ button.banner_btn {
   padding: 0.5rem 1rem;
   background-color: #20857c;
   font-weight: bold;
+  font-family: "Dosis", "times", "sans-serif";
   color: #fff;
   border: none;
   border-radius: 25px;

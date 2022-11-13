@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600&display=swap');
+// UTILITY ************************************************
 // Color BG //
 $main : linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(16,40,92,1) 100%);;
 $sub : #f4f4f4ab;
 $accent : #7bfff4;
 $accent_dark : #20857c;
 $text : #fff;
+$box_border : #fff;
 // Size //
     // Font
     $t_regular : 1rem;
     $t_mini : .75rem;
+    $t-small: .85rem;
     $t_large : 1.5rem;
 // Font
 // $t_title :;
@@ -22,10 +25,12 @@ $view_max : 90ch;
     padding: .5rem 1rem;
     background-color: $accent_dark;
     font-weight: bold;
+    font-family: $t_body;
     color: $text;
     border: none;
     border-radius: 25px;
 }
+// *********************************************************
 *{
     box-sizing:border-box;
 }
@@ -49,6 +54,9 @@ header{
     justify-content: space-between;
     align-items: center;
 }
+h1{
+    display:none;
+}
 ul.navigation{
     display:flex;
     li{
@@ -56,16 +64,36 @@ ul.navigation{
         list-style-type: none;
         font-weight: bold;
     }
+    li#loginListItem{
+        position: relative;
+    }
 }
 a#signup{
     color:$accent;
     text-decoration: underline;
 }
-
-form#login_modal{
-    display:none;
-    transition: .5s all;
+form.login_modal{
+    position: absolute;
+    z-index: 99;
+    top: 1.5rem;
+    right:0;
+    padding:2rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,.25);
+    input.login_input{
+        background: none;
+        border: none;
+        border-bottom: 1px solid #fff;
+        margin-bottom: 1rem;
+    }
+    input[type=submit]{
+        @include button();
+        width: 100%;
+        border-radius: 0;
+    }
 }
+
 section#top_banner{
     height:20rem;
     position: relative;
@@ -87,6 +115,27 @@ section#top_banner{
         background-color: rgba(37, 27, 19, 0.5);
     }
 }
+
+// HEADER FOR LOGIN USER
+li.user_field{
+    display:flex;
+    img.user_photo{
+        border-radius: 20px;
+    }
+    div.user_field_text{
+        display:flex;
+        flex-direction: column;
+        padding-left: .5rem;
+    }
+}
+span.user_name, span.user_email{
+    font-weight: 400;
+}
+span.user_email{
+    font-size: $t_small;
+}
+
+// ******************************************************
 p#banner_intro{
     max-width: 50ch;
 }

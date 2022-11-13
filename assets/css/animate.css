@@ -1,1 +1,8 @@
 /* ANIMATED CLASS RUN BY JS */
+.hidden{
+    display:none;
+    transition: .5 all;
+}
+.show{
+    display:block;
+}

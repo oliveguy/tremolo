@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tremolo || Guitar e-learning</title>
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <%- include('header_login',{user_render}); %>
+    <aside>
+
+    </aside>
+    <main>
+        <h2>login success!</h2>
+        <h3><%= user_render.name %></h3>
+        <h3><%= user_render.email %></h3>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>
