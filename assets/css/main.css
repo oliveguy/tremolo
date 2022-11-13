@@ -31,6 +31,7 @@ h1 {
 
 ul.navigation {
   display: flex;
+  align-items: center;
 }
 ul.navigation li {
   padding: 0 1rem;
@@ -96,13 +97,21 @@ section#top_banner div#blur_bg {
   background-color: rgba(37, 27, 19, 0.5);
 }
 
-li.user_field {
+header.login {
+  display: flex;
+  justify-content: unset;
+  position: relative;
+}
+
+div.user_field {
+  position: absolute;
+  right: 0;
   display: flex;
 }
-li.user_field img.user_photo {
+div.user_field img.user_photo {
   border-radius: 20px;
 }
-li.user_field div.user_field_text {
+div.user_field a.user_field_text {
   display: flex;
   flex-direction: column;
   padding-left: 0.5rem;

@@ -9,7 +9,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const dotenv = require('dotenv');
 dotenv.config({path:"conf.env"});
 
-// MIDDLE WARE *******************************************************************
+// MIDDLEWARE *******************************************************************
 app.use(express.urlencoded({extended: true})); // POST Value transfer
 app.use(express.static('assets')); // Static files support in directory of assets
 app.set('view engine','ejs'); // Templete Engine
@@ -28,24 +28,29 @@ MongoClient.connect(`mongodb+srv://admin:${process.env.MONGODB}@cluster0.maab1cf
     if(err) return console.log(err);
     data = client.db('e-learning');
 })
-
+// ROUTERS ************************************************************************
 // GET REQ (main.ejs)
-app.get('/',(req,res)=>{
-    res.render('main.ejs');
+app.get('/',verify_loginMain,(req,res)=>{
+    if(req.user){
+        res.render('main.ejs',{user_render:req.user, login:true});
+    }
 })
-// GET REQ (signup.html)
+    function verify_loginMain(req,res,next){
+        if(req.user){
+            next()
+        } else {
+            res.render('main.ejs',{login:false});
+        }
+    }
 app.get('/signup',(req,res)=>{
     res.render('signup.ejs');
 })
-
-// POST REQUEST
+// POST REQ SIGNUP ******************************************************
 app.post('/add',(req,res)=>{
     res.send('sent!')
     data.collection('count').findOne({name:"userNum"},(err,result)=>{
         var users = result.total;
         data.collection('db').insertOne({_id: users+1, name:req.body.fname+' '+req.body.lname, email:req.body.email},(err,result)=>{
-            //DB SAVE METHOD
-            // Counter ++1
             data.collection('count').updateOne({name:"userNum"},{$inc:{total:1}},(err,result)=>{
                 if(err){return err};//updateOne({target},{updated info},callback)
             }) 
@@ -53,7 +58,7 @@ app.post('/add',(req,res)=>{
     });
 })
 
-// LOGIN ****************************************************************************
+// LOGIN & COURSE ********************************************************************
 app.post('/login',passport.authenticate('local', {failureRedirect : '/'}),(req,res)=>{
     res.redirect('/course');
 })
@@ -65,7 +70,9 @@ app.get('/course',verify_login,(req,res)=>{
         if(req.user){
             next()
         } else {
-            res.send('<script>alert("You need to login in to view this page")</script>');
+            // res.render('main.ejs',{login:false});
+            res.write('<script>alert("You need to login in to see course contents!")</script>')
+            res.write('<script>window.location="/"</script>')
         }
     }
 passport.use(new LocalStrategy({

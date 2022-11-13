@@ -10,7 +10,11 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
-<%- include('header'); %>
+    <% if(login){%>
+        <%- include('header_login',{user_render}); %>
+    <% } else {%>
+        <%- include('header'); %>
+    <% } %>
     <section id="top_banner">
         <div id="top_banner_contents">
             <h2>Your guitar journey, begins here.</h2>
@@ -27,6 +31,6 @@
     <footer>
 
     </footer> -->
-    <script src="js/main.js"></script>
+    <script src="js/main.js"></script> 
 </body>
 </html>

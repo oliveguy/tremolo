@@ -59,6 +59,7 @@ h1{
 }
 ul.navigation{
     display:flex;
+    align-items: center;
     li{
         padding: 0 1rem;
         list-style-type: none;
@@ -117,12 +118,19 @@ section#top_banner{
 }
 
 // HEADER FOR LOGIN USER
-li.user_field{
+header.login{
+    display:flex;
+    justify-content: unset;
+    position: relative;
+}
+div.user_field{
+    position: absolute;
+    right:0;
     display:flex;
     img.user_photo{
         border-radius: 20px;
     }
-    div.user_field_text{
+    a.user_field_text{
         display:flex;
         flex-direction: column;
         padding-left: .5rem;
