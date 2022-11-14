@@ -100,14 +100,15 @@ passport.use(new LocalStrategy({
     passReqToCallback: false,
   }, function (inputID, inputPWD, done) {
     data.collection('users').findOne({ id: inputID }, function (err, result) {
-      if (err) return done(err)
-  
-      if (!result) return done(null, false, { message: 'Id you typed in does not exsist' })
-
-      if (inputPWD == result.pwd){
-        return done(null, result)
+        if (err) return done(err)
+        if (!result) return done(null, false, { message: 'Id you typed in does not exsist' })
+        const password = inputPWD;
+        const encodedPasswords = result.pwd;
+        const same = bcrypt.compareSync(password, encodedPasswords);
+        if (same){
+        return done(null, result);
       } else {
-        return done(null, false, { message: 'Incorect password!' })
+        return done(null, false, { message: 'Incorect password!' });
       }
     })
   }));
@@ -120,7 +121,16 @@ passport.use(new LocalStrategy({
     data.collection('users').findOne({id:id},(err, result)=>{
         done(null, result)
     })
-  }); 
+  });
+
+//   const password = '1234';
+//   const encryptedPassowrd = bcrypt.hashSync(password, 10);
+//   console.log('en_psw :'+encryptedPassowrd);
+
+//   const passworden = '1234'
+//   const encodedPasswords = encryptedPassowrd
+//   const same = bcrypt.compareSync(passworden, encodedPasswords)
+//   console.log(same)
 // ****************************************************************************
 
 // Data ejection from DB
