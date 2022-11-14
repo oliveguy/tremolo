@@ -9,6 +9,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const dotenv = require('dotenv');
 dotenv.config({path:"conf.env"});
 
+const bcrypt = require('bcrypt');
+
 // MIDDLEWARE *******************************************************************
 app.use(express.urlencoded({extended: true})); // POST Value transfer
 app.use(express.static('assets')); // Static files support in directory of assets
@@ -29,7 +31,7 @@ MongoClient.connect(`mongodb+srv://admin:${process.env.MONGODB}@cluster0.maab1cf
     data = client.db('e-learning');
 })
 // ROUTERS ************************************************************************
-// GET REQ (main.ejs)
+// GET MAIN
 app.get('/',verify_loginMain,(req,res)=>{
     if(req.user){
         res.render('main.ejs',{user_render:req.user, login:true});
@@ -42,20 +44,36 @@ app.get('/',verify_loginMain,(req,res)=>{
             res.render('main.ejs',{login:false});
         }
     }
+// GET SIGN UP
 app.get('/signup',(req,res)=>{
     res.render('signup.ejs');
 })
-// POST REQ SIGNUP ******************************************************
-app.post('/add',(req,res)=>{
-    res.send('sent!')
-    data.collection('count').findOne({name:"userNum"},(err,result)=>{
-        var users = result.total;
-        data.collection('db').insertOne({_id: users+1, name:req.body.fname+' '+req.body.lname, email:req.body.email},(err,result)=>{
-            data.collection('count').updateOne({name:"userNum"},{$inc:{total:1}},(err,result)=>{
-                if(err){return err};//updateOne({target},{updated info},callback)
-            }) 
-        })
-    });
+// USER SIGNUP PROCESS
+app.post('/register',(req,res)=>{
+    let pwd_row = req.body.regis_pwd;
+    let salt = 10;
+    let hased;
+    let hash = bcrypt.hashSync(pwd_row, salt, (err, hased)=>{
+        console.log(hased);
+    })
+
+    data.collection('users').findOne({id:req.body.regis_id},(err,result)=>{
+        if(result){
+            res.write('<script>alert("The ID you typed in already exsisted. Try other ID")</script>')
+            res.write('<script>window.location="/signup"</script>')
+        } else {
+            data.collection('count').findOne({name:"userNum"},(err,result)=>{
+                var users = result.total;
+                data.collection('users').insertOne({_id: users+1,id:req.body.regis_id, pwd:hash, name:req.body.fname+" "+req.body.lname, email:req.body.email, user_pic:0},(err,result)=>{
+                    data.collection('count').updateOne({name:"userNum"},{$inc:{total:1}},(err,result)=>{
+                        if(err){return err};
+                    })
+                })
+            })
+            console.log("completed!")
+            res.redirect('/');
+        }
+    })
 })
 
 // LOGIN & COURSE ********************************************************************
@@ -70,7 +88,7 @@ app.get('/course',verify_login,(req,res)=>{
         if(req.user){
             next()
         } else {
-            // res.render('main.ejs',{login:false});
+            // Try from logout users
             res.write('<script>alert("You need to login in to see course contents!")</script>')
             res.write('<script>window.location="/"</script>')
         }
