@@ -5,4 +5,5 @@
 }
 .show{
     display:block;
+    z-index: 99;
 }

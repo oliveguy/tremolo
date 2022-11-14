@@ -10,24 +10,29 @@
 </head>
 <body>
 <%- include('header'); %>
-    <h3>Sign up</h3>
-    <form action="/add" method="POST">
+    <section class="signup">
+    <h3>Sign up Tremolo to start your guitar journey !</h3>
+    <img src="images/logo.png" alt="Tremolo logo" width="120" height="auto">
+    <form action="/add" method="POST" class="signup">
         <label for="regis_id">ID</label>
-        <input type="text" name="regis_id" id="regis_id">
+        <input type="text" placeholder="ID" name="regis_id" id="regis_id">
 
         <label for="regis_pwd">Password</label>
-        <input type="text" name="regis_pwd" id="regis_pwd">
+        <input type="text" placeholder="Passowrd" name="regis_pwd" id="regis_pwd">
 
         <label for="fname">First name</label>
-        <input type="text" name="fname" id="fname">
+        <input type="text" placeholder="First name" name="fname" id="fname">
 
         <label for="lname">Last name</label>
-        <input type="text" name="lname" id="lname">
+        <input type="text" placeholder="Last name" name="lname" id="lname">
         
         <label for="email">email</label>
-        <input type="email" name="email" id="email">
-
+        <input type="email" placeholder="Email address" name="email" id="email">
+        
         <input type="submit" value="Sign up">
     </form>
+    <a href="#"><img class="google" src="images/googlelogin.png" alt="google login"></a>
+    </section>
+    <script src="js/main.js"></script> 
 </body>
 </html>
