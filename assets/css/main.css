@@ -107,6 +107,7 @@ div.user_field {
   position: absolute;
   right: 0;
   display: flex;
+  align-items: center;
 }
 div.user_field img.user_photo {
   border-radius: 20px;

@@ -30,8 +30,10 @@ MongoClient.connect(`mongodb+srv://admin:${process.env.MONGODB}@cluster0.maab1cf
     if(err) return console.log(err);
     data = client.db('e-learning');
 })
-// ROUTERS ************************************************************************
-// GET MAIN
+// ************************************************************************
+// ROUTERS 
+// ************************************************************************
+// MAIN (GET)
 app.get('/',verify_loginMain,(req,res)=>{
     if(req.user){
         res.render('main.ejs',{user_render:req.user, login:true});
@@ -44,7 +46,12 @@ app.get('/',verify_loginMain,(req,res)=>{
             res.render('main.ejs',{login:false});
         }
     }
-// GET SIGN UP
+// USER ACCOUNT PAGE (GET?userID=$)
+app.get('/account',verify_login,(req,res)=>{
+    res.render('account.ejs',{user_render:req.user});
+})
+
+// SIGN UP (GET)
 app.get('/signup',(req,res)=>{
     res.render('signup.ejs');
 })
@@ -75,12 +82,11 @@ app.post('/register',(req,res)=>{
         }
     })
 })
-
 // LOGIN & COURSE ********************************************************************
 app.post('/login',passport.authenticate('local', {failureRedirect : '/'}),(req,res)=>{
     res.redirect('/course');
 })
-// show course for specific user
+// COURSE (GET) USER
 app.get('/course',verify_login,(req,res)=>{
     res.render('course.ejs',{user_render:req.user})
 })
@@ -88,7 +94,7 @@ app.get('/course',verify_login,(req,res)=>{
         if(req.user){
             next()
         } else {
-            // Try from logout users
+            // Try from non-login users
             res.write('<script>alert("You need to login in to see course contents!")</script>')
             res.write('<script>window.location="/"</script>')
         }
@@ -98,8 +104,8 @@ passport.use(new LocalStrategy({
     passwordField: 'login_pwd',
     session: true,
     passReqToCallback: false,
-  }, function (inputID, inputPWD, done) {
-    data.collection('users').findOne({ id: inputID }, function (err, result) {
+  }, function (inputID, inputPWD, done){
+    data.collection('users').findOne({ id: inputID }, function(err, result){
         if (err) return done(err)
         if (!result) return done(null, false, { message: 'Id you typed in does not exsist' })
         const password = inputPWD;
@@ -108,7 +114,7 @@ passport.use(new LocalStrategy({
         if (same){
         return done(null, result);
       } else {
-        return done(null, false, { message: 'Incorect password!' });
+        return done(null, false, {message:'Incorect password!'});
       }
     })
   }));
@@ -116,7 +122,6 @@ passport.use(new LocalStrategy({
   passport.serializeUser(function (user, done) {
     done(null, user.id)
   });
-  
   passport.deserializeUser(function (id, done) {
     data.collection('users').findOne({id:id},(err, result)=>{
         done(null, result)
@@ -133,9 +138,11 @@ passport.use(new LocalStrategy({
 //   console.log(same)
 // ****************************************************************************
 
-// Data ejection from DB
+// Data ejection all from DB
 // app.get('/list',(req,res)=>{
 //     data.collection('db').find().toArray((error,result)=>{
 //         res.render('list.ejs',{users:result});
 //     }); 
 // })
+// % rm -rf node_modules/
+// % npm update

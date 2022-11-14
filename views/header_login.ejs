@@ -8,7 +8,7 @@
         </ul>
     </nav>
     <div class="user_field">
-        <img src="user_photo/<% if(user_render.user_pic == 1){%><%= user_render._id%>%><%}else{%>default_pic<%}%>.jpg" alt="<%= user_render.name %>" width="40" height="40" class="user_photo">
+        <img src="user_photo/<% if(user_render.user_pic == 1){%><%= user_render._id%>%><%}else{%>default_pic<%}%>.jpg" alt="<%= user_render.name %>" width="30" height="30" class="user_photo">
         <a href="/account?userID=<%= user_render._id%>" class="user_field_text">
             <span class="user_name"><%=user_render.name%></span>
             <span class="user_email"><%=user_render.email%></span>
