@@ -1,3 +1,6 @@
+// ******************************************************************************
+// REQUIRE 
+// ******************************************************************************
 const express = require('express');
 const app = express();
 
@@ -11,7 +14,9 @@ dotenv.config({path:"conf.env"});
 
 const bcrypt = require('bcrypt');
 
-// MIDDLEWARE *******************************************************************
+// ******************************************************************************
+// MIDDLEWARE
+// ******************************************************************************
 app.use(express.urlencoded({extended: true})); // POST Value transfer
 app.use(express.static('assets')); // Static files support in directory of assets
 app.set('view engine','ejs'); // Templete Engine
@@ -30,9 +35,9 @@ MongoClient.connect(`mongodb+srv://admin:${process.env.MONGODB}@cluster0.maab1cf
     if(err) return console.log(err);
     data = client.db('e-learning');
 })
-// ************************************************************************
+// ******************************************************************************
 // ROUTERS 
-// ************************************************************************
+// ******************************************************************************
 // MAIN (GET)
 app.get('/',verify_loginMain,(req,res)=>{
     if(req.user){
@@ -48,7 +53,7 @@ app.get('/',verify_loginMain,(req,res)=>{
     }
 // USER ACCOUNT PAGE (GET?userID=$)
 app.get('/account',verify_login,(req,res)=>{
-    res.render('account.ejs',{user_render:req.user});
+    res.render('account.ejs',{user_render:req.user,userID:req.query.userID});
 })
 
 // SIGN UP (GET)
@@ -118,15 +123,15 @@ passport.use(new LocalStrategy({
       }
     })
   }));
-
-  passport.serializeUser(function (user, done) {
-    done(null, user.id)
-  });
-  passport.deserializeUser(function (id, done) {
-    data.collection('users').findOne({id:id},(err, result)=>{
-        done(null, result)
-    })
-  });
+// SESSION
+passport.serializeUser((user, done)=>{
+done(null, user.id)
+});
+passport.deserializeUser((id, done)=>{
+data.collection('users').findOne({id:id},(err, result)=>{
+    done(null, result)
+})
+});
 
 //   const password = '1234';
 //   const encryptedPassowrd = bcrypt.hashSync(password, 10);
@@ -144,5 +149,10 @@ passport.use(new LocalStrategy({
 //         res.render('list.ejs',{users:result});
 //     }); 
 // })
+
+// WIN -> MAC
 // % rm -rf node_modules/
 // % npm update
+
+// MAC->WIN
+// > npm rebuild bcrypt --build-from-source
