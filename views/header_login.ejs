@@ -9,10 +9,17 @@
     </nav>
     <div class="user_field">
         <img src="user_photo/<% if(user_render.user_pic == 1){%><%= user_render._id%>%><%}else{%>default_pic<%}%>.jpg" alt="<%= user_render.name %>" width="30" height="30" class="user_photo">
-        <a href="/account?userID=<%= user_render._id%>" class="user_field_text">
+        <div class="user_field_text">
             <span class="user_name"><%=user_render.name%></span>
             <span class="user_email"><%=user_render.email%></span>
-        </a>
+        </div>
+        <span>&#x25BE;</span>
+        <div id="user_panel">
+            <a href="/account?userID=<%= user_render._id%>">Account</a>
+            <a href="/account?userID=<%= user_render._id%>">Change password</a>
+            <a href="/account?userID=<%= user_render._id%>">Plan</a>
+            <a href="/logout">Logout</a>
+        </div>
     </div>
 </header>
 

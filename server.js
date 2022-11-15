@@ -107,9 +107,15 @@ app.post('/register',(req,res)=>{
         }
     })
 })
-// LOGIN & COURSE ********************************************************************
+// LOGIN/OUT & COURSE ********************************************************************
 app.post('/login',passport.authenticate('local', {failureRedirect : '/'}),(req,res)=>{
     res.redirect('/course');
+})
+app.get('/logout',(req,res)=>{
+    req.session.destroy(function(err){
+        if(err) throw err;
+    })
+    res.render('main.ejs',{login:false});
 })
 // COURSE (GET) USER
 app.get('/course',verify_login,(req,res)=>{

@@ -99,6 +99,7 @@ form.login_modal{
 section#top_banner{
     height:20rem;
     position: relative;
+    z-index: 0;
     div#top_banner_contents{
         position: relative;
         max-width: $view_max;
@@ -129,13 +130,25 @@ div.user_field{
     right:0;
     display:flex;
     align-items: center;
+    z-index: 99;
     img.user_photo{
         border-radius: 20px;
     }
-    a.user_field_text{
+    div.user_field_text{
         display:flex;
         flex-direction: column;
         padding-left: .5rem;
+        z-index: 99;
+    }
+    div#user_panel{
+        position:absolute;
+        border:1px solid greenyellow;
+        padding: 1rem;
+        top:50px;
+        right:0;
+        display:flex;
+        flex-direction: column;
+        z-index: 99;
     }
 }
 span.user_name, span.user_email{
@@ -184,6 +197,7 @@ img.google{
 // ******************************************************
 p#banner_intro{
     max-width: 50ch;
+    z-index: 1;
 }
 button.banner_btn{
     @include button();

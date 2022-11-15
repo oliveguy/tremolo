@@ -14,15 +14,16 @@
     <%- include('header_login',{user_render}); %>
     <div class="body_wrapper">
         <aside class="module_list">
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
-            <p>1</p>
+            <ul class="modules">
+                <li>Module 1. Lorem ipsum</li>
+                <li>Module 2. Loresum</li>
+                <li>Module 3. Lorem isum</li>
+                <li>Module 4. Lorem ipsum tyu</li>
+            </ul>
         </aside>
-        <main>
-            <p>Welcome back <b><%= user_render.name %></b></p>
+        <main class="course_contents">
+            <video src="#" width="100%" height="450px">VIDEO</video>
+            <p>Welcome back <b><%= user_render.name %> !</b></p>
             <p><%= user_render.email %></p>
         </main>
     </div>

@@ -18,6 +18,10 @@
         <p>Welcome back <b><%= user_render.name %></b></p>
         <p><%= user_render.id %></p>
         <p><%= userID %></p>
+        <form action="/change_pic" method="POST" enctype="multipart/form-data">
+            <img src="user_photo/<% if(user_render.user_pic == 1){%><%= user_render._id%>%><%}else{%>default_pic<%}%>.jpg" alt="<%= user_render.name %>" width="40" height="40" class="user_photo">
+            <input type="file">
+        </form>
     </main>
     <script src="js/main.js"></script>
 </body>
