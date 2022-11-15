@@ -7,17 +7,25 @@
     <title>Tremolo || Guitar e-learning</title>
     <link rel="stylesheet" href="/css/animate.css">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/course.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
     <%- include('header_login',{user_render}); %>
-    <aside>
-
-    </aside>
-    <main>
-        <p>Welcome back <b><%= user_render.name %></b></p>
-        <p><%= user_render.email %></p>
-    </main>
+    <div class="body_wrapper">
+        <aside class="module_list">
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+        </aside>
+        <main>
+            <p>Welcome back <b><%= user_render.name %></b></p>
+            <p><%= user_render.email %></p>
+        </main>
+    </div>
     <script src="js/main.js"></script>
 </body>
 </html>

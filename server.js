@@ -13,6 +13,7 @@ const dotenv = require('dotenv');
 dotenv.config({path:"conf.env"});
 
 const bcrypt = require('bcrypt');
+const nodemailer = require('nodemailer');
 
 // ******************************************************************************
 // MIDDLEWARE
@@ -82,8 +83,27 @@ app.post('/register',(req,res)=>{
                     })
                 })
             })
-            console.log("completed!")
-            res.redirect('/');
+            // Welcome Email Send
+            const transporter = nodemailer.createTransport({
+                service:'gmail',
+                auth:{user:process.env.GMAIL_ID, pass:process.env.GMAIL_PWD},
+                host:'smtp.gmail.com',
+                port:'465'
+            })
+            const mailOption ={
+                from:'Tremolo Account Management Team<noreply@tremolo.com>',
+                to:req.body.email,
+                subject:`Welcome to Tremolo! ${req.body.fname}`,
+                html:`<h1>Thank you for signing up Tremolo</h1><p>Dear ${req.body.fname}</p><p>We are happy to offer our outstanding e-learning service!</p>`
+            }
+            transporter.sendMail(mailOption,(err, info)=>{
+                if(err){console.log(err);} else {
+                    console.log(info);
+                } transporter.close();
+            })
+            // Message and Redirection to index.ejs
+            // res.write('<script>alert("Signup process has been completed, Please login with your ID and password")</script>');
+            res.write('<script>window.location="/"</script>')
         }
     })
 })

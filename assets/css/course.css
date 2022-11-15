@@ -1,0 +1,21 @@
+div.body_wrapper {
+  margin: 0;
+  padding: 0 1rem;
+  display: flex;
+  position: relative;
+}
+
+aside.module_list, main {
+  padding: 1rem;
+  border: 1px solid white;
+}
+
+aside.module_list {
+  min-width: 250px;
+  margin-right: 1rem;
+  height: 500px;
+}
+
+main {
+  flex-grow: 1;
+}/*# sourceMappingURL=course.css.map */
