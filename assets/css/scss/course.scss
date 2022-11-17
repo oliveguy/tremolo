@@ -14,8 +14,11 @@ aside.module_list{
     height:500px;
     background-color: rgba(0,0,0,.3);
     border: 1px solid blue;
-    // display:none;
 }
+// main{
+//     position:absolute;
+//     left:284px;
+// }
 div.aside_top{
     display:flex;
     justify-content: space-between;
@@ -61,7 +64,7 @@ ul.sub_module_list{
 }
 main.course_contents{
     padding: 0;
-    margin: 0 auto;
+    // margin: 0 auto;
     video{
         border: 1px solid white;
     }

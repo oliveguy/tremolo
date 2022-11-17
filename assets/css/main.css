@@ -244,10 +244,17 @@ main.account section#account_total article#profile {
 
 h3.account_items {
   margin: 0;
+  margin-bottom: 1rem;
 }
 
 div.account_items {
   display: flex;
+}
+div.account_items form.user_photo_field {
+  flex: 3;
+}
+div.account_items form#user_profile {
+  flex: 7;
 }
 
 form.user_photo_field {
@@ -286,4 +293,97 @@ form.user_photo_field input[type=file]::file-selector-button {
   font-size: 0.75rem;
   cursor: pointer;
   transition: background 0.2s ease-in-out;
+}
+
+form#user_profile {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  max-width: 60ch;
+}
+form#user_profile input {
+  margin: 0.25rem 0;
+  padding: 0.25rem 0.55rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border: none;
+  width: 100%;
+}
+form#user_profile div#userName {
+  display: flex;
+  width: 100%;
+}
+form#user_profile div#userName input#fname {
+  margin-right: 0.25rem;
+}
+form#user_profile input[type=submit] {
+  padding: 0.5rem 1rem;
+  background-color: #20857c;
+  font-weight: bold;
+  font-family: "Dosis", "times", "sans-serif";
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  width: 30%;
+  background-color: rgb(46, 177, 237);
+}
+
+div.course_info {
+  display: flex;
+}
+div.course_info div.plan {
+  flex: 3;
+}
+div.course_info ul.course_text_list {
+  flex: 7;
+}
+
+div.plan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div.plan img {
+  border: 1px solid black;
+}
+div.plan a {
+  padding: 0.5rem 1rem;
+  background-color: #20857c;
+  font-weight: bold;
+  font-family: "Dosis", "times", "sans-serif";
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  text-align: center;
+  width: 75%;
+  margin-top: 1rem;
+}
+
+ul.course_text_list {
+  margin: 0;
+  padding-left: 2rem;
+}
+
+li.course_list_items {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+li.course_list_items span.item_title {
+  font-weight: 800;
+}
+
+div.progress_bar {
+  margin-top: 0.5rem;
+  width: 50%;
+  height: 5px;
+  background-color: rgb(90, 90, 90);
+  position: relative;
+}
+div.progress_bar span.meter {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  background-color: #fff;
 }/*# sourceMappingURL=main.css.map */

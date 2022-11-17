@@ -184,7 +184,7 @@ app.get('*',(req,res)=>{
 })
 
 app.listen(8080,()=>{
-    console.log('listening on 8080')
+    console.log('## Server working on 8080')
 })
 
 // Data ejection all from DB
