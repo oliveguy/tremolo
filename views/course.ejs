@@ -5,28 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tremolo || Guitar e-learning</title>
-    <link rel="stylesheet" href="/css/animate.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/course.css">
+    <link rel="stylesheet" href="/css/animate.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
     <%- include('header_login',{user_render}); %>
     <div class="body_wrapper">
         <aside class="module_list">
-            <ul class="modules">
-                <li>Module 1. Lorem ipsum</li>
-                <li>Module 2. Loresum</li>
-                <li>Module 3. Lorem isum</li>
-                <li>Module 4. Lorem ipsum tyu</li>
-            </ul>
+          <div class="aside_top">
+            <div class="progress_family">
+              <span class="progress_text">Course Progress<span>50%</span></span>
+              <div class="progress_bar">
+                <span class="meter"></span>
+              </div>
+            </div>
+            <img width="20px" height="20px">
+          </div>
+          <ul class="modules">
+            <li>
+                <span>Module 1. Basic Information
+                    <span>+</span>
+                </span>
+                <ul class="sub_module_list">
+                    <li class="sub_modules"><a href="#">Anatomy of a Guitar</a></li>
+                    <li class="sub_modules"><a href="#">String Names</a></li>
+                    <li class="sub_modules"><a href="#">Tuning Your Guitar</a></li>
+                    <li class="sub_modules"><a href="#">Module Review</a></li>
+                    <li class="sub_modules"><a href="#">Assessment: Module 1</a></li>
+                </ul>
+            </li>
+            <li>
+                <span>Module 2. Individual Notes
+                    <span>+</span>
+                </span>
+            </li>
+            <li>
+                <span>Module 3. Chords and Scales
+                    <span>+</span>
+                </span>
+            </li>
+            <li>
+                <span>Module 4. All Together
+                    <span>+</span>
+                </span>
+            </li>
+          </ul>
         </aside>
         <main class="course_contents">
-            <video src="#" width="100%" height="450px">VIDEO</video>
-            <p>Welcome back <b><%= user_render.name %> !</b></p>
-            <p><%= user_render.email %></p>
+          <video src="#" width="100%" height="450px">VIDEO</video>
+          <p>Welcome back <b><%= user_render.name %> !</b></p>
+          <p><%= user_render.email %></p>
         </main>
     </div>
-    <script src="js/main.js"></script>
+    <ul>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script src="js/course.js"></script>
 </body>
 </html>

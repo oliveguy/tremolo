@@ -14,7 +14,8 @@ dotenv.config({path:"conf.env"});
 
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
-
+const multer = require('multer');
+const path = require('path');
 // ******************************************************************************
 // MIDDLEWARE
 // ******************************************************************************
@@ -26,9 +27,6 @@ app.use(session({secret : process.env.SECRET, resave : true, saveUninitialized: 
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.listen(8080,()=>{
-    console.log('listening on 8080')
-})
 //MONGO DB Connection---------------------------------------------------------
 const MongoClient = require('mongodb').MongoClient;
 var data;
@@ -36,6 +34,17 @@ MongoClient.connect(`mongodb+srv://admin:${process.env.MONGODB}@cluster0.maab1cf
     if(err) return console.log(err);
     data = client.db('e-learning');
 })
+// Image uploader
+const storage = multer.diskStorage({
+    destination: (req,res,cb)=>{
+        cb(null, 'assets/user_photo/')
+    },
+    filename: (req,file,cb)=>{
+        const ext = path.extname(file.originalname);
+        cb(null,req.user._id+ext);
+    }
+})
+const upload = multer({storage: storage});
 // ******************************************************************************
 // ROUTERS 
 // ******************************************************************************
@@ -55,6 +64,14 @@ app.get('/',verify_loginMain,(req,res)=>{
 // USER ACCOUNT PAGE (GET?userID=$)
 app.get('/account',verify_login,(req,res)=>{
     res.render('account.ejs',{user_render:req.user,userID:req.query.userID});
+})
+
+// Acount > upload User Photo
+app.post('/change_pic',upload.single('file'),(req,res,next)=>{
+    data.collection('users').updateOne({_id:req.user._id},{$set:{user_pic:1}},(err,result)=>{
+        if(err) return{err}
+    })
+    res.render('account.ejs',{user_render:req.user,userID:req.query.userID})
 })
 
 // SIGN UP (GET)
@@ -158,16 +175,17 @@ data.collection('users').findOne({id:id},(err, result)=>{
     done(null, result)
 })
 });
+// 404 Page Not Found
+app.get('*',(req,res)=>{
+    res.render('404.ejs',{
+        title:'404',
+        errorMSG:'Page not found'
+    })
+})
 
-//   const password = '1234';
-//   const encryptedPassowrd = bcrypt.hashSync(password, 10);
-//   console.log('en_psw :'+encryptedPassowrd);
-
-//   const passworden = '1234'
-//   const encodedPasswords = encryptedPassowrd
-//   const same = bcrypt.compareSync(passworden, encodedPasswords)
-//   console.log(same)
-// ****************************************************************************
+app.listen(8080,()=>{
+    console.log('listening on 8080')
+})
 
 // Data ejection all from DB
 // app.get('/list',(req,res)=>{
@@ -175,6 +193,9 @@ data.collection('users').findOne({id:id},(err, result)=>{
 //         res.render('list.ejs',{users:result});
 //     }); 
 // })
+
+// MOCKUP
+// https://www.figma.com/file/kFR8qJjMCPSoSJdsWxnlF2/Tremolo-UI-Elements?node-id=0%3A1&t=RxvO9mQBGKqd0HJQ-0
 
 // WIN -> MAC
 // % rm -rf node_modules/

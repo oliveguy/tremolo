@@ -1,9 +1,11 @@
 /* ANIMATED CLASS RUN BY JS */
 .hidden{
-    display:none;
-    transition: .5 all;
+    visibility: hidden;
+    opacity:0;
+    transition: .25s all;
 }
 .show{
-    display:block;
+    visibility: visible;
     z-index: 99;
+    opacity:1;
 }

@@ -13,13 +13,21 @@
             <span class="user_name"><%=user_render.name%></span>
             <span class="user_email"><%=user_render.email%></span>
         </div>
-        <span>&#x25BE;</span>
-        <div id="user_panel">
-            <a href="/account?userID=<%= user_render._id%>">Account</a>
-            <a href="/account?userID=<%= user_render._id%>">Change password</a>
-            <a href="/account?userID=<%= user_render._id%>">Plan</a>
-            <a href="/logout">Logout</a>
+        <span id="user_panel_triger">&#x25BE;</span>
+        <div class="user_panel hidden">
+            <div class="profile">
+                <img src="user_photo/<% if(user_render.user_pic == 1){%><%= user_render._id%>%><%}else{%>default_pic<%}%>.jpg" alt="<%= user_render.name %>" width="50" height="50" class="user_photo_big">
+                <span><b><%=user_render.name%></b></span>
+                <span class="user_email"><%=user_render.email%></span>
+            </div>
+            <ul class="user_section">
+                <li><a href="/account?userID=<%= user_render._id%>" class="user_menu">Account</a></li>
+                <li><a href="/account?userID=<%= user_render._id%>" class="user_menu">Plan</a></li>
+                <li><a href="/account?userID=<%= user_render._id%>" class="user_menu">Setting</a></li>
+                <li><b><a href="/logout" class="logout">Logout</a></b></li>
+            </ul>
         </div>
     </div>
 </header>
+<span id="login_modal_trigger"></span>
 

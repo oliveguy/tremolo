@@ -7,6 +7,7 @@ $accent : #7bfff4;
 $accent_dark : #20857c;
 $text : #fff;
 $box_border : #fff;
+$box_t_bg : rgb(71, 71, 71);
 // Size //
     // Font
     $t_regular : 1rem;
@@ -46,7 +47,7 @@ a{
     color:$text;
     text-decoration: none;
 }
-// HEADER
+// HEADER (Non-LOGIN)
 header{
     margin: 0 auto;
     padding: 1rem 0;
@@ -76,13 +77,13 @@ a#signup{
 }
 form.login_modal{
     position: absolute;
-    z-index: 99;
     top: 1.5rem;
     right:0;
     padding:2rem;
     border: 1px solid white;
     border-radius: 5px;
-    background-color: rgba(255,255,255,.25);
+    background-color: $box_t_bg;
+    flex-direction: column;
     input.login_input{
         background: none;
         border: none;
@@ -96,11 +97,86 @@ form.login_modal{
     }
 }
 
+// HEADER FOR LOGIN USER
+header.login{
+    display:flex;
+    justify-content: unset;
+    position: relative;
+}
+div.user_field{
+    position: absolute;
+    right:0;
+    display:flex;
+    align-items: center;
+    img.user_photo{
+        border-radius: 20px;
+    }
+    img.user_photo_big{
+        border-radius: 50%;
+    }
+    div.user_field_text{
+        display:flex;
+        flex-direction: column;
+        padding-left: .5rem;
+        z-index: 99;
+    }
+    span#user_panel_triger:hover{
+        cursor: pointer;
+    }
+}
+div.user_panel{
+    position:absolute;
+    background-color: $box_t_bg;
+    border-radius: 10px;
+    padding: 1rem;
+    top:60px;
+    right:0;
+    align-items: center;
+    display:flex;
+    div.profile{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: .5rem;
+    }
+}
+ul.user_section{
+    display:flex;
+    flex-direction: column;
+    margin:0;
+    padding:0;
+    padding-left: .5rem;
+    border-left: 1px solid $box_border;
+    li{
+        list-style-type: none;
+        width:100px;
+        padding: .1rem 0;
+    }
+    li:hover{
+        text-decoration: underline;
+    }
+}
+span.user_name, span.user_email{
+    font-weight: 400;
+}
+span.user_email{
+    font-size: $t_small;
+}
+
+// ******************************************************
+// INDEX following
+p#banner_intro{
+    max-width: 50ch;
+    z-index: 1;
+}
+button.banner_btn{
+    @include button();
+}
 section#top_banner{
     height:20rem;
     position: relative;
     z-index: 0;
-    div#top_banner_contents{
+    article#top_banner_contents{
         position: relative;
         max-width: $view_max;
         margin: 0 auto;
@@ -118,47 +194,6 @@ section#top_banner{
         background-color: rgba(37, 27, 19, 0.5);
     }
 }
-
-// HEADER FOR LOGIN USER
-header.login{
-    display:flex;
-    justify-content: unset;
-    position: relative;
-}
-div.user_field{
-    position: absolute;
-    right:0;
-    display:flex;
-    align-items: center;
-    z-index: 99;
-    img.user_photo{
-        border-radius: 20px;
-    }
-    div.user_field_text{
-        display:flex;
-        flex-direction: column;
-        padding-left: .5rem;
-        z-index: 99;
-    }
-    div#user_panel{
-        position:absolute;
-        border:1px solid greenyellow;
-        padding: 1rem;
-        top:50px;
-        right:0;
-        display:flex;
-        flex-direction: column;
-        z-index: 99;
-    }
-}
-span.user_name, span.user_email{
-    font-weight: 400;
-}
-span.user_email{
-    font-size: $t_small;
-}
-
-// ******************************************************
 // SIGNUP PAGE
 section.signup{
     max-width: $view_narrow;
@@ -194,11 +229,46 @@ form.signup{
 img.google{
     width: 50%;
 }
-// ******************************************************
-p#banner_intro{
-    max-width: 50ch;
-    z-index: 1;
+// **********************************************************
+// ACCOUNT PAGE
+main.account{
+    margin: 0 auto;
+    max-width: $view_max;
+    section#account_total{
+        background-color: rgba(37, 27, 19, 0.5);
+        padding: 2rem;
+        article#profile{
+            border-bottom: 1px solid $box_border;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
 }
-button.banner_btn{
-    @include button();
+h3.account_items{
+    margin:0;
+}
+div.account_items{
+    display:flex;
+}
+form.user_photo_field{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    img.user_photo_account{
+      border-radius: 50px;
+    }
+    input[type=file]::file-selector-button:hover {
+      background: $accent;
+    }
+    input[type=file]::file-selector-button {
+      margin-right: 20px;
+      border: none;
+      background: $accent_dark;
+      padding: 5px 10px;
+      border-radius: 10px;
+      color: $text;
+      font-size: $t_mini;
+      cursor: pointer;
+      transition: background .2s ease-in-out;
+      }
 }
