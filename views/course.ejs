@@ -21,49 +21,95 @@
                 <span class="meter"></span>
               </div>
             </div>
-            <img width="20px" height="20px">
+            <img src="#" width="20px" height="20px" id="close_aside">
           </div>
           <ul class="modules">
             <li>
-                <span>Module 1. Basic Information
-                    <span>+</span>
-                </span>
-                <ul class="sub_module_list">
-                    <li class="sub_modules"><a href="#">Anatomy of a Guitar</a></li>
-                    <li class="sub_modules"><a href="#">String Names</a></li>
-                    <li class="sub_modules"><a href="#">Tuning Your Guitar</a></li>
-                    <li class="sub_modules"><a href="#">Module Review</a></li>
-                    <li class="sub_modules"><a href="#">Assessment: Module 1</a></li>
-                </ul>
+              <span class="module_list">Module 1. Basic Information
+                  <span>+</span>
+              </span>
+              <ul class="sub_module_list on">
+                  <li class="sub_modules"><a href="#">Anatomy of a Guitar</a></li>
+                  <li class="sub_modules"><a href="#">String Names</a></li>
+                  <li class="sub_modules"><a href="#">Tuning Your Guitar</a></li>
+                  <li class="sub_modules"><a href="#">Module Review</a></li>
+                  <li class="sub_modules"><a href="#">Assessment: Module 1</a></li>
+              </ul>
             </li>
             <li>
-                <span>Module 2. Individual Notes
-                    <span>+</span>
-                </span>
+              <span class="module_list">Module 2. Individual Notes
+                <span>+</span>
+              </span>
+              <ul class="sub_module_list">
+                  <li class="sub_modules"><a href="#">Rudimentary Music Theory</a></li>
+                  <li class="sub_modules"><a href="#">Strings 1-3</a></li>
+                  <li class="sub_modules"><a href="#">Strings 4-6</a></li>
+                  <li class="sub_modules"><a href="#">Module Review</a></li>
+                  <li class="sub_modules"><a href="#">Assessment: Module 2</a></li>
+              </ul>
             </li>
             <li>
-                <span>Module 3. Chords and Scales
-                    <span>+</span>
-                </span>
+              <span class="module_list">Module 3. Chords and Scales
+                <span>+</span>
+              </span>
+              <ul class="sub_module_list">
+                  <li class="sub_modules"><a href="#">G Major Scale</a></li>
+                  <li class="sub_modules"><a href="#">G, C, D Chords</a></li>
+                  <li class="sub_modules"><a href="#">Am, Em Chords</a></li>
+                  <li class="sub_modules"><a href="#">Module Review</a></li>
+                  <li class="sub_modules"><a href="#">Assessment: Module 3</a></li>
+              </ul>
             </li>
             <li>
-                <span>Module 4. All Together
-                    <span>+</span>
-                </span>
+              <span class="module_list">Module 4. All Together
+                <span>+</span>
+              </span>
+              <ul class="sub_module_list">
+                  <li class="sub_modules"><a href="#">Chords in Rhythm</a></li>
+                  <li class="sub_modules"><a href="#">Scales in Rhythm</a></li>
+                  <li class="sub_modules"><a href="#">Scale Patterns</a></li>
+                  <li class="sub_modules"><a href="#">Module Review</a></li>
+                  <li class="sub_modules"><a href="#">Assessment: Full Module</a></li>
+              </ul>
             </li>
           </ul>
         </aside>
         <main class="course_contents">
-          <video src="#" width="100%" height="450px">VIDEO</video>
-          <p>Welcome back <b><%= user_render.name %> !</b></p>
-          <p><%= user_render.email %></p>
+          <span id="expand_aside"></span>
+          <div class="content_area">
+            <video src="#" width="100%" height="450px">VIDEO</video>
+            <h2>Burning String</h2>
+            <p>This is a string in HTML making you crazy</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio voluptate mollitia tenetur nesciunt fugiat provident inventore vero distinctio consectetur, tempore, aut ipsam beatae molestiae velit commodi? Aspernatur magnam quae ex.</p>
+          </div>
         </main>
     </div>
-    <ul>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-    </ul>
     <script src="js/course.js"></script>
+    <script>
+      const topMenu = document.querySelectorAll('span.module_list');
+      topMenu.forEach((menu,index)=>{
+        menu.addEventListener('click',function(e){
+          e.preventDefault();
+          this.nextElementSibling.classList.toggle('on');
+          topMenu.forEach(function(otherMenu, index2){
+            if(index !== index2){
+              otherMenu.nextElementSibling.classList.remove('on')
+            }
+          })
+        })
+      })
+      const asidepanel = document.querySelector('.module_list')
+      close_aside.addEventListener('click',()=>{
+        asidepanel.classList.remove('module_list');
+        asidepanel.classList.add('aside_hidden');
+        expand_aside.style.display="block";
+        expand_aside.addEventListener('click',()=>{
+          asidepanel.classList.remove('aside_hidden');
+          asidepanel.classList.add('module_list');
+          expand_aside.style.display="none";
+        })
+      })
+
+    </script>
 </body>
 </html>

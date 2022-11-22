@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600&display=swap");
 div.body_wrapper {
   margin: 0;
   padding: 0 1rem;
@@ -5,17 +6,32 @@ div.body_wrapper {
   position: relative;
 }
 
-aside.module_list, main {
+aside.module_list,
+main {
   padding: 1rem;
   border-radius: 15px;
+  max-width: 900px;
 }
 
 aside.module_list {
   min-width: 250px;
   margin-right: 1rem;
-  height: 500px;
-  background-color: rgba(0, 0, 0, 0.3);
-  border: 1px solid blue;
+  min-height: 500px;
+  background-color: rgba(153, 153, 153, 0.1);
+  transition: 0.5s all;
+}
+
+aside.module_list:hover {
+  background-color: rgba(153, 153, 153, 0.25);
+}
+
+.aside_hidden {
+  position: absolute;
+  left: -250px;
+  min-width: 250px;
+  margin-right: 1rem;
+  min-height: 500px;
+  background-color: rgba(153, 153, 153, 0.1);
 }
 
 div.aside_top {
@@ -46,28 +62,57 @@ div.progress_bar span.meter {
 
 ul.modules {
   margin: 0;
+  margin-top: 1rem;
   padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 ul.modules li {
   list-style-type: none;
   padding: 0.75rem 0;
+  position: relative;
 }
-ul.modules li span {
+ul.modules li span.module_list {
   display: flex;
   justify-content: space-between;
   font-weight: bolder;
 }
+ul.modules li span.module_list:hover {
+  color: #20857c;
+  cursor: pointer;
+}
 
 ul.sub_module_list {
   padding-left: 0.5rem;
+  transition: 0.5s all;
+  display: none;
 }
 ul.sub_module_list li.sub_modules {
   padding: 0.5rem 0;
+  list-style-type: square;
+  margin-left: 1rem;
+}
+ul.sub_module_list li.sub_modules a:hover {
+  color: #20857c;
+  font-weight: bold;
+}
+
+ul.on {
+  display: block;
 }
 
 main.course_contents {
   padding: 0;
+  display: flex;
 }
-main.course_contents video {
+
+span#expand_aside {
+  width: 25px;
+  height: 25px;
+  border: 1px solid white;
+  margin-right: 0.5rem;
+  display: none;
+}
+
+div.content_area video {
   border: 1px solid white;
 }/*# sourceMappingURL=course.css.map */
