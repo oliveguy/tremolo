@@ -1,0 +1,11 @@
+/* ANIMATED CLASS RUN BY JS */
+.hidden{
+    visibility: hidden;
+    opacity:0;
+    transition: .25s all;
+}
+.show{
+    visibility: visible;
+    z-index: 99;
+    opacity:1;
+}

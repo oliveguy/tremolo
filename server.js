@@ -20,7 +20,7 @@ const path = require("path");
 // MIDDLEWARE
 // ******************************************************************************
 app.use(express.urlencoded({ extended: true })); // POST Value transfer
-app.use(express.static("assets")); // Static files support in directory of assets
+app.use(express.static("public")); // Static files support in directory of assets
 app.set("view engine", "ejs"); // Templete Engine
 app.use(cookieParser());
 app.use(
@@ -124,7 +124,8 @@ app.post("/register", (req, res) => {
               _id: users + 1,
               id: req.body.regis_id,
               pwd: hash,
-              name: req.body.fname + " " + req.body.lname,
+              // name: req.body.fname + " " + req.body.lname,
+              name: { fname:req.body.fname, lname:req.body.lname },
               email: req.body.email,
               user_pic: 0,
             },
@@ -175,7 +176,7 @@ app.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "/" }),
   (req, res) => {
-    res.redirect("/course");
+    res.redirect(`/course/m${req.user.course.currentM}-${req.user.course.currentSubM}`);
   }
 );
 app.get("/logout", (req, res) => {
@@ -185,9 +186,15 @@ app.get("/logout", (req, res) => {
   res.render("main.ejs", { login: false });
 });
 // COURSE (GET) USER
-app.get("/course", verify_login, (req, res) => {
-  res.render("course.ejs", { user_render: req.user });
+app.get("/course/:moduleID", verify_login, (req, res) => {
+  // res.render("course.ejs", { user_render: req.user });
+  res.render(`./modules/${req.params.moduleID}`, { user_render: req.user });
 });
+app.get("/course", verify_login, (req, res) => {
+  // res.render("course.ejs", { user_render: req.user });
+  res.render(`course.ejs`, { user_render: req.user });
+});
+
 function verify_login(req, res, next) {
   if (req.user) {
     next();
@@ -212,7 +219,7 @@ passport.use(
         if (err) return done(err);
         if (!result)
           return done(null, false, {
-            message: "Id you typed in does not exsist",
+            message: "ID you typed in does not exsist",
           });
         const password = inputPWD;
         const encodedPasswords = result.pwd;

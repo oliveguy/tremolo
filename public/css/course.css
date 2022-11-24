@@ -18,7 +18,6 @@ aside.module_list {
   margin-right: 1rem;
   min-height: 500px;
   background-color: rgba(153, 153, 153, 0.1);
-  transition: 0.5s all;
 }
 
 aside.module_list:hover {
@@ -80,6 +79,10 @@ ul.modules li span.module_list:hover {
   color: #20857c;
   cursor: pointer;
 }
+ul.modules li span.module_list span.expandIcon {
+  font-weight: bolder;
+  font-size: 1.25rem;
+}
 
 ul.sub_module_list {
   padding-left: 0.5rem;
@@ -93,11 +96,20 @@ ul.sub_module_list li.sub_modules {
 }
 ul.sub_module_list li.sub_modules a:hover {
   color: #20857c;
-  font-weight: bold;
 }
 
 ul.on {
   display: block;
+}
+
+.deactive {
+  color: rgb(117, 117, 117);
+}
+.deactive a {
+  color: rgb(117, 117, 117);
+}
+.deactive:hover {
+  color: rgb(117, 117, 117);
 }
 
 main.course_contents {

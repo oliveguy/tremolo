@@ -11,12 +11,14 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
-    <%- include('header_login',{user_render}); %>
+    <%- include('../header_login',{user_render}); %>
     <div class="body_wrapper">
-      <%- include('./modules/course_aside',{user_render}); %>
+      <%- include('course_aside',{user_render}); %>
         <main class="course_contents">
           <span id="expand_aside"></span>
-
+          <div class="content_area">
+            <p>m2 contents</p>
+          </div>
         </main>
     </div>
     <script src="../js/course.js"></script>
@@ -56,15 +58,15 @@
       };
       // Get answers user selected
       let selected = {};
-      // m1_test.addEventListener('submit',(e)=>{
-      //   e.preventDefault();
-      //   selected = {
-      //     q1_a: document.querySelector('input[name="q1"]:checked').value,
-      //     q2_a: document.querySelector('input[name="q2"]:checked').value
-      //   }
-      //   console.log(answers);
-      //   console.log(selected);
-      // })
+      m1_test.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        selected = {
+          q1_a: document.querySelector('input[name="q1"]:checked').value,
+          q2_a: document.querySelector('input[name="q2"]:checked').value
+        }
+        console.log(answers);
+        console.log(selected);
+      })
     </script>
 </body>
 </html>
