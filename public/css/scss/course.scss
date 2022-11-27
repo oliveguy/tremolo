@@ -152,6 +152,8 @@ ul.on{
 main.course_contents {
   padding: 0;
   display:flex;
+  position: relative;
+  width:100%;
 }
 span#expand_aside{
   width: 25px;
@@ -161,7 +163,38 @@ span#expand_aside{
   display:none;
 }
 div.content_area{
-  video{
-    border: 1px solid white;
+  width:100%;
+  h3{
+    text-align: center;
   }
+}
+form#test{
+  p.questions{
+    margin-top: 2rem;
+  }
+  input[type=submit]{
+    @include button();
+  }
+}
+div.resultModal{
+  position: absolute;
+  top:50%; left:50%;
+  transform: translate(-50%,-50%);
+  width:50ch;
+  height:20rem;
+  background-color: rgba(0, 0, 0, .8);
+  border: 1px solid $box_border;
+  border-radius: 10px;
+  padding:1rem;
+  text-align: center;
+  margin:0 auto;
+  p{
+    margin:.5rem;
+  }
+  form{
+    margin-top:2rem;
+  }
+}
+input#resultBtn{
+  @include button();
 }

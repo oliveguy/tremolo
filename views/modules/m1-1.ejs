@@ -17,80 +17,10 @@
         <main class="course_contents">
           <span id="expand_aside"></span>
           <div class="content_area">
-            <form action="m1_test" method="POST" id="m1_test">
-              <p><b>Q. 1 what is the sky color?</b></p>
-              <input type="radio" name="q1" id="red" value="red">
-              <label for="red">Red</label>
-              
-              <input type="radio" name="q1" id="Blue" value="Blue">
-              <label for="blue">Blue</label>
-              
-              <input type="radio" name="q1" id="yellow" value="Yellow">
-              <label for="yellow">Yellow</label>
-          
-              <p><b>Q. 2 what is the apple color?</b></p>
-              <input type="radio" name="q2" id="red" value="red">
-              <label for="red">Red</label>
-              
-              <input type="radio" name="q2" id="yellow" value="Yellow">
-              <label for="yellow">Yellow</label>
-          
-              <input type="radio" name="q2" id="Blue" value="blue">
-              <label for="blue">Blue</label>
-              
-              <br>
-              <br>
-              <input type="submit" value="Submit Answer">
-            </form>
+            <p>M 1 -1</p>
           </div>
         </main>
     </div>
     <script src="../js/course.js"></script>
-    <script>
-      // MENU EXPAND
-      const topMenu = document.querySelectorAll('span.module_list');
-      topMenu.forEach((menu,index)=>{
-        menu.addEventListener('click',function(){
-          this.nextElementSibling.classList.toggle('on');
-          this.childNodes[1].innerHTML = "-";
-          topMenu.forEach(function(otherMenu, index2){
-            if(index !== index2){
-              otherMenu.nextElementSibling.classList.remove('on')
-              otherMenu.childNodes[1].innerHTML = "+";
-            }
-          })
-        })
-      })
-
-      // ASIDE PANEL OPERATION
-      const asidepanel = document.querySelector('.module_list')
-      close_aside.addEventListener('click',()=>{
-        asidepanel.classList.remove('module_list');
-        asidepanel.classList.add('aside_hidden');
-        expand_aside.style.display="block";
-        expand_aside.addEventListener('click',()=>{
-          asidepanel.classList.remove('aside_hidden');
-          asidepanel.classList.add('module_list');
-          expand_aside.style.display="none";
-        })
-      })
-
-      // test
-      let answers = {
-        q1:'blue',
-        q2:'red'
-      };
-      // Get answers user selected
-      let selected = {};
-      // m1_test.addEventListener('submit',(e)=>{
-      //   e.preventDefault();
-      //   selected = {
-      //     q1_a: document.querySelector('input[name="q1"]:checked').value,
-      //     q2_a: document.querySelector('input[name="q2"]:checked').value
-      //   }
-      //   console.log(answers);
-      //   console.log(selected);
-      // })
-    </script>
 </body>
 </html>

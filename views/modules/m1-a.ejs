@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tremolo || Guitar e-learning</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/course.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <%- include('../header_login',{user_render}); %>
+    <div class="body_wrapper">
+      <%- include('course_aside',{user_render}); %>
+        <main class="course_contents">
+          <span id="expand_aside"></span>
+          <div class="content_area">
+            <h3>Module 1. Assessment Test</h3>
+
+            <form action="#" method="POST" id="test">
+              <p class="questions"><b>Q. 1 what color is the sky?</b></p>
+                <input type="radio" name="q1" id="red" value="red">
+                <label for="red">Red</label>
+                
+                <input type="radio" name="q1" id="Blue" value="blue">
+                <label for="blue">Blue</label>
+                
+                <input type="radio" name="q1" id="yellow" value="yellow">
+                <label for="yellow">Yellow</label>
+          
+              <p class="questions"><b>Q. 2 what color is the apple?</b></p>
+                <input type="radio" name="q2" id="red" value="red">
+                <label for="red">Red</label>
+                
+                <input type="radio" name="q2" id="yellow" value="yellow">
+                <label for="yellow">Yellow</label>
+            
+                <input type="radio" name="q2" id="Blue" value="blue">
+                <label for="blue">Blue</label>
+
+              <p class="questions"><b>Q. 3 what color is the apple?</b></p>
+                <input type="radio" name="q3" id="red" value="red">
+                <label for="red">Red</label>
+                
+                <input type="radio" name="q3" id="Blue" value="blue">
+                <label for="blue">Blue</label>
+
+                <input type="radio" name="q3" id="yellow" value="yellow">
+                <label for="yellow">Yellow</label>
+            
+
+              <p class="questions"><b>Q. 4 what color is the apple?</b></p>
+              
+                <input type="radio" name="q4" id="yellow" value="yellow">
+                <label for="yellow">Yellow</label>
+                
+                <input type="radio" name="q4" id="red" value="red">
+                <label for="red">Red</label>
+            
+                <input type="radio" name="q4" id="Blue" value="blue">
+                <label for="blue">Blue</label>
+
+              <p class="questions"><b>Q. 5 what color is the apple?</b></p>
+                <input type="radio" name="q5" id="red" value="red">
+                <label for="red">Red</label>
+                
+                <input type="radio" name="q5" id="yellow" value="yellow">
+                <label for="yellow">Yellow</label>
+            
+                <input type="radio" name="q5" id="Blue" value="blue">
+                <label for="blue">Blue</label>
+              <br>
+              <br>
+              <input type="submit" value="Submit Answers">
+            </form>
+          </div>
+          <div class="resultModal hidden">
+            <h4 id="msgTitle">You passed !</h4>
+            <p id="msgContent">Congraturation! You have passed Module.1 Assessment test.</p>
+            <p>Correct answer count <b><span id="userCorrectCount">2</span>/5</b></p>
+            <p>Your score is <b><span id="userScore">20</span>/100</b></p>
+            <form action="/recordAssess" method="POST" id="passRecord">
+              <p id="continueRetake">push following "continue" button to open next module.</p>
+              <label for="moduleNum"></label>
+              <input type="hidden" name="moduleNext" value="2" id="hiddenValue">
+              <label for="moduleNum"></label>
+              <input type="hidden" name="id" value="<%= user_render.id %>" id="hiddenValue">
+              <input type="submit" value="Continue" id="resultBtn">
+            </form>
+          </div>
+        </main>
+    </div>
+    <script src="../js/course.js"></script>
+    <script>
+      
+      const Answers = ['blue','red','red','red','red'];
+      let selected =[];
+      let userAnswers =[];
+      let answerCount = 0;
+      let unitScore = 20;
+      let totalScore = 0;
+
+      test.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        // Getting user answers
+        selected = document.querySelectorAll('input:checked');
+        for(i=0;i<selected.length;i++){
+          userAnswers.push(document.querySelectorAll('input:checked')[i].value);
+        }
+        for(i=0;i<Answers.length;i++){
+          if(Answers[i] == userAnswers[i]){
+            answerCount++;
+          }
+        }
+        // Calculation
+        totalScore = answerCount * unitScore;
+        console.log(totalScore);
+        // Show result modal
+        document.querySelector('.resultModal').classList.add('show');
+        // if Passed
+        if(totalScore >= 60){
+          userCorrectCount.innerHTML = answerCount;
+          userScore.innerHTML = totalScore;
+        } else { //If Failed
+          msgTitle.innerHTML = 'failed';
+          msgContent.innerHTML ='You have failed the test. Please retake the test to open module 2 contents.';
+          userCorrectCount.innerHTML = answerCount;
+          userScore.innerHTML = totalScore;
+          hiddenValue.value = 1;
+        }
+      })
+
+
+    </script>
+</body>
+</html>

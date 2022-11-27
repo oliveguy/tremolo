@@ -124,10 +124,22 @@ app.post("/register", (req, res) => {
               _id: users + 1,
               id: req.body.regis_id,
               pwd: hash,
-              // name: req.body.fname + " " + req.body.lname,
-              name: { fname:req.body.fname, lname:req.body.lname },
+              name: { fname:req.body.fname,
+                      lname:req.body.lname
+                    },
               email: req.body.email,
               user_pic: 0,
+              plan:0, // replace 0 with req.body.(name)
+              course:{ currentM:1,
+                       currentSubM:1,
+                       progress:0,
+                       testResult:{
+                        m1:0,
+                        m2:0,
+                        m3:0,
+                        m4:0
+                       }
+                      }
             },
             (err, result) => {
               data
@@ -155,7 +167,7 @@ app.post("/register", (req, res) => {
         from: "Tremolo Account Management Team<noreply@tremolo.com>",
         to: req.body.email,
         subject: `Welcome to Tremolo! ${req.body.fname}`,
-        html: `<h1>Thank you for signing up Tremolo</h1><p>Dear ${req.body.fname}</p><p>We are happy to offer our outstanding e-learning service!</p>`,
+        html: `<h1>Thank you for signing up Tremolo</h1><p>Dear ${req.body.fname}</p><p>We are happy to offer you our outstanding e-learning service!</p>`,
       };
       transporter.sendMail(mailOption, (err, info) => {
         if (err) {
@@ -256,7 +268,7 @@ app.post("/post", (req, res) => {
   data
     .collection("users")
     .updateOne(
-      { _id: req.body.id },
+      { id: req.body.id },
       { $set: { progress: 1 } },
       (err, result) => {
         if (err) return { err };
@@ -264,15 +276,25 @@ app.post("/post", (req, res) => {
     );
 });
 // ***********************************
+app.post('/recordAssess',(req, res)=>{
+  data
+  .collection("users")
+  .updateOne(
+    { id: req.body.id },
+    { $set: {course:{currentM:req.body.moduleNext, currentSubM:1}}},
+    (err, result) => {
+      if (err) return { err };
+    }
+  )
+  res.write('<script>window.location="/course/m'+req.body.moduleNext+'-1"</script>');
+})
 
-// 404 Page Not Found
-app.get("*", (req, res) => {
-  res.render("404.ejs", {
-    title: "404",
-    errorMSG: "Page not found",
-  });
+app.use(function(req, res, next) {
+  res.status(404).render("404.ejs", {
+        title: "404",
+        errorMSG: "Page not found",
+      });;
 });
-
 app.listen(8080, () => {
   console.log("## Server working on 8080");
 });
@@ -288,4 +310,4 @@ app.listen(8080, () => {
 // MAC->WIN
 // > npm rebuild bcrypt --build-from-source
 
-// Updated on 11-18 : PM 1:40
+// Updated on 11-25 : PM 1:40

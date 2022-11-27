@@ -115,6 +115,8 @@ ul.on {
 main.course_contents {
   padding: 0;
   display: flex;
+  position: relative;
+  width: 100%;
 }
 
 span#expand_aside {
@@ -125,6 +127,53 @@ span#expand_aside {
   display: none;
 }
 
-div.content_area video {
-  border: 1px solid white;
+div.content_area {
+  width: 100%;
+}
+div.content_area h3 {
+  text-align: center;
+}
+
+form#test p.questions {
+  margin-top: 2rem;
+}
+form#test input[type=submit] {
+  padding: 0.5rem 1rem;
+  background-color: #20857c;
+  font-weight: bold;
+  font-family: "Dosis", "times", "sans-serif";
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+}
+
+div.resultModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50ch;
+  height: 20rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  margin: 0 auto;
+}
+div.resultModal p {
+  margin: 0.5rem;
+}
+div.resultModal form {
+  margin-top: 2rem;
+}
+
+input#resultBtn {
+  padding: 0.5rem 1rem;
+  background-color: #20857c;
+  font-weight: bold;
+  font-family: "Dosis", "times", "sans-serif";
+  color: #fff;
+  border: none;
+  border-radius: 25px;
 }/*# sourceMappingURL=course.css.map */

@@ -4,7 +4,7 @@
   <nav>
     <ul class="navigation">
       <li><a href="/">About</a></li>
-      <li><a href="/course">Course</a></li>
+      <li><a href="/course/m<%=user_render.course.currentM%>-<%=user_render.course.currentSubM%>">Course</a></li>
     </ul>
   </nav>
   <div class="user_field">
@@ -29,7 +29,7 @@
           height="50"
           class="user_photo_big"
         />
-        <span><b><%=user_render.name%></b></span>
+        <span><b><%=user_render.name.fname%> <%=user_render.name.lname%></b></span>
         <span class="user_email"><%=user_render.email%></span>
       </div>
       <ul class="user_section">
