@@ -83,6 +83,9 @@ div.aside_top {
       justify-content: space-between;
     }
   }
+  img#close_aside:hover{
+    cursor: pointer;
+  }
 }
 div.progress_bar {
   margin-top: 0.5rem;
@@ -92,7 +95,6 @@ div.progress_bar {
   position: relative;
   span.meter {
     position: absolute;
-    width: 40%;
     height: 100%;
     background-color: #fff;
   }

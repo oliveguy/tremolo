@@ -264,36 +264,52 @@ app.get("/list", (req, res) => {
       res.send(result);
     });
 });
-app.post("/post", (req, res) => {
-  data
-    .collection("users")
-    .updateOne(
-      { id: req.body.id },
-      { $set: { progress: 1 } },
-      (err, result) => {
-        if (err) return { err };
-      }
-    );
-});
-// ***********************************
+// ***************************************************************************
+// ASSESSEMENT TEST PROCESSING
 app.post('/recordAssess',(req, res)=>{
   data
   .collection("users")
   .updateOne(
-    { id: req.body.id },
-    { $set: {course:{currentM:req.body.moduleNext, currentSubM:1}}},
+    { id: req.body.user_id },
+    { $set: {"course.currentM":req.body.moduleNext, "course.currentSubM":1}},
     (err, result) => {
       if (err) return { err };
     }
   )
   res.write('<script>window.location="/course/m'+req.body.moduleNext+'-1"</script>');
 })
+// Checkout each module
+app.post('/progressCheck',(req,res)=>{
+  data // Current Module Update
+  .collection("users")
+  .updateOne(
+    { id: req.body.user_id},
+    { $set: {"course.currentM":req.body.moduleNum,"course.currentSubM":req.body.subModuleNum}},
+    (err, result) => {
+      if (err) return { err };
+    }
+    );
+    // ADD Progress Percentage
+    let progress= parseInt(req.body.percentProgress)
+    data
+    .collection("users")
+    .updateOne(
+        { id: req.body.user_id },
+        { $inc: { "course.progress": progress}},
+        (err, result) => {
+            if (err) return { err };
+          }
+        );
+  res.write('<script>window.location="/course/m'+req.body.moduleNum+'-'+req.body.subModuleNum+'"</script>');
+  // res.render(`./modules/m${req.body.moduleNum}-${req.body.subModuleNum}`,{ user_render: req.user });
+})
 
+// 404 NOT FOUND
 app.use(function(req, res, next) {
   res.status(404).render("404.ejs", {
         title: "404",
         errorMSG: "Page not found",
-      });;
+      });
 });
 app.listen(8080, () => {
   console.log("## Server working on 8080");

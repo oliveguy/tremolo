@@ -16,9 +16,24 @@
       <%- include('course_aside',{user_render}); %>
         <main class="course_contents">
           <span id="expand_aside"></span>
+
           <div class="content_area">
             <p>M 1 -1</p>
+
+            <form action="/progressCheck" method="POST">
+              <label for="6.25"></label>
+              <input type="hidden" value="6.25" name="percentProgress">
+              <label for="1"></label>
+              <input type="hidden" value="1" name="moduleNum">
+              <label for="1"></label>
+              <input type="hidden" value="2" name="subModuleNum">
+              <label for="<%= user_render.id %>"></label>
+              <input type="hidden" name="user_id" value="<%= user_render.id %>">
+
+              <input type="submit" value="Check Completed">
+            </form>
           </div>
+
         </main>
     </div>
     <script src="../js/course.js"></script>

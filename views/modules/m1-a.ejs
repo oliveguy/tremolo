@@ -83,10 +83,12 @@
             <p>Your score is <b><span id="userScore">20</span>/100</b></p>
             <form action="/recordAssess" method="POST" id="passRecord">
               <p id="continueRetake">push following "continue" button to open next module.</p>
-              <label for="moduleNum"></label>
-              <input type="hidden" name="moduleNext" value="2" id="hiddenValue">
-              <label for="moduleNum"></label>
-              <input type="hidden" name="id" value="<%= user_render.id %>" id="hiddenValue">
+              <label for="2"></label>
+              <input type="hidden" name="moduleNext" value="2">
+
+              <label for="<%= user_render.id %>"></label>
+              <input type="hidden" name="user_id" value="<%= user_render.id %>">
+
               <input type="submit" value="Continue" id="resultBtn">
             </form>
           </div>

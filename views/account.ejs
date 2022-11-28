@@ -45,13 +45,6 @@
               />
               <input type="submit" value="Update" />
             </form>
-            <!-- <ul>
-                    <li>Username:<span> <b><%= user_render.id %></b></span></li>
-                    <li>First: <span> <b><%= user_render.name %></b></span></li>
-                    <li>Name: <span> <b><%= user_render.name %></b></span></li>
-                    <li>E-mail: <span> <b><%= user_render.email %></b></span></li>
-                    <li>Password: <span></span></li>
-                  </ul> -->
             <form action="/change_profile" method="POST" id="user_profile">
               <label for="userID"></label>
               <input
@@ -84,8 +77,8 @@
                 value="<%= user_render.email %>"
               />
               <label for="pwd"></label>
-              <input type="text" name="pwd" id="pwd" value="*******" />
-              <input type="submit" value="Save Change" />
+              <input type="text" name="pwd" id="pwd" value="*******">
+              <input type="submit" value="Save Change">
             </form>
           </div>
         </article>
@@ -104,8 +97,8 @@
             </div>
             <ul class="course_text_list">
               <li class="course_list_items">
-                <span class="item_title">Current Module</span
-                ><span>Individule note on the guitar</span>
+                <span class="item_title">Current Module</span>
+                <span>Module No. <%= user_render.course.currentM %> - <%= user_render.course.currentSubM %></span>
               </li>
               <li class="course_list_items">
                 <span class="item_title">Progress</span>
@@ -114,11 +107,12 @@
                 </div>
               </li>
               <li class="course_list_items">
-                <span class="item_title">Remaining Days</span
-                ><span>45 Days</span>
+                <span class="item_title">Remaining Days</span>
+                <span>45 Days</span>
               </li>
               <li class="course_list_items">
-                <span class="item_title">Proficiency</span><span>85%</span>
+                <span class="item_title">Proficiency</span>
+                <span>85%</span>
               </li>
             </ul>
           </div>

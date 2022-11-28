@@ -181,8 +181,9 @@ p#banner_intro {
   max-width: 50ch;
   z-index: 1;
 }
-button.banner_btn {
+a.banner_btn {
   @include button();
+  font-size: small;
 }
 section#top_banner {
   height: 20rem;
@@ -315,8 +316,8 @@ form#user_profile {
   }
   input[type="submit"] {
     @include button();
-    width: 30%;
-    background-color: rgb(28, 146, 200);
+    width: 25%;
+    background-color: $accent_dark;
   }
 }
 div.course_info {

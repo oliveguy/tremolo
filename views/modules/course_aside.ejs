@@ -1,19 +1,23 @@
 <aside class="module_list">
   <div class="aside_top">
     <div class="progress_family">
-      <span class="progress_text">Course Progress<span>50%</span></span>
+      <span class="progress_text">Course Progress<span><%= user_render.course.progress %>%</span></span>
       <div class="progress_bar">
-        <span class="meter"></span>
+        <span class="meter" style="width:<%= user_render.course.progress %>%"></span>
       </div>
     </div>
-    <img src="#" width="20px" height="20px" id="close_aside">
+    <img src="/images/collapse.png" width="20px" height="20px" id="close_aside">
   </div>
   <ul class="modules">
     <li>
       <span class="module_list">Module 1. Basic Information
           <span class="expandIcon">+</span>
       </span>
-      <ul class="sub_module_list on">
+      <% var activePanel =''; %>
+      <% if(user_render.course.currentM == 1){ %>
+        <% activePanel = "on" %>
+      <% } %>
+      <ul class="sub_module_list <%= activePanel %>">
           <li class="sub_modules"><a href="./m1-1">Anatomy of a Guitar</a></li>
           <li class="sub_modules"><a href="./m1-2">String Names</a></li>
           <li class="sub_modules"><a href="./m1-3">Tuning Your Guitar</a></li>
@@ -28,10 +32,14 @@
   <% tag = "span" %>
 <% } %>
     <li>
-      <span class="module_list  <%= status %>">Module 2. Individual Notes
+      <% var activePanel =''; %>
+      <% if(user_render.course.currentM == 2){ %>
+        <% activePanel = "on" %>
+      <% } %>
+      <span class="module_list <%= status %>">Module 2. Individual Notes
         <span class="expandIcon">+</span>
       </span>
-      <ul class="sub_module_list <%= status %>">
+      <ul class="sub_module_list <%= status %> <%= activePanel %>">
           <li class="sub_modules"><<%= tag %> href="./m2-1">Rudimentary Music Theory</<%=tag%>></li>
           <li class="sub_modules"><<%= tag %> href="./m2-2">Strings 1-3</<%=tag%>></li>
           <li class="sub_modules"><<%= tag %> href="./m2-3">Strings 4-6</<%=tag%>></li>
@@ -44,10 +52,14 @@
   <% tag = "span" %>
 <% } %>
     <li>
+      <% var activePanel =''; %>
+      <% if(user_render.course.currentM == 3){ %>
+        <% activePanel = "on" %>
+      <% } %>
       <span class="module_list <%= status %>">Module 3. Chords and Scales
         <span class="expandIcon">+</span>
       </span>
-      <ul class="sub_module_list <%= status %>">
+      <ul class="sub_module_list <%= status %> <%= activePanel %>">
           <li class="sub_modules"><<%= tag %> href="./m3-1">G Major Scale</<%= tag %>></li>
           <li class="sub_modules"><<%= tag %> href="./m3-2">G, C, D Chords</<%= tag %>></li>
           <li class="sub_modules"><<%= tag %> href="./m3-3">Am, Em Chords</<%= tag %>></li>
@@ -60,10 +72,14 @@
   <% tag = "span" %>
 <% } %>
     <li>
+      <% var activePanel =''; %>
+      <% if(user_render.course.currentM == 4){ %>
+        <% activePanel = "on" %>
+      <% } %>
       <span class="module_list <%= status %>">Module 4. All Together
         <span class="expandIcon">+</span>
       </span>
-      <ul class="sub_module_list <%= status %>">
+      <ul class="sub_module_list <%= status %> <%= activePanel %>">
           <li class="sub_modules"><<%= tag %> href="./m4-1">Chords in Rhythm</<%= tag %>></li>
           <li class="sub_modules"><<%= tag %> href="./m4-2">Scales in Rhythm</<%= tag %>></li>
           <li class="sub_modules"><<%= tag %> href="./m4-3">Scale Patterns</<%= tag %>></li>
