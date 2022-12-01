@@ -250,6 +250,7 @@ section#course{
   img.courseInfo{
     margin: 3rem 0;
     opacity:0;
+    border-radius: 15px;
     transition:.75s all ease-in-out;
     &.courseInfo:nth-of-type(1){
       margin-top:0;

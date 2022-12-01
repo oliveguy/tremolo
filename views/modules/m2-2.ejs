@@ -42,5 +42,27 @@
         </main>
     </div>
     <script src="../js/course.js"></script>
+    <script>
+          vid.addEventListener('timeupdate',function(){
+        let num=vid.currentTime;
+        let time=Math.round(num*100)/100;
+        if(time>=57.75&&time<=58.5){
+            vid.pause();
+        }
+        if(time>=95&&time<=95.6){
+            vid.pause();
+        }
+    })
+    vid.addEventListener('play',function(){
+        let num=vid.currentTime;
+        let time=Math.round(num*100)/100;
+        if(time>=57.65&&time<=58.5){
+                vid.currentTime=58.51;
+        }
+        if(time>=95&&time<=95.6){
+            vid.currentTime=95.61;
+        }
+    })
+    </script>
 </body>
 </html>

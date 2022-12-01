@@ -335,3 +335,10 @@ app.listen(8080, () => {
 // Google Cloud Re-Deploy
 // gcloud init
 // gcloud app deploy
+
+// TODO LIST
+
+// FINAL Test -> Certificate
+// Plan -Remaining Days
+// Proficiency
+// Interation in main page

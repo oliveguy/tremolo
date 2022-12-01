@@ -47,3 +47,5 @@ close_aside.addEventListener('click',()=>{
   })
   videoplay.style.marginTop = "1rem";
 })
+// VIDEO AUTO PAUSE
+let vid = document.querySelector('video');
