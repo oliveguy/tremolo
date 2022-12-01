@@ -8,76 +8,99 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/course.css">
     <link rel="stylesheet" href="/css/animate.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 </head>
 <body>
     <%- include('../header_login',{user_render}); %>
     <div class="body_wrapper">
       <%- include('course_aside',{user_render}); %>
         <main class="course_contents">
-          <span id="expand_aside"></span>
+          <span id="expand_aside"><img src="/images/expand_icon.png" alt="expand_icon" width="25" height="25"></span>
           <div class="content_area">
             <h3>Module 1. Assessment Test</h3>
-
             <form action="#" method="POST" id="test">
-              <p class="questions"><b>Q. 1 what color is the sky?</b></p>
-                <input type="radio" name="q1" id="red" value="red">
-                <label for="red">Red</label>
+              <!--Q1-->
+              <p class="questions"><b>1. What part of the guitar is highlighted in the image below?</b></p>
+              <img src="/images/assess/q1-1.png" alt="altContnet" width="300" height="123">
+                <input type="radio" name="q1" id="body" value="body">
+                <label for="body">A. "Body"</label>
                 
-                <input type="radio" name="q1" id="Blue" value="blue">
-                <label for="blue">Blue</label>
+                <input type="radio" name="q1" id="neck" value="neck">
+                <label for="neck">B. "Neck"</label>
                 
-                <input type="radio" name="q1" id="yellow" value="yellow">
-                <label for="yellow">Yellow</label>
+                <input type="radio" name="q1" id="headstock" value="headstock">
+                <label for="headstock">C. "Headstock"</label>
           
-              <p class="questions"><b>Q. 2 what color is the apple?</b></p>
-                <input type="radio" name="q2" id="red" value="red">
-                <label for="red">Red</label>
+                <input type="radio" name="q1" id="bridge" value="bridge">
+                <label for="bridge">D. "Bridge"</label>
+          
+              <!--Q2-->
+              <p class="questions"><b>2. What is the note name of the fourth string?</b></p>
+                <input type="radio" name="q2" id="e" value="e">
+                <label for="e">A. "E"</label>
                 
-                <input type="radio" name="q2" id="yellow" value="yellow">
-                <label for="yellow">Yellow</label>
+                <input type="radio" name="q2" id="g" value="g">
+                <label for="g">B. "G"</label>
             
-                <input type="radio" name="q2" id="Blue" value="blue">
-                <label for="blue">Blue</label>
-
-              <p class="questions"><b>Q. 3 what color is the apple?</b></p>
-                <input type="radio" name="q3" id="red" value="red">
-                <label for="red">Red</label>
-                
-                <input type="radio" name="q3" id="Blue" value="blue">
-                <label for="blue">Blue</label>
-
-                <input type="radio" name="q3" id="yellow" value="yellow">
-                <label for="yellow">Yellow</label>
-            
-
-              <p class="questions"><b>Q. 4 what color is the apple?</b></p>
+                <input type="radio" name="q2" id="d" value="d">
+                <label for="d">C. "D"</label>
+          
+                <input type="radio" name="q2" id="b" value="b">
+                <label for="b">D. "B"</label>
+          
+              <!--Q3-->
+              <p class="questions"><b>3. How can you tune your guitar by ear?
+              </b></p>
               
-                <input type="radio" name="q4" id="yellow" value="yellow">
-                <label for="yellow">Yellow</label>
+                <input type="radio" name="q3" id="1" value="1">
+                <label for="1">A. “Play along with recorded music and try to play the same notes.”</label>
+                <br>
+                <input type="radio" name="q3" id="2" value="2">
+                <label for="2">B. “Play the fifth fret of one string, or the fourth fret on the third string, along with the next string open and listen for any dissonance.”
+                </label>
+                <br>
+                <input type="radio" name="q3" id="3" value="3">
+                <label for="3">C. “Just use a guitar tuner.”</label>
+                <br>
+                <input type="radio" name="q3" id="4" value="4">
+                <label for="4">D. “Play a chord and try to figure out which strings need to be adjusted.”</label>
+          
+              <!--Q4-->
+              <p class="questions"><b>4. What part of the guitar is highlighted in the diagram below?</b></p>
+              <img src="/images/assess/q1-4.png" alt="altContnet" width="300" height="123">
+                <input type="radio" name="q4" id="1" value="1">
+                <label for="1">A. "Body"</label>
                 
-                <input type="radio" name="q4" id="red" value="red">
-                <label for="red">Red</label>
-            
-                <input type="radio" name="q4" id="Blue" value="blue">
-                <label for="blue">Blue</label>
-
-              <p class="questions"><b>Q. 5 what color is the apple?</b></p>
-                <input type="radio" name="q5" id="red" value="red">
-                <label for="red">Red</label>
-                
-                <input type="radio" name="q5" id="yellow" value="yellow">
-                <label for="yellow">Yellow</label>
-            
-                <input type="radio" name="q5" id="Blue" value="blue">
-                <label for="blue">Blue</label>
+                <input type="radio" name="q4" id="2" value="2">
+                <label for="2">B. "Fretboard"</label>
+          
+                <input type="radio" name="q4" id="3" value="3">
+                <label for="3">C. "Nut"</label>
+          
+                <input type="radio" name="q4" id="4" value="4">
+                <label for="4">D. "Tuning Keys"</label>
+          
+              <!--Q5-->
+              <p class="questions"><b>5. What is the acronym you can use to remember the string names?
+              </b></p>
+                <input type="radio" name="q5" id="1" value="1">
+                <label for="1">A. “Every Amateur Does Get Better Eventually”</label>
+                <br>
+                <input type="radio" name="q5" id="2" value="2">
+                <label for="2">B. “Every Good Boy Deserves Fudge”</label>
+                <br>
+                <input type="radio" name="q5" id="3" value="3">
+                <label for="3">C. “Electric Butterflies Groove Down All Evening”</label>
+                <br>
+                <input type="radio" name="q5" id="4" value="4">
+                <label for="4">D. “Gravy Goes Better With Potatoes”</label>
               <br>
               <br>
               <input type="submit" value="Submit Answers">
             </form>
           </div>
           <div class="resultModal hidden">
-            <h4 id="msgTitle">You passed !</h4>
+            <h3 id="msgTitle">You passed !</h3>
             <p id="msgContent">Congraturation! You have passed Module.1 Assessment test.</p>
             <p>Correct answer count <b><span id="userCorrectCount">2</span>/5</b></p>
             <p>Your score is <b><span id="userScore">20</span>/100</b></p>
@@ -96,45 +119,13 @@
     </div>
     <script src="../js/course.js"></script>
     <script>
-      
-      const Answers = ['blue','red','red','red','red'];
+      const Answers = ['body','d',2,2,1];
       let selected =[];
       let userAnswers =[];
       let answerCount = 0;
       let unitScore = 20;
       let totalScore = 0;
-
-      test.addEventListener('submit',(e)=>{
-        e.preventDefault();
-        // Getting user answers
-        selected = document.querySelectorAll('input:checked');
-        for(i=0;i<selected.length;i++){
-          userAnswers.push(document.querySelectorAll('input:checked')[i].value);
-        }
-        for(i=0;i<Answers.length;i++){
-          if(Answers[i] == userAnswers[i]){
-            answerCount++;
-          }
-        }
-        // Calculation
-        totalScore = answerCount * unitScore;
-        console.log(totalScore);
-        // Show result modal
-        document.querySelector('.resultModal').classList.add('show');
-        // if Passed
-        if(totalScore >= 60){
-          userCorrectCount.innerHTML = answerCount;
-          userScore.innerHTML = totalScore;
-        } else { //If Failed
-          msgTitle.innerHTML = 'failed';
-          msgContent.innerHTML ='You have failed the test. Please retake the test to open module 2 contents.';
-          userCorrectCount.innerHTML = answerCount;
-          userScore.innerHTML = totalScore;
-          hiddenValue.value = 1;
-        }
-      })
-
-
     </script>
+    <script src="../js/assessment.js"></script>
 </body>
 </html>

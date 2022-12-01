@@ -101,9 +101,10 @@
                 <span>Module No. <%= user_render.course.currentM %> - <%= user_render.course.currentSubM %></span>
               </li>
               <li class="course_list_items">
-                <span class="item_title">Progress</span>
+                <span class="item_title" id="progress"><span>Progress</span><span><%= user_render.course.progress %>%</span></span>
+                
                 <div class="progress_bar">
-                  <span class="meter"></span>
+                  <span class="meter" style="width:<%= user_render.course.progress %>%"></span>
                 </div>
               </li>
               <li class="course_list_items">

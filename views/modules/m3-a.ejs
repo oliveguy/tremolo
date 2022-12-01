@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tremolo || Guitar e-learning</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/course.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+</head>
+<body>
+    <%- include('../header_login',{user_render}); %>
+    <div class="body_wrapper">
+      <%- include('course_aside',{user_render}); %>
+        <main class="course_contents">
+          <span id="expand_aside"><img src="/images/expand_icon.png" alt="expand_icon" width="25" height="25"></span>
+          <div class="content_area">
+            <h3>Module 3. Assessment Test</h3>
+            <form action="#" method="POST" id="test">
+              <p class="questions"><b>1. What is the name of the chord in the diagram below?</b></p>
+              <img src="/images/assess/q3-1.png" alt="chords" width="186" height="300">
+              <input type="radio" name="q1" id="c" value="c">
+              <label for="c">A. “C”</label>
+              
+              <input type="radio" name="q1" id="d" value="d">
+              <label for="d">B. “D”</label>
+
+              <input type="radio" name="q1" id="g" value="g">
+              <label for="g">C. “G”</label>
+
+              <input type="radio" name="q1" id="am" value="am">
+              <label for="am">D. “Am”</label>
+
+              <p class="questions"><b>2. When playing a G Major scale, what fret does your third finger play?</b></p>
+              <input type="radio" name="q2" id="third" value="third">
+              <label for="third">A. “Third”</label>
+              
+              <input type="radio" name="q2" id="fourth" value="fourth">
+              <label for="fourth">B. “Fourth”</label>
+
+              <input type="radio" name="q2" id="second" value="second">
+              <label for="second">C. “Second”</label>
+
+              <input type="radio" name="q2" id="fifth" value="fifth">
+              <label for="fifth">D. “Fifth”</label>
+
+              <p class="questions"><b>3. What is the name of the chord in the diagram below?</b></p>
+              <img src="/images/assess/q3-3.png" alt="chords" width="186" height="300">
+              <input type="radio" name="q3" id="g" value="g">
+              <label for="g">A. “G”</label>
+
+              <input type="radio" name="q3" id="c" value="c">
+              <label for="c">B. “C”</label>
+
+              <input type="radio" name="q3" id="em" value="em">
+              <label for="em">C. “Em”</label>
+
+              <input type="radio" name="q3" id="am" value="am">
+              <label for="am">D. “Am”</label>
+
+              <p class="questions"><b>4. What goal should you try to accomplish when transitioning between chords?</b></p>
+              <input type="radio" name="q4" id="1" value="1">
+              <label for="1">A. “Keep any fingers in place that do not need to move.”</label>
+              <br>
+              <input type="radio" name="q4" id="2" value="2">
+              <label for="2">B. “Move your fingers at the last second to create smooth movement.”</label>
+              <br>
+              <input type="radio" name="q4" id="3" value="3">
+              <label for="3">C. “Think about what chord you have to play next so that you are ready for the change.”</label>
+              <br>
+              <input type="radio" name="q4" id="4" value="4">
+              <label for="4">D. “All of the above.”</label>
+
+              <p class="questions"><b>5. What is the name of the chord in the diagram below?</b></p>
+              <img src="/images/assess/q3-5.png" alt="chords" width="186" height="300">
+              <input type="radio" name="q5" id="am" value="am">
+              <label for="am">A. “Am”</label>
+            
+              <input type="radio" name="q5" id="c" value="c">
+              <label for="c">B. “C”</label>
+            
+              <input type="radio" name="q5" id="d" value="d">
+              <label for="d">C. “D”</label>
+            
+              <input type="radio" name="q5" id="em" value="em">
+              <label for="em">D. “Em”</label>
+              <br>
+              <br>
+              <input type="submit" value="Submit Answers">
+            </form>
+          </div>
+          <div class="resultModal hidden">
+            <h3 id="msgTitle">You passed !</h3>
+            <p id="msgContent">Congraturation! You have passed Module.2 Assessment test.</p>
+            <p>Correct answer count <b><span id="userCorrectCount">2</span>/5</b></p>
+            <p>Your score is <b><span id="userScore">20</span>/100</b></p>
+            <form action="/recordAssess" method="POST" id="passRecord">
+              <p id="continueRetake">push following "continue" button to open next module.</p>
+              <label for="4"></label>
+              <input type="hidden" name="moduleNext" value="4">
+
+              <label for="<%= user_render.id %>"></label>
+              <input type="hidden" name="user_id" value="<%= user_render.id %>">
+
+              <input type="submit" value="Continue" id="resultBtn">
+            </form>
+          </div>
+        </main>
+    </div>
+    <script src="../js/course.js"></script>
+    <script>
+      const Answers = ['g','fourth','c',4,'am'];
+      let selected =[];
+      let userAnswers =[];
+      let answerCount = 0;
+      let unitScore = 20;
+      let totalScore = 0;
+    </script>
+    <script src="../js/assessment.js"></script>
+</body>
+</html>

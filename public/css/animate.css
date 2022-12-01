@@ -9,3 +9,12 @@
     z-index: 99;
     opacity:1;
 }
+/* HEADER */
+.small{
+    padding:.25rem 0;
+    transition: .5s all ease-in-out;
+}
+.large{
+    padding:1rem 0;
+    transition: .5s all ease-in-out;
+}

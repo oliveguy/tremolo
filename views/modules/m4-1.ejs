@@ -17,19 +17,19 @@
         <main class="course_contents">
           <span id="expand_aside"><img src="/images/expand_icon.png" alt="expand_icon" width="25" height="25"></span>
           <div class="content_area">
-            <video src="<%=videoURL%>2-1.mp4" width="100%" height="auto" controls id="videoplay"></video>
-            <h3>Module. 2 Rudimentary Music Theory</h3>
-            <p>In this video, you will be covering natural notes, sharps and flats, as well as fingers and frets.</p>
+            <video src="<%=videoURL%>4-1.mp4" width="100%" height="auto" controls id="videoplay"></video>
+            <h3>Module. 4 Chords in Rhythm</h3>
+            <p>In this video, you will learn about chords in rhythm. 4/4, 3/4, and 6/8 time.</p>
             <ul class="contentList">
-              <li>Natural notes</li>
-              <li>Sharps and flats</li>
-              <li>Fingers and frets</li>
+              <li>4/4 Time</li>
+              <li>3/4 Time</li>
+              <li>6/4 Time</li>
             </ul>
             <form action="/progressCheck" method="POST" id="continueForm">
               <label for="6.25"></label>
               <input type="hidden" value="6.25" name="percentProgress">
-              <label for="2"></label>
-              <input type="hidden" value="2" name="moduleNum">
+              <label for="4"></label>
+              <input type="hidden" value="4" name="moduleNum">
               <label for="2"></label>
               <input type="hidden" value="2" name="subModuleNum">
               <label for="<%= user_render.id %>"></label>

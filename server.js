@@ -46,7 +46,7 @@ MongoClient.connect(
 // Image uploader
 const storage = multer.diskStorage({
   destination: (req, res, cb) => {
-    cb(null, "assets/user_photo/");
+    cb(null, "public/user_photo/");
   },
   filename: (req, file, cb) => {
     const ext = path.extname(file.originalname);
@@ -60,14 +60,14 @@ const upload = multer({ storage: storage });
 // MAIN (GET)
 app.get("/", verify_loginMain, (req, res) => {
   if (req.user) {
-    res.render("main.ejs", { user_render: req.user, login: true });
+    res.render("main.ejs", { user_render: req.user, login: true, tt:true });
   }
 });
 function verify_loginMain(req, res, next) {
   if (req.user) {
     next();
   } else {
-    res.render("main.ejs", { login: false });
+    res.render("main.ejs", { login: false, tt:true });
   }
 }
 // USER ACCOUNT PAGE (GET?userID=$)
@@ -89,15 +89,16 @@ app.post("/change_pic", upload.single("file"), (req, res, next) => {
         if (err) return { err };
       }
     );
-  res.render("account.ejs", {
-    user_render: req.user,
-    userID: req.query.userID,
-  });
+  // res.render("account.ejs", {
+  //   user_render: req.user,
+  //   userID: req.query.userID,
+  // });
+  res.redirect(`/account?userID=${req.user._id}`);
 });
 
 // SIGN UP (GET)
 app.get("/signup", (req, res) => {
-  res.render("signup.ejs");
+  res.render("signup.ejs",{sameID:false});
 });
 // USER SIGNUP PROCESS
 app.post("/register", (req, res) => {
@@ -110,10 +111,9 @@ app.post("/register", (req, res) => {
 
   data.collection("users").findOne({ id: req.body.regis_id }, (err, result) => {
     if (result) {
-      res.write(
-        '<script>alert("The ID you typed in already exsisted. Try other ID")</script>'
-      );
-      res.write('<script>window.location="/signup"</script>');
+      // res.write('<script>alert("The ID you typed in already exsisted. Try other ID");window.location="/signup";</script>');
+      // res.write('<script>window.location="/signup"</script>');
+      res.render("signup.ejs",{sameID:true})
     } else {
       data.collection("count").findOne({ name: "userNum" }, (err, result) => {
         var users = result.total;
@@ -177,9 +177,8 @@ app.post("/register", (req, res) => {
         }
         transporter.close();
       });
-      // Message and Redirection to index.ejs
-      // res.write('<script>alert("Signup process has been completed, Please login with your ID and password")</script>');
-      res.write('<script>window.location="/"</script>');
+      // Message and Redirection to main.ejs
+      res.render("main.ejs", { user_render: req.user, login: false })
     }
   });
 });
@@ -195,15 +194,14 @@ app.get("/logout", (req, res) => {
   req.session.destroy(function (err) {
     if (err) throw err;
   });
-  res.render("main.ejs", { login: false });
+  // res.render("main.ejs", { login: false });
+  res.redirect("/");
 });
 // COURSE (GET) USER
 app.get("/course/:moduleID", verify_login, (req, res) => {
-  // res.render("course.ejs", { user_render: req.user });
-  res.render(`./modules/${req.params.moduleID}`, { user_render: req.user });
+  res.render(`./modules/${req.params.moduleID}`, { user_render: req.user,videoURL:'http://dev.saitnewmedia.ca/~spark/tremolo/' });
 });
 app.get("/course", verify_login, (req, res) => {
-  // res.render("course.ejs", { user_render: req.user });
   res.render(`course.ejs`, { user_render: req.user });
 });
 
@@ -211,11 +209,7 @@ function verify_login(req, res, next) {
   if (req.user) {
     next();
   } else {
-    // Try from non-login users
-    res.write(
-      '<script>alert("You need to login in to see course contents!")</script>'
-    );
-    res.write('<script>window.location="/"</script>');
+    res.render("main.ejs", { user_render: req.user, login: false, tt:false })
   }
 }
 passport.use(
@@ -276,7 +270,8 @@ app.post('/recordAssess',(req, res)=>{
       if (err) return { err };
     }
   )
-  res.write('<script>window.location="/course/m'+req.body.moduleNext+'-1"</script>');
+  // res.render(`./modules/m${req.body.moduleNext}-1`,{ user_render: req.user });
+  res.redirect(`course/m${req.body.moduleNext}-1`);
 })
 // Checkout each module
 app.post('/progressCheck',(req,res)=>{
@@ -300,8 +295,8 @@ app.post('/progressCheck',(req,res)=>{
             if (err) return { err };
           }
         );
-  res.write('<script>window.location="/course/m'+req.body.moduleNum+'-'+req.body.subModuleNum+'"</script>');
   // res.render(`./modules/m${req.body.moduleNum}-${req.body.subModuleNum}`,{ user_render: req.user });
+  res.redirect(`course/m${req.body.moduleNum}-${req.body.subModuleNum}`);
 })
 
 // 404 NOT FOUND
@@ -317,6 +312,10 @@ app.listen(8080, () => {
 
 // MOCKUP
 // https://www.figma.com/file/kFR8qJjMCPSoSJdsWxnlF2/Tremolo-UI-Elements?node-id=0%3A1&t=RxvO9mQBGKqd0HJQ-0
+
+// GOOGLE CLOUD SERVER
+// https://tremolo-370108.wl.r.appspot.com/
+
 // Shift + Alt +F -> Formatter
 
 // WIN -> MAC
@@ -326,4 +325,13 @@ app.listen(8080, () => {
 // MAC->WIN
 // > npm rebuild bcrypt --build-from-source
 
-// Updated on 11-25 : PM 1:40
+// Updated on 11-29 : AM 02:08
+
+// GIT COMMANDS
+// git pull origin main
+// git commit -m 'messages'
+// git push origin your branch
+
+// Google Cloud Re-Deploy
+// gcloud init
+// gcloud app deploy

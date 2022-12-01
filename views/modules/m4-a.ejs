@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tremolo || Guitar e-learning</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/course.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+</head>
+<body>
+    <%- include('../header_login',{user_render}); %>
+    <div class="body_wrapper">
+      <%- include('course_aside',{user_render}); %>
+        <main class="course_contents">
+          <span id="expand_aside"><img src="/images/expand_icon.png" alt="expand_icon" width="25" height="25"></span>
+          <div class="content_area">
+            <h3>Module 4. Assessment Test</h3>
+            <form action="#" method="POST" id="test">
+              <!--Q1-->
+              <p class="questions"><b>1. What part of the guitar is highlighted in the image below?</b></p>
+              <img src="/images/assess/q4-1.png" alt="altContnet" width="300" height="120">
+              <input type="radio" name="q1" id="fret" value="fret">
+              <label for="fret">A. “Fret”</label>
+              
+              <input type="radio" name="q1" id="headstock" value="headstock">
+              <label for="headstock">B. “Headstock”</label>
+
+              <input type="radio" name="q1" id="soundhole" value="soundhole">
+              <label for="soundhole">C. “Sound hole”</label>
+
+              <input type="radio" name="q1" id="body" value="body">
+              <label for="body">D. “Body”</label>
+              <!--Q2-->
+              <p class="questions"><b>2. What are the notes we learned on the fifth string?</b></p>
+              <input type="radio" name="q2" id="bcd" value="bcd">
+              <label for="bcd">A. “B,C,D”</label>
+              
+              <input type="radio" name="q2" id="abc" value="abc">
+              <label for="abc">B. “A,B,C”</label>
+
+              <input type="radio" name="q2" id="ga" value="ga">
+              <label for="ga">C. “G,A”</label>
+
+              <input type="radio" name="q" id="efg" value="efg">
+              <label for="efg">D. “E,F,G”</label>
+              <!--Q3-->
+              <p class="questions"><b>3. When playing a G Major scale, what fret does your first finger play?</b></p>
+              <input type="radio" name="q3" id="first" value="first">
+              <label for="first">A. “First”</label>
+              
+              <input type="radio" name="q3" id="second" value="second">
+              <label for="second">B. “Second”</label>
+
+              <input type="radio" name="q3" id="third" value="third">
+              <label for="third">C. “Third”</label>
+
+              <input type="radio" name="q3" id="fourth" value="fourth">
+              <label for="fourth">D. “Fourth”</label>
+              <!--Q4-->
+              <p class="questions"><b>4. What is the name of the chord in the diagram below?</b></p>
+              <img src="/images/assess/q4-4.png" alt="altContnet" width="187" height="300">
+              <input type="radio" name="q4" id="d" value="d">
+              <label for="d">A. “D”</label>
+              
+              <input type="radio" name="q4" id="am" value="am">
+              <label for="am">B. “Am”</label>
+
+              <input type="radio" name="q4" id="c" value="c">
+              <label for="c">C. “C”</label>
+
+              <input type="radio" name="q4" id="em" value="em">
+              <label for="em">D. “Em”</label>
+              <!--Q5-->
+              <p class="questions"><b>5. What is the purpose of practicing the chromatic scale?</b></p>
+              <input type="radio" name="q5" id="1" value="1">
+              <label for="1">A. “It sounds cool”</label>
+              
+              <input type="radio" name="q5" id="2" value="2">
+              <label for="2">B. “Just to annoy the guitarist”</label>
+
+              <input type="radio" name="q5" id="3" value="3">
+              <label for="3">C. “It helps to warm up all of your fingers and develop muscle memory”</label>
+
+              <input type="radio" name="q5" id="4" value="4">
+              <label for="4">D. “To show off how fast you can play all of the frets”</label>
+              <!--Q6-->
+              <p class="questions"><b>6. What is the name of the scale pattern that is played up 2, down 1?</b></p>
+              <input type="radio" name="q6" id="thirds" value="thirds">
+              <label for="thirds">A. “Thirds”</label>
+              
+              <input type="radio" name="q6" id="triplets" value="triplets">
+              <label for="triplets">B. “Triplets”</label>
+
+              <input type="radio" name="q6" id="chromatic" value="chromatic">
+              <label for="chromatic">C. “Chromatic”</label>
+
+              <input type="radio" name="q6" id="up2down1" value="up2down1">
+              <label for="up2down1">D. “Up 2, Down 1”</label>
+              <!--Q7-->
+              <p class="questions"><b>7. What note is displayed in the diagram below?</b></p>
+              <img src="/images/assess/q4-7.png" alt="altContnet" width="205" height="300">
+              <input type="radio" name="q7" id="g" value="g">
+              <label for="g">A. “G”</label>
+              
+              <input type="radio" name="q7" id="a" value="a">
+              <label for="a">B. “A”</label>
+
+              <input type="radio" name="q7" id="b" value="b">
+              <label for="b">C. “B”</label>
+
+              <input type="radio" name="q7" id="d" value="d">
+              <label for="">D. “D”</label>
+              <!--Q8-->
+              <p class="questions"><b>8. What is the name of the time signature that is counted “1, 2, 3, 1, 2, 3?”</b></p>
+              <input type="radio" name="q8" id="44" value="44">
+              <label for="44">A. “4/4”</label>
+              
+              <input type="radio" name="q8" id="68" value="68">
+              <label for="68">B. “6/8”</label>
+
+              <input type="radio" name="q8" id="43" value="43">
+              <label for="43">C. “4/3”</label>
+
+              <input type="radio" name="q8" id="34" value="34">
+              <label for="34">D. “3/4”</label>
+              <!--Q9-->
+              <p class="questions"><b>9. What note is played on the third fret of the fifth string?</b></p>
+              <input type="radio" name="q9" id="c" value="c">
+              <label for="c">A. “C”</label>
+              
+              <input type="radio" name="q9" id="a" value="a">
+              <label for="a">B. “A”</label>
+
+              <input type="radio" name="q9" id="d" value="d">
+              <label for="d">C. “D”</label>
+
+              <input type="radio" name="q9" id="g" value="g">
+              <label for="g">D. “G”</label>
+              <!--Q10-->
+              <p class="questions"><b>10. What part of the guitar is highlighted in the diagram below?</b></p>
+              <img src="/images/assess/q4-10.png" alt="altContnet" width="300" height="118">
+              <input type="radio" name="q10" id="neck" value="neck">
+              <label for="neck">A. “Neck”</label>
+              
+              <input type="radio" name="q10" id="strings" value="strings">
+              <label for="strings">B. “Strings”</label>
+
+              <input type="radio" name="q10" id="tuningkeys" value="tuningkeys">
+              <label for="tuningkeys">C. “Tuning Keys”</label>
+
+              <input type="radio" name="q10" id="headstock" value="headstock">
+              <label for="headstock">D. “Headstock”</label>
+              <!--Q11-->
+              <p class="questions"><b>11. What is the name of the sixth string?</b></p>
+              <input type="radio" name="q11" id="a" value="a">
+              <label for="a">A. “A”</label>
+              
+              <input type="radio" name="q11" id="c" value="c">
+              <label for="c">B. “C”</label>
+
+              <input type="radio" name="q11" id="e" value="e">
+              <label for="e">C. “E”</label>
+
+              <input type="radio" name="q11" id="g" value="g">
+              <label for="g">D. “G”</label>
+              <!--Q12-->
+              <p class="questions"><b>12. What is the acronym you can use to remember the string names?</b></p>
+              <input type="radio" name="q12" id="1" value="1">
+              <label for="1">A. “Every Amateur Does Get Better Eventually”</label>
+              
+              <input type="radio" name="q12" id="2" value="2">
+              <label for="2">B. “Every Good Boy Deserves Fudge”</label>
+
+              <input type="radio" name="q12" id="3" value="3">
+              <label for="3">C. “Electric Butterflies Groove Down All Evening”</label>
+
+              <input type="radio" name="q12" id="4" value="4">
+              <label for="4">D. “Gravy Goes Better With Potatoes”</label>
+              <!--Q13-->
+              <p class="questions"><b>13. What is the name of the time signature that is counted “1, 2, 3, 4, 5, 6?”</b></p>
+              <input type="radio" name="q13" id="34" value="34">
+              <label for="34">A. “3/4”</label>
+              
+              <input type="radio" name="q13" id="68" value="68">
+              <label for="68">B. “6/8”</label>
+
+              <input type="radio" name="q13" id="44" value="44">
+              <label for="44">C. “4/4”</label>
+
+              <input type="radio" name="q13" id="66" value="66">
+              <label for="66">D. “6/6”</label>
+              <!--Q14-->
+              <p class="questions"><b>14. What is the name of the chord in the diagram below?</b></p>
+              <img src="/images/assess/q4-14.png" alt="altContnet" width="188" height="300">
+              <input type="radio" name="q14" id="em" value="em">
+              <label for="em">A. “Em”</label>
+              
+              <input type="radio" name="q14" id="am" value="am">
+              <label for="am">B. “Am”</label>
+
+              <input type="radio" name="q14" id="g" value="g">
+              <label for="g">C. “G”</label>
+
+              <input type="radio" name="q14" id="d" value="d">
+              <label for="d">D. “D”</label>
+              <!--Q15-->
+              <p class="questions"><b>15. What method(s) can you use to tune your guitar?</b></p>
+              <input type="radio" name="q15" id="1" value="1">
+              <label for="1">A. “By ear”</label>
+              
+              <input type="radio" name="q15" id="2" value="2">
+              <label for="2">B. “With a tuner”</label>
+
+              <input type="radio" name="q15" id="3" value="3">
+              <label for="3">C. “It is not necessary to tune”</label>
+
+              <input type="radio" name="q15" id="4" value="4">
+              <label for="4">D. “Both A and B”</label>
+              <!--Q16-->
+              <p class="questions"><b>16. What is the number assigned to your index finger?</b></p>
+              <input type="radio" name="q16" id="1" value="1">
+              <label for="1">A. “1”</label>
+              
+              <input type="radio" name="q16" id="2" value="2">
+              <label for="2">B. “2”</label>
+
+              <input type="radio" name="q16" id="3" value="3">
+              <label for="3">C. “3”</label>
+
+              <input type="radio" name="q16" id="4" value="4">
+              <label for="4">D. “4”</label>
+              <!--Q17-->
+              <p class="questions"><b>17. When playing a G Major scale, what fret does your fourth finger play?</b></p>
+              <input type="radio" name="q17" id="first" value="first">
+              <label for="first">A. “First”</label>
+              
+              <input type="radio" name="q17" id="fourth" value="fourth">
+              <label for="fourth">B. “Fourth”</label>
+
+              <input type="radio" name="q17" id="fifth" value="fifth">
+              <label for="fifth">C. “Fifth”</label>
+
+              <input type="radio" name="q17" id="seventh" value="seventh">
+              <label for="seventh">D. “Seventh”</label>
+              <!--Q18-->
+              <p class="questions"><b>18. What is the name of the chord in the diagram below?</b></p>
+              <img src="/images/assess/q4-18.png" alt="altContnet" width="186" height="300">
+              <input type="radio" name="q18" id="am" value="am">
+              <label for="am">A. “Am”</label>
+              
+              <input type="radio" name="q18" id="d" value="d">
+              <label for="d">B. “D”</label>
+
+              <input type="radio" name="q18" id="em" value="em">
+              <label for="em">C. “Em”</label>
+
+              <input type="radio" name="q18" id="g" value="g">
+              <label for="g">D. “G”</label>
+              <!--Q19-->
+              <p class="questions"><b>19. What is the name of the beats that occur between downbeats?</b></p>
+              <input type="radio" name="q19" id="quarternotes" value="quarternotes">
+              <label for="quarternotes">A. “Quarter notes”</label>
+              
+              <input type="radio" name="q19" id="upbeats" value="upbeats">
+              <label for="upbeats">B. “Upbeats”</label>
+
+              <input type="radio" name="q19" id="strums" value="strums">
+              <label for="strums">C. “Strums”</label>
+
+              <input type="radio" name="q19" id="offbeats" value="offbeats">
+              <label for="offbeats">D. “Offbeats”</label>
+              <!--Q20-->
+              <p class="questions"><b>20. What scale should you use to improvise when playing in the key of G Major?</b></p>
+              <input type="radio" name="q20" id="aminor" value="aminor">
+              <label for="aminor">A. “A minor”</label>
+              
+              <input type="radio" name="q20" id="cmajor" value="cmajor">
+              <label for="cmajor">B. “C Major”</label>
+
+              <input type="radio" name="q20" id="gmajor" value="gmajor">
+              <label for="gmajor">C. “G Major”</label>
+
+              <input type="radio" name="q20" id="anythingyouwant" value="anythingyouwant">
+              <label for="anythingyouwant">D. “Anything you want”</label>
+              <br>
+              <br>
+              <input type="submit" value="Submit Answers">
+            </form>
+          </div>
+          <div class="resultModal hidden">
+            <h3 id="msgTitle">You passed !</h3>
+            <p id="msgContent">Congraturation! You have passed all Tremolo Assessment test.</p>
+            <p>Correct answer count <b><span id="userCorrectCount">2</span>/20</b></p>
+            <p>Your score is <b><span id="userScore">20</span>/100</b></p>
+            <form action="/finalAssess" method="POST" id="passRecord">
+              <p id="continueRetake">Push following "Certificate" button to get a certificate from your instructor.</p>
+              <label for="4"></label>
+              <input type="hidden" name="moduleNext" value="4">
+
+              <label for="<%= user_render.id %>"></label>
+              <input type="hidden" name="user_id" value="<%= user_render.id %>">
+
+              <input type="submit" value="Certificate" id="resultBtn">
+            </form>
+          </div>
+        </main>
+    </div>
+    <script src="../js/course.js"></script>
+    <script>
+      const Answers = ['fret','abc','second','em',4,'thirds','g','34','c','headstock','e',1,'68','d',4,1,'fifth','am','upbeats','gmajor'];
+      let selected =[];
+      let userAnswers =[];
+      let answerCount = 0;
+      let unitScore = 5;
+      let totalScore = 0;
+    </script>
+    <script src="../js/assessment.js"></script>
+</body>
+</html>

@@ -17,13 +17,13 @@
         <main class="course_contents">
           <span id="expand_aside"><img src="/images/expand_icon.png" alt="expand_icon" width="25" height="25"></span>
           <div class="content_area">
-            <video src="<%=videoURL%>2-1.mp4" width="100%" height="auto" controls id="videoplay"></video>
-            <h3>Module. 2 Rudimentary Music Theory</h3>
-            <p>In this video, you will be covering natural notes, sharps and flats, as well as fingers and frets.</p>
+            <video src="<%=videoURL%>2-2.mp4" width="100%" height="auto" controls id="videoplay"></video>
+            <h3>Module. 2 Review</h3>
+            <p>In this video, you will review the contents of Module 2: Individual Notes, as well as the chromatic scale. Next, prepare for your assessment. </p>
             <ul class="contentList">
-              <li>Natural notes</li>
-              <li>Sharps and flats</li>
-              <li>Fingers and frets</li>
+              <li>4: D, E, F - (pause)</li>
+              <li>5: A, B, C - (pause)</li>
+              <li>6: E, F, G - (pause)</li>
             </ul>
             <form action="/progressCheck" method="POST" id="continueForm">
               <label for="6.25"></label>
@@ -31,7 +31,7 @@
               <label for="2"></label>
               <input type="hidden" value="2" name="moduleNum">
               <label for="2"></label>
-              <input type="hidden" value="2" name="subModuleNum">
+              <input type="hidden" value="a" name="subModuleNum">
               <label for="<%= user_render.id %>"></label>
               <input type="hidden" name="user_id" value="<%= user_render.id %>">
 

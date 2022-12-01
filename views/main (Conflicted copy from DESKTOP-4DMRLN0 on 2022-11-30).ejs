@@ -69,7 +69,7 @@
       </article>
       <div class="instructor_blur"></div>
     </section>
-    <!-- TUITION PLAN -->
+<!-- TUITION PLAN -->
     <section id="tuition">
       <h2>Tuition Plan</h2>
       <div class="tuition_cards">
@@ -106,12 +106,12 @@
     <section id="testimonial">
       <h2>testimonials</h2>
     </section>
+    <% if(!login && !try){%>
+      <h1>hahaha</h1>
+    <% } %>
     <footer>
     </footer>
     <script src="js/main.js"></script>
     <script src="js/course.js"></script>
-    <% if(!tt && !login) {%>
-      <script> alert("You need to login in to see course contents!");</script>
-    <% } %>
   </body>
 </html>

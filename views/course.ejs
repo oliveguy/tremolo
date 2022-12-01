@@ -15,7 +15,7 @@
     <div class="body_wrapper">
       <%- include('./modules/course_aside',{user_render}); %>
         <main class="course_contents">
-          <span id="expand_aside"></span>
+          <span id="expand_aside"><img src="./images/expand_icon.png" alt="expand_icon" width="25" height="25"></span>
 
         </main>
     </div>
@@ -35,36 +35,6 @@
           })
         })
       })
-
-      // ASIDE PANEL OPERATION
-      const asidepanel = document.querySelector('.module_list')
-      close_aside.addEventListener('click',()=>{
-        asidepanel.classList.remove('module_list');
-        asidepanel.classList.add('aside_hidden');
-        expand_aside.style.display="block";
-        expand_aside.addEventListener('click',()=>{
-          asidepanel.classList.remove('aside_hidden');
-          asidepanel.classList.add('module_list');
-          expand_aside.style.display="none";
-        })
-      })
-
-      // test
-      let answers = {
-        q1:'blue',
-        q2:'red'
-      };
-      // Get answers user selected
-      let selected = {};
-      // m1_test.addEventListener('submit',(e)=>{
-      //   e.preventDefault();
-      //   selected = {
-      //     q1_a: document.querySelector('input[name="q1"]:checked').value,
-      //     q2_a: document.querySelector('input[name="q2"]:checked').value
-      //   }
-      //   console.log(answers);
-      //   console.log(selected);
-      // })
     </script>
 </body>
 </html>

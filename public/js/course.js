@@ -2,6 +2,18 @@ let user_panel = document.querySelector('.user_panel');
 user_panel_triger.addEventListener('click',()=>{
   user_panel.classList.toggle('show')
 })
+// SHIRINK HEADER
+window.addEventListener('wheel',(e)=>{
+  let headerarea = document.querySelector('div.header_wrapper_login');
+  if(e.deltaY>0){
+    headerarea.classList.add('small'); 
+    headerarea.classList.remove('large'); 
+  } else{ 
+    headerarea.classList.add('large'); 
+    headerarea.classList.remove('small'); 
+  }
+})
+// ASIDE FOCUS
 let aside = document.querySelectorAll('.module_list')[0]
 aside.addEventListener('focus',function(){
   this.style.transition = "all .5s";
@@ -27,9 +39,11 @@ close_aside.addEventListener('click',()=>{
   asidepanel.classList.remove('module_list');
   asidepanel.classList.add('aside_hidden');
   expand_aside.style.display="block";
+  
   expand_aside.addEventListener('click',()=>{
     asidepanel.classList.remove('aside_hidden');
     asidepanel.classList.add('module_list');
     expand_aside.style.display="none";
   })
+  videoplay.style.marginTop = "1rem";
 })

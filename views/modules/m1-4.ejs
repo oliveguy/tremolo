@@ -8,16 +8,30 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/course.css">
     <link rel="stylesheet" href="/css/animate.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 </head>
 <body>
     <%- include('../header_login',{user_render}); %>
     <div class="body_wrapper">
       <%- include('course_aside',{user_render}); %>
         <main class="course_contents">
-          <span id="expand_aside"></span>
+          <span id="expand_aside"><img src="/images/expand_icon.png" alt="expand_icon" width="25" height="25"></span>
           <div class="content_area">
-            <p>m1-4 contents</p>
+            <video src="<%=videoURL%>1-4.mp4" width="100%" height="auto" controls id="videoplay"></video>
+            <h3>Module. 1 Review</h3>
+            <p>In this video, you will review what you’ve learned throughout module 1, and prepare for your assessment. </p>
+            <form action="/progressCheck" method="POST" id="continueForm">
+              <label for="6.25"></label>
+              <input type="hidden" value="6.25" name="percentProgress">
+              <label for="1"></label>
+              <input type="hidden" value="1" name="moduleNum">
+              <label for="1"></label>
+              <input type="hidden" value="a" name="subModuleNum">
+              <label for="<%= user_render.id %>"></label>
+              <input type="hidden" name="user_id" value="<%= user_render.id %>">
+
+              <input type="submit" value="Check Completed" id="continueBtn">
+            </form>
           </div>
         </main>
     </div>
