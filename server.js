@@ -178,7 +178,7 @@ app.post("/register", (req, res) => {
         transporter.close();
       });
       // Message and Redirection to main.ejs
-      res.render("main.ejs", { user_render: req.user, login: false })
+      res.render("main.ejs", { user_render: req.user, login: false, tt:true })
     }
   });
 });
@@ -341,4 +341,6 @@ app.listen(8080, () => {
 // FINAL Test -> Certificate
 // Plan -Remaining Days
 // Proficiency
-// Interation in main page
+// Interaction in main page
+
+// Course - one more photo for last

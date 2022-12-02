@@ -19,6 +19,8 @@ test.addEventListener('submit',(e)=>{
   if(totalScore >= 60){
     userCorrectCount.innerHTML = answerCount;
     userScore.innerHTML = totalScore;
+    scoreLabel.innerHTML = totalScore;
+    userScore.value = totalScore
   } else { //If Failed
     msgTitle.innerHTML = 'Failed';
     msgContent.innerHTML ='You have failed the test. Please retake the test.';

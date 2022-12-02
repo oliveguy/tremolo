@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato&family=Oleo+Script+Swash+Caps&display=swap');
 // UTILITY ************************************************
 // Color BG //
 $main: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(16, 40, 92, 1) 100%);
@@ -18,7 +19,8 @@ $t-small: 0.85rem;
 $t_large: 1.5rem;
 // Font
 // $t_title :;
-$t_body: "Dosis", "times", "sans-serif";
+// $t_body: "Dosis", "times", "sans-serif";
+$t_body: 'Inter', "times", "sans-serif";
 // $t_accent :;
 
 // Spacing //
@@ -54,8 +56,8 @@ main {
   transition: .5s all;
 }
 aside.module_list {
-  padding: 1rem;
-  min-width: 250px;
+  padding: 2rem;
+  min-width: 310px;
   margin-right: 1rem;
   min-height: 500px;
   background-color: rgba(153, 153, 153, 0.1);
