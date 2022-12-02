@@ -19,8 +19,8 @@ test.addEventListener('submit',(e)=>{
   if(totalScore >= 60){
     userCorrectCount.innerHTML = answerCount;
     userScore.innerHTML = totalScore;
-    scoreLabel.innerHTML = totalScore;
-    userScore.value = totalScore
+    scoreLabel.htmlFor = totalScore;
+    userScoreRecord.value = totalScore;
   } else { //If Failed
     msgTitle.innerHTML = 'Failed';
     msgContent.innerHTML ='You have failed the test. Please retake the test.';
@@ -28,13 +28,15 @@ test.addEventListener('submit',(e)=>{
     userScore.innerHTML = totalScore;
     // hiddenValue.value = 1;
     // Remove form with Continue button
-    passRecord.remove();
+    passRecord.style.contentVisibility = 'hidden';
+
     // Create Close Button
     let resultModal = document.querySelector('.resultModal');
     let closeBtn = document.createElement('button');
     closeBtn.id = 'closeBtn';
     closeBtn.innerHTML = 'Close';
     resultModal.appendChild(closeBtn);
+
     closeBtn.addEventListener('click',()=>{
       resultModal.classList.remove('show');
       // Init values
@@ -42,6 +44,12 @@ test.addEventListener('submit',(e)=>{
       userAnswers = [];
       answerCount = 0;
       totalScore = 0;
+      passRecord.style.contentVisibility = 'visible';
+      userCorrectCount.innerHTML = answerCount;
+      userScore.innerHTML = totalScore;
+      msgTitle.innerHTML ="You passed !";
+      msgContent.innerHTML = "Congraturation! You have passed the assessment test."
+      closeBtn.remove();
     })
   }
 })

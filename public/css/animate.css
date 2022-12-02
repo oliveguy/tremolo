@@ -18,3 +18,17 @@
     padding:1rem 0;
     transition: .5s all ease-in-out;
 }
+
+/* TOP BANNER */
+.hidden_title{
+    opacity:0;
+    visibility: hidden;
+    position:absolute;
+    bottom: 0;
+}
+.show_title{
+    position:relative;
+    opacity:1;
+    visibility: visible;
+    transition: .5s all ease-in-out;
+}

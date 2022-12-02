@@ -56,7 +56,7 @@ main {
   transition: .5s all;
 }
 aside.module_list {
-  padding: 2rem;
+  padding: 1.5rem;
   min-width: 310px;
   margin-right: 1rem;
   min-height: 500px;
@@ -213,7 +213,7 @@ div.resultModal{
   top:220px; left:50%;
   transform: translate(-50%,-50%);
   width:50ch;
-  height:20rem;
+  height:23rem;
   background-color: rgba(0, 0, 0, .8);
   border: 1px solid $box_border;
   border-radius: 10px;

@@ -5,7 +5,6 @@ login_modal_trigger.addEventListener('click',(e)=>{
 })
 // SHIRINK HEADER
 window.addEventListener('wheel',(e)=>{
-  console.log(e.deltaY)
   let headerpanel = document.querySelector('div.header_wrapper');
   if(e.deltaY>0){
     headerpanel.classList.add('small'); 
@@ -15,6 +14,21 @@ window.addEventListener('wheel',(e)=>{
     headerpanel.classList.remove('small'); 
   }
 })
+// APPEAR SMOOTH
+let topTitle = document.querySelectorAll('.hidden_title');
+setTimeout(()=>{
+  topTitle[0].classList.remove('hidden_title')
+  topTitle[0].classList.add('show_title')
+},250)
+for(i=1; i<topTitle.length; i++){
+  (function(x){
+    setTimeout(function(){
+      topTitle[x].classList.remove('hidden_title')
+      topTitle[x].classList.add('show_title')
+    }, 250*x);
+  })(i);
+}
+
 // COURSE APPEAR
 const courseItems = document.querySelectorAll('.courseItems');
 const coursePics = document.querySelectorAll('img.courseInfo');

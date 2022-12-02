@@ -207,13 +207,19 @@ span.user_email {
 p#banner_intro {
   max-width: $view_narrow;
   z-index: 1;
+  margin-bottom: 2rem;
 }
 a.banner_btn {
   @include button();
   font-size: small;
+  margin-right: 1rem;
+  font-style: italic;
+}
+a#resumeBtn{
+  background-color: $box_t_bg;
 }
 section#top_banner {
-  height: 20rem;
+  height: 30rem;
   position: relative;
   z-index: 0;
   article.top_banner_contents {
@@ -223,6 +229,9 @@ section#top_banner {
     padding: 5rem 0;
     z-index: 5;
     height: 100%;
+    h2{
+      font-size: 2.5rem;
+    }
   }
   div#blur_bg {
     position: absolute;
@@ -247,14 +256,23 @@ section#course{
   height:1570px;
   max-width: $view_max;
   padding-top:2rem;
+  padding-bottom:2rem;
   margin:0 auto;
   position:relative;
+  display:flex;
   article.courseInfo{
     margin: 0 auto;
-    float: left;
+    width:100%;
+    min-width: $view_narrow;
+    // float: left;
+  }
+  article.imgArray{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
   }
   img.courseInfo{
-    margin: 3rem 0;
+    margin: 0;
     opacity:0;
     border-radius: 15px;
     transition:.75s all ease-in-out;
@@ -266,8 +284,9 @@ section#course{
     opacity:1;
   }
   div.courseItems{
-    margin-top: 10rem;
+    // margin-top: 10rem;
     // position: sticky;
+    min-height:19rem;
     top:110px;
     opacity:0;
     transition: all .5s ease-in-out;
@@ -278,9 +297,9 @@ section#course{
   div.show_course{
     opacity:1;
   }
-  div.courseItems:nth-child(1){
-    margin-top: 0;
-  }
+  // div.courseItems:nth-child(1){
+  //   margin-top: 0;
+  // }
   img.courseInfo{
     float: right;
     position: sticky;

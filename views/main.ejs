@@ -15,22 +15,23 @@
     <!-- TOP BANNER -->
     <section id="top_banner">
       <article class="top_banner_contents">
-        <h2>Your guitar journey, begins here.</h2>
-        <p id="banner_intro">
+        <h2 class="hidden_title">Your guitar journey, begins here.</h2>
+        <p id="banner_intro" class="hidden_title">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
           aliquid id officiis rerum atque debitis temporibus eligendi inventore,
           magni beatae iusto aut.
         </p>
 
-        <a href="/signup" class="banner_btn">Signup Now</a>
+        <a href="/signup" class="banner_btn hidden_title">Signup Now</a>
+        <a href="/course" class="banner_btn hidden_title" id="resumeBtn">Resume</a>
       </article>
       <div id="blur_bg"></div>
     </section>
     <!-- COURSE -->
     <section id="course">
-      <article class="courseInfo">
+      <article class="courseInfo hidden_title">
         <div class="courseItems">
-          <h2 class="indexTitle">Course</h2>
+          <h2 class="indexTitle">Course Information</h2>
           <p>So, you’re a beginner! That’s okay, everyone starts at zero. Tremolo is the place to be as a beginner guitar enthusiast. Our lessons will take you from absolute zero, to being able to recognize scales, chords, and everything you need to play full songs. </p>
           <p>Tremolo lessons are designed to give you the time to absorb and truly understand each concept and move forward when you’re ready.</p>
         </div>
@@ -52,11 +53,13 @@
           <p>In module 4, you will take everything that you’ve learned so far, and add some musicality to it. Learn how to strum chords in rhythm, improvise, and combine them. The goal is to make some original music! This is your chance to really have fun with it and put all that knowledge to work. Goodluck.</p>
         </div>
       </article>
-      <img src="/images/course1.jpg" alt="" width="330" height="220" class="courseInfo">
-      <img src="/images/course2.jpg" alt="" width="330" height="220" class="courseInfo">
-      <img src="/images/course3.jpg" alt="" width="330" height="220" class="courseInfo">
-      <img src="/images/course4.jpg" alt="" width="330" height="220" class="courseInfo">
-      <img src="/images/course5.jpg" alt="" width="330" height="220" class="courseInfo">
+      <article class="imgArray">
+        <img src="/images/course1.jpg" alt="" width="330" height="220" class="courseInfo hidden_title">
+        <img src="/images/course2.jpg" alt="" width="330" height="220" class="courseInfo hidden_title">
+        <img src="/images/course3.jpg" alt="" width="330" height="220" class="courseInfo hidden_title">
+        <img src="/images/course4.jpg" alt="" width="330" height="220" class="courseInfo hidden_title">
+        <img src="/images/course5.jpg" alt="" width="330" height="220" class="courseInfo hidden_title">
+    </article>
     </section>
     <!-- INSTRUCTOR INFO -->
     <section id="instructor">
@@ -112,9 +115,27 @@
     <footer>
     </footer>
     <script src="js/main.js"></script>
-    <script src="js/course.js"></script>
+    <!-- <script src="js/course.js"></script> -->
     <% if(!tt && !login) {%>
       <script> alert("You need to login in to see course contents!");</script>
+    <% } %>
+    <% if(login) {%>
+    <script>
+      let user_panel = document.querySelector('.user_panel');
+      user_panel_triger.addEventListener('click',()=>{
+      user_panel.classList.toggle('show')
+      })
+      window.addEventListener('wheel',(e)=>{
+      let headerpanel_login = document.querySelector('div.header_wrapper_login');
+      if(e.deltaY>0){
+        headerpanel_login.classList.add('small'); 
+        headerpanel_login.classList.remove('large'); 
+      } else{ 
+        headerpanel_login.classList.add('large'); 
+        headerpanel_login.classList.remove('small'); 
+  }
+})
+    </script>
     <% } %>
   </body>
 </html>

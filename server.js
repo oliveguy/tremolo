@@ -344,3 +344,6 @@ app.listen(8080, () => {
 // Interaction in main page
 
 // Course - one more photo for last
+
+
+// SignUp debug

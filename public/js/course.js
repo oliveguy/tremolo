@@ -32,7 +32,20 @@ topMenu.forEach((menu,index)=>{
     })
   })
 })
-
+// APPEAR SMOOTH
+let topTitle = document.querySelectorAll('.hidden_title');
+setTimeout(()=>{
+  topTitle[0].classList.remove('hidden_title')
+  topTitle[0].classList.add('show_title')
+},250)
+for(i=1; i<topTitle.length; i++){
+  (function(x){
+    setTimeout(function(){
+      topTitle[x].classList.remove('hidden_title')
+      topTitle[x].classList.add('show_title')
+    }, 250*x);
+  })(i);
+}
 // ASIDE PANEL OPERATION
 const asidepanel = document.querySelector('.module_list')
 close_aside.addEventListener('click',()=>{
