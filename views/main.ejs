@@ -17,13 +17,14 @@
       <article class="top_banner_contents">
         <h2 class="hidden_title">Your guitar journey, begins here.</h2>
         <p id="banner_intro" class="hidden_title">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-          aliquid id officiis rerum atque debitis temporibus eligendi inventore,
-          magni beatae iusto aut.
+          Learn the basics, practice, improvise, improve. Tremolo is your beginning. Start from nothing and build your way up to mastery.
+        Crystal clear audio and video, auto pause and resume, and intuitive progress tracking. Tremolo has all the tools you need to succeed as a guitar novice. 
         </p>
 
         <a href="/signup" class="banner_btn hidden_title">Signup Now</a>
-        <a href="/course" class="banner_btn hidden_title" id="resumeBtn">Resume</a>
+        <% if(login){ %> 
+        <a href="/course/m<%= user_render.course.currentM %>-<%= user_render.course.currentSubM %>"class="banner_btn hidden_title" id="resumeBtn">Resume</a>
+        <% } %>
       </article>
       <div id="blur_bg"></div>
     </section>
@@ -36,20 +37,20 @@
           <p>Tremolo lessons are designed to give you the time to absorb and truly understand each concept and move forward when you’re ready.</p>
         </div>
         <div class="courseItems">
-          <h4>Module. 1</h4>
+          <h4>Module 1</h4>
           <p>The first module will introduce you to the very basics of the guitar. It will be the beginning of 4 easy lessons that will take you from knowing absolutely nothing about the guitar, to being able to play chords, and improvise over them.</p>
           <p>You will be able to recognize different parts of the guitar, where to place your fingers and hands, know the different strings, ways to tune the guitar, and so on.</p>
         </div>
         <div class="courseItems">
-          <h4>Module. 2</h4>
+          <h4>Module 2</h4>
           <p>You will be able to recognize different parts of the guitar, where to place your fingers and hands, know the different strings, ways to tune the guitar, and so on.</p>
         </div>
         <div class="courseItems">
-          <h4>Module. 3</h4>
+          <h4>Module 3</h4>
           <p>In module 3, you will be learning about chords and scales. It will be quite like what you’ve been doing already in module 2. Playing individual notes, in order. However, this section will apply a bit more of a melodic sensibility to it. You will be starting off with the box system, a simple way to think about the fret board.</p>
         </div>
         <div class="courseItems">
-          <h4>Module. 4</h4>
+          <h4>Module 4</h4>
           <p>In module 4, you will take everything that you’ve learned so far, and add some musicality to it. Learn how to strum chords in rhythm, improvise, and combine them. The goal is to make some original music! This is your chance to really have fun with it and put all that knowledge to work. Goodluck.</p>
         </div>
       </article>
@@ -63,7 +64,7 @@
     </section>
     <!-- INSTRUCTOR INFO -->
     <section id="instructor">
-      <h2 class="otherTitles">Instructor</h2>
+      <h2 class="otherTitles">Instructors</h2>
       <article>
         <img src="/images/instructor.jpg" alt="instructor photo"width="350" height="200">
         <div class="instructor_text">
@@ -77,40 +78,54 @@
     </section>
     <!-- TUITION PLAN -->
     <section id="tuition">
-      <h2 class="otherTitles">Tuition Plans</h2>
-      <div class="tuition_cards">
-        <article>
-          <h3>Free</h3>
-          <ul>
-            <li>7 days Free</li>
-            <li>Full Access</li>
-            <li></li>
-          </ul>
-          <a href="#">Register</a>
-        </article>
-        <article>
-          <h3>Premium</h3>
-          <ul>
-            <li>30 days<br>Subscription</li>
-            <li></li>
-            <li></li>
-          </ul>
-          <a href="#">Register</a>
-        </article>
-        <article>
-          <h3>Pro</h3>
-          <ul>
-            <li>90 days<br>Subscription</li>
-            <li></li>
-            <li></li>
-          </ul>
-          <a href="#">Register</a>
-        </article>
+      <div class="tuitionWrapper">
+        <h2 class="otherTitles">Tuition Plans</h2>
+        <div class="tuition_cards">
+          <article>
+            <h3>Free</h3>
+            <h4>$ 0</h4>
+            <ul>
+              <li>&#10003; 7 days Free</li>
+              <li>&#10003; Full Access</li>
+              <li></li>
+            </ul>
+            <a href="/signup">Register</a>
+          </article>
+        </div>
+        <div class="tuition_cards">
+          <article>
+            <h3>Premium</h3>
+            <h4>$ 25</h4>
+            <ul>
+              <li>&#10003; 30 days Subscription</li>
+              <li>&#10003; Full Access</li>
+              <li></li>
+            </ul>
+            <a href="/signup">Register</a>
+          </article>
+        </div>
+        <div class="tuition_cards">
+          <article>
+            <h3>Pro</h3>
+            <h4>$ 45</h4>
+            <ul>
+              <li>&#10003; 90 days Subscription</li>
+              <li>&#10003; Full Access</li>
+              <li>&#10003; Mentoring</li>
+              <li></li>
+            </ul>
+            <a href="/signup">Register</a>
+          </article>
+        </div>
       </div>
     </section>
     <!-- // TESTIMINIAL -->
     <section id="testimonial">
       <h2 class="otherTitles">Testimonials</h2>
+      <div class="testimonial_contents">
+        <div></div>
+        <div></div>
+      </div>
     </section>
     <footer>
     </footer>

@@ -23,7 +23,7 @@ $t_body: 'Inter', "times", "sans-serif";
 // $t_accent :;
 
 // Spacing //
-$view_max: 100ch;
+$view_max: 90ch;
 $view_narrow: 50ch;
 
 @mixin button() {
@@ -344,64 +344,100 @@ section#instructor{
 section#tuition{
   width:100%;
   padding-top: 2rem;
-  position:sticky;
   top:100px;
   h2{
     text-align: center;
   }
-  div.tuition_cards{
+  div.tuitionWrapper{
+    height:2000px;
+    display: flex;
+    flex-direction: column;
     max-width: $view_max;
-    margin:0 auto;
-    display:flex;
-    justify-content: space-evenly;
-    article{
-      width:200px;
-      height:280px;
-      border-radius: 10px;
-      padding:1rem;
-      display:flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      h3{
-        margin-top:0;
-        padding-bottom: .25rem;
-        font-style: italic;
-        border-bottom: 1px solid $text;
-        width:100%;
-        text-align: center;
-      }
-      ul{
-        padding:0;
-        margin-top:0;
-      }
-      a{
-        @include button();
-        border: 1px solid rgba(255,255,255,.5);
-      }
+    margin: 0 auto;
+    padding-top: 5rem;
+    div.tuition_cards{
+      position:sticky;
+      top:150px;
+      margin:7.5rem 5rem;
+      opacity:0.1;
       &:nth-of-type(1){
-        background: rgb(68,133,59);
-        background: linear-gradient(120deg,
-        rgba(68,133,59,1) 0%,
-        rgb(33, 189, 116) 50%,
-        rgb(17, 146, 197) 100%);
+        margin-inline-end:auto;
       }
       &:nth-of-type(2){
-        background: rgb(17, 70, 168);
-        background: linear-gradient(120deg,
-        rgb(20, 204, 143) 0%,
-        rgb(17, 153, 207) 50%,
-        rgb(50, 18, 194) 100%)
+        margin-inline:auto;
       }
       &:nth-of-type(3){
-        background: rgb(123, 11, 175);
-        background: linear-gradient(120deg,
-        rgb(50, 18, 194) 0%,
-        rgb(88, 23, 207) 50%,
-        rgb(202, 13, 202) 100%);
+        margin-inline-start:auto;
+      }
+      article{
+        width:200px;
+        height:250px;
+        border-radius: 10px;
+        padding:1rem;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        h3{
+          margin-top:0;
+          padding-bottom: .25rem;
+          font-style: italic;
+          border-bottom: 1px solid $text;
+          width:100%;
+          text-align: center;
+        }
+        h4{
+          margin:0;
+          font-size: 2rem;
+        }
+        ul{
+          padding:0;
+          padding-left: 2rem;
+          margin-top:0;
+          text-align: left;
+          li{
+            min-width:20ch;
+            list-style-type: none;
+          }
+        }
+        a{
+          @include button();
+          border: 1px solid rgba(255,255,255,.5);
+          font-size: $t_mini;
+        }
+        &:nth-of-type(1){
+          background: rgb(68,133,59);
+          background: linear-gradient(120deg,
+          rgba(68,133,59,1) 0%,
+          rgb(33, 189, 116) 50%,
+          rgb(17, 146, 197) 100%);
+        }
+        &:nth-of-type(2){
+          background: rgb(17, 70, 168);
+          background: linear-gradient(120deg,
+          rgb(20, 204, 143) 0%,
+          rgb(17, 153, 207) 50%,
+          rgb(50, 18, 194) 100%)
+        }
+        &:nth-of-type(3){
+          background: rgb(123, 11, 175);
+          background: linear-gradient(120deg,
+          rgb(50, 18, 194) 0%,
+          rgb(88, 23, 207) 50%,
+          rgb(202, 13, 202) 100%);
+        &:nth-of-type(1):hover{
+          background-color: rgb(68,133,59);
+        }
+        &:nth-of-type(2):hover{
+          background-color: rgb(17, 70, 168);
+        }
+        &:nth-of-type(3):hover{
+          background-color: rgb(123, 11, 175);
+        }
       }
     }
   }
+}
 }
 section#testimonial{
   width:100%;
@@ -410,6 +446,21 @@ section#testimonial{
   position:relative;
   h2{
     text-align: center;
+  }
+  div.testimonial_contents{
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    height:180px;
+    max-width: $view_max;
+    margin:0 auto;
+    div{
+      border: 1px solid white;
+      border-radius: 10px;
+      width:100%;
+      height:100%;
+      margin:.5rem;
+    }
   }
 }
 // SIGNUP PAGE
@@ -443,6 +494,9 @@ form.signup {
     border: none;
     padding: 0.5rem 0;
   }
+  p.plan{
+    margin:0;
+  }
 }
 img.google {
   width: 50%;
@@ -451,7 +505,7 @@ img.google {
 // ACCOUNT PAGE
 main.account {
   margin: 0 auto;
-  max-width: $view_max;
+  max-width: 80ch;
   section#account_total {
     @include bg_blur_black();
     padding: 2rem;
@@ -525,6 +579,7 @@ form#user_profile {
 }
 div.course_info {
   display: flex;
+  flex:3;
   div.plan {
     flex: 3;
   }
@@ -532,18 +587,40 @@ div.course_info {
     flex: 7;
   }
 }
-div.plan {
+div.planBuy {
   display: flex;
   flex-direction: column;
   align-items: center;
-  img {
-    border: 1px solid black;
-  }
-  a {
-    @include button();
-    text-align: center;
-    width: 75%;
-    margin-top: 1rem;
+  article#premium{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
+    min-width: 220px;
+    border-radius: 10px;
+    background: rgb(17, 70, 168);
+    background: linear-gradient(120deg,
+    rgb(20, 204, 143) 0%,
+    rgb(17, 153, 207) 50%,
+    rgb(50, 18, 194) 100%);
+    h4{
+      margin:0;
+      font-size: 1.5rem;
+    }
+    ul{
+      padding:0;
+      li{
+        list-style-type: none;
+      }
+    }
+    a {
+      @include button();
+      text-align: center;
+      font-size: small;
+      width: 75%;
+      margin-top: 1rem;
+    }
   }
 }
 ul.course_text_list {
@@ -563,6 +640,13 @@ li.course_list_items {
     margin-right: 1rem;
     display:flex;
     justify-content: space-between;
+  }
+}
+li.certBtn{
+  justify-content: flex-end;
+  a#certificateBtn{
+    @include button();
+    font-size: smaller;
   }
 }
 div.progress_bar {

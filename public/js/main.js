@@ -50,4 +50,27 @@ const showElement = function(){
   }
 window.addEventListener('load', showElement);
 window.addEventListener('scroll',showElement);
+window.addEventListener('scroll',slideUp);
 // INSTRUCTOR
+function slideUp(){
+  let tuitionCards = document.querySelectorAll('.tuition_cards')
+  let scrollY = window.scrollY;
+  if(scrollY<=1925){
+    for(element of tuitionCards){
+      element.style.opacity = 0;
+    }
+  } else if(scrollY>=2000){
+    tuitionCards[0].style.opacity = (scrollY*0.10)/2409+0.45
+  }
+  if(scrollY>=2315){
+    tuitionCards[1].style.opacity = (scrollY*0.35)/3038+0.45
+  }
+  if(scrollY>2742){
+    tuitionCards[2].style.opacity = (scrollY*0.35)/3440+0.45
+  }
+  if(scrollY>3400){
+    for(element of tuitionCards){
+      element.style.opacity = 0.9;
+    }
+  }
+}

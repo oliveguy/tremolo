@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tremolo || Guitar e-learning</title>
+  <link rel="stylesheet" href="/css/animate.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <style>
+    main{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <% if(login){%> <%- include('header_login',{user_render}); %> <% } else {%>
+    <%- include('header'); %> <% } %>
+<main>
+  <h2>Congraturations!</h2>
+  <h3>축! 전 코스 수료 <%=user_render.name.fname%> 임마!</h3>
+  <p>너의 점수는 말이여,</p>
+  <ul>
+    <li>Module 1: <%=user_render.course.testResult.m1%></li>
+    <li>Module 2: <%=user_render.course.testResult.m2%></li>
+    <li>Module 3: <%=user_render.course.testResult.m3%></li>
+    <li>Module 4: <%=user_render.course.testResult.m4%></li>
+  </ul>
+  <p>This Certificate has been sent to your email at <b><%=user_render.email%></b></p>
+  <p>Thank you for enjoying our e-learning service!</p>
+</main>
+  <script>
+    let user_panel = document.querySelector('.user_panel');
+    user_panel_triger.addEventListener('click',()=>{
+    user_panel.classList.toggle('show')
+    })
+    window.addEventListener('wheel',(e)=>{
+    let headerpanel_login = document.querySelector('div.header_wrapper_login');
+    if(e.deltaY>0){
+      headerpanel_login.classList.add('small'); 
+      headerpanel_login.classList.remove('large'); 
+    } else{ 
+      headerpanel_login.classList.add('large'); 
+      headerpanel_login.classList.remove('small'); 
+      }
+    })
+  </script>
+</body>
+</html>

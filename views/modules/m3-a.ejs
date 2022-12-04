@@ -17,75 +17,75 @@
         <main class="course_contents hidden_title">
           <span id="expand_aside"><img src="/images/expand_icon.png" alt="expand_icon" width="25" height="25"></span>
           <div class="content_area">
-            <h3>Module 3. Assessment Test</h3>
+            <h3>Module 3 Assessment Test</h3>
             <form action="#" method="POST" id="test">
               <p class="questions"><b>1. What is the name of the chord in the diagram below?</b></p>
               <img src="/images/assess/q3-1.png" alt="chords" width="186" height="300">
               <input type="radio" name="q1" id="c" value="c">
-              <label for="c">A. “C”</label>
+              <label for="c">“C”</label>
               
               <input type="radio" name="q1" id="d" value="d">
-              <label for="d">B. “D”</label>
+              <label for="d">“D”</label>
 
               <input type="radio" name="q1" id="g" value="g">
-              <label for="g">C. “G”</label>
+              <label for="g">“G”</label>
 
               <input type="radio" name="q1" id="am" value="am">
-              <label for="am">D. “Am”</label>
+              <label for="am">“Am”</label>
 
               <p class="questions"><b>2. When playing a G Major scale, what fret does your third finger play?</b></p>
               <input type="radio" name="q2" id="third" value="third">
-              <label for="third">A. “Third”</label>
+              <label for="third">“Third”</label>
               
               <input type="radio" name="q2" id="fourth" value="fourth">
-              <label for="fourth">B. “Fourth”</label>
+              <label for="fourth">“Fourth”</label>
 
               <input type="radio" name="q2" id="second" value="second">
-              <label for="second">C. “Second”</label>
+              <label for="second">“Second”</label>
 
               <input type="radio" name="q2" id="fifth" value="fifth">
-              <label for="fifth">D. “Fifth”</label>
+              <label for="fifth">“Fifth”</label>
 
               <p class="questions"><b>3. What is the name of the chord in the diagram below?</b></p>
               <img src="/images/assess/q3-3.png" alt="chords" width="186" height="300">
               <input type="radio" name="q3" id="g" value="g">
-              <label for="g">A. “G”</label>
+              <label for="g">“G”</label>
 
               <input type="radio" name="q3" id="c" value="c">
-              <label for="c">B. “C”</label>
+              <label for="c">“C”</label>
 
               <input type="radio" name="q3" id="em" value="em">
-              <label for="em">C. “Em”</label>
+              <label for="em">“Em”</label>
 
               <input type="radio" name="q3" id="am" value="am">
-              <label for="am">D. “Am”</label>
+              <label for="am">“Am”</label>
 
               <p class="questions"><b>4. What goal should you try to accomplish when transitioning between chords?</b></p>
               <input type="radio" name="q4" id="1" value="1">
-              <label for="1">A. “Keep any fingers in place that do not need to move.”</label>
+              <label for="1">“Keep any fingers in place that do not need to move.”</label>
               <br>
               <input type="radio" name="q4" id="2" value="2">
-              <label for="2">B. “Move your fingers at the last second to create smooth movement.”</label>
+              <label for="2">“Move your fingers at the last second to create smooth movement.”</label>
               <br>
               <input type="radio" name="q4" id="3" value="3">
-              <label for="3">C. “Think about what chord you have to play next so that you are ready for the change.”</label>
+              <label for="3">“Think about what chord you have to play next so that you are ready for the change.”</label>
               <br>
               <input type="radio" name="q4" id="4" value="4">
-              <label for="4">D. “All of the above.”</label>
+              <label for="4">“All of the above.”</label>
 
               <p class="questions"><b>5. What is the name of the chord in the diagram below?</b></p>
               <img src="/images/assess/q3-5.png" alt="chords" width="186" height="300">
               <input type="radio" name="q5" id="am" value="am">
-              <label for="am">A. “Am”</label>
+              <label for="am">“Am”</label>
             
               <input type="radio" name="q5" id="c" value="c">
-              <label for="c">B. “C”</label>
+              <label for="c">“C”</label>
             
               <input type="radio" name="q5" id="d" value="d">
-              <label for="d">C. “D”</label>
+              <label for="d">“D”</label>
             
               <input type="radio" name="q5" id="em" value="em">
-              <label for="em">D. “Em”</label>
+              <label for="em">“Em”</label>
               <br>
               <br>
               <input type="submit" value="Submit Answers">
@@ -93,11 +93,11 @@
           </div>
           <div class="resultModal hidden">
             <h3 id="msgTitle">You passed !</h3>
-            <p id="msgContent">Congraturation! You have passed Module.2 Assessment test.</p>
+            <p id="msgContent">Congraturations! You have passed the Module 3 assessment.</p>
             <p>Correct answer count <b><span id="userCorrectCount">2</span>/5</b></p>
             <p>Your score is <b><span id="userScore">20</span>/100</b></p>
             <form action="/recordAssess" method="POST" id="passRecord">
-              <p id="continueRetake">push following "continue" button to open next module.</p>
+              <p id="continueRetake">Push the following "continue" button to open the next module.</p>
               <label for="4"></label>
               <input type="hidden" name="moduleNext" value="4">
 
@@ -106,6 +106,9 @@
 
               <label for="0" id="scoreLabel"></label>
               <input type="hidden" name="user_score" value="0" id="userScoreRecord">
+
+              <label for="3"></label>
+              <input type="hidden" name="moduleTest" value="3">
 
               <input type="submit" value="Continue" id="resultBtn">
             </form>

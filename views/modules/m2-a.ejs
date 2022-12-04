@@ -17,72 +17,72 @@
         <main class="course_contents hidden_title">
           <span id="expand_aside"><img src="/images/expand_icon.png" alt="expand_icon" width="25" height="25"></span>
           <div class="content_area">
-            <h3>Module 2. Assessment Test</h3>
+            <h3>Module 2 Assessment Test</h3>
             <form action="#" method="POST" id="test">
               <p class="questions"><b>1. What is the number assigned to your middle finger?</b></p>
               <input type="radio" name="q1" id="1" value="1">
-              <label for="1">A. "1"</label>
+              <label for="1"> "1"</label>
               
               <input type="radio" name="q1" id="2" value="2">
-              <label for="2">B. "2"</label>
+              <label for="2"> "2"</label>
 
               <input type="radio" name="q1" id="3" value="3">
-              <label for="3">C. "3"</label>
+              <label for="3"> "3"</label>
 
               <input type="radio" name="q1" id="4" value="4">
-              <label for="4">D. "4"</label>
+              <label for="4"> "4"</label>
 
             <p class="questions"><b>2. How do you play a C?</b></p>
               <input type="radio" name="q2" id="1" value="1">
-              <label for="1">A. “Third finger on the first string.”</label>
+              <label for="1"> “Third finger on the first string.”</label>
               <br>              
               <input type="radio" name="q2" id="2" value="2">
-              <label for="2">B. “Second string open.”</label>
+              <label for="2"> “Second string open.”</label>
               <br>
               <input type="radio" name="q2" id="3" value="3">
-              <label for="3">C. “There is no C on the guitar.”</label>
+              <label for="3"> “There is no C on the guitar.”</label>
               <br>
               <input type="radio" name="q2" id="4" value="4">
-              <label for="4">D. “First fret on the second string.”</label>
+              <label for="4"> “First fret on the second string.”</label>
 
             <p class="questions"><b>3. What are the notes we learned on the first string?</b></p>
               <input type="radio" name="q3" id="efg" value="efg">
-              <label for="efg">A. “E, F, G”</label>
+              <label for="efg"> “E, F, G”</label>
               
               <input type="radio" name="q3" id="bcd" value="bcd">
-              <label for="bcd">B. “B, C, D”</label>
+              <label for="bcd"> “B, C, D”</label>
 
               <input type="radio" name="q3" id="abc" value="abc">
-              <label for="abc">C. “A, B, C”</label>
+              <label for="abc"> “A, B, C”</label>
 
               <input type="radio" name="q3" id="ga" value="ga">
-              <label for="ga">D. “G, A”</label>
+              <label for="ga"> “G, A”</label>
 
             <p class="questions"><b>4. When playing a chromatic scale, on what string do you only go up to the third fret before playing the next string open?</b></p>
               <input type="radio" name="q4" id="fourthstring" value="fourthstring">
-              <label for="fourthstring">A. “Fourth string.”</label>
+              <label for="fourthstring"> “Fourth string.”</label>
               
               <input type="radio" name="q4" id="sixthstring" value="sixthstring">
-              <label for="sixthstring">B. “Sixth string.”</label>
+              <label for="sixthstring"> “Sixth string.”</label>
 
               <input type="radio" name="q4" id="thirdstring" value="thirdstring">
-              <label for="thirdstring">C. “Third string.”</label>
+              <label for="thirdstring"> “Third string.”</label>
 
               <input type="radio" name="q4" id="firststring" value="firststring">
-              <label for="firststring">D. “First string.”</label>
+              <label for="firststring"> “First string.”</label>
 
             <p class="questions"><b>5. What note comes after G?</b></p>
               <input type="radio" name="q5" id="h" value="h">
-              <label for="h">A. “H”</label>
+              <label for="h"> “H”</label>
               
               <input type="radio" name="q5" id="f" value="f">
-              <label for="f">B. “F”</label>
+              <label for="f"> “F”</label>
 
               <input type="radio" name="q5" id="a" value="a">
-              <label for="a">C. “A”</label>
+              <label for="a"> “A”</label>
 
               <input type="radio" name="q5" id="d" value="d">
-              <label for="d">D. “D”</label>
+              <label for="d"> “D”</label>
               <br>
               <br>
               <input type="submit" value="Submit Answers">
@@ -90,11 +90,11 @@
           </div>
           <div class="resultModal hidden">
             <h3 id="msgTitle">You passed !</h3>
-            <p id="msgContent">Congraturation! You have passed Module.2 Assessment test.</p>
+            <p id="msgContent">Congraturations! You have passed the Module 2 assessment.</p>
             <p>Correct answer count <b><span id="userCorrectCount">2</span>/5</b></p>
             <p>Your score is <b><span id="userScore">20</span>/100</b></p>
             <form action="/recordAssess" method="POST" id="passRecord">
-              <p id="continueRetake">push following "continue" button to open next module.</p>
+              <p id="continueRetake">Push the following "continue" button to open the next module.</p>
               <label for="3"></label>
               <input type="hidden" name="moduleNext" value="3">
 
@@ -103,6 +103,9 @@
 
               <label for="0" id="scoreLabel"></label>
               <input type="hidden" name="user_score" value="0" id="userScoreRecord">
+
+              <label for="2"></label>
+              <input type="hidden" name="moduleTest" value="2">
 
               <input type="submit" value="Continue" id="resultBtn">
             </form>

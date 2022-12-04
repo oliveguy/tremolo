@@ -111,8 +111,6 @@ app.post("/register", (req, res) => {
 
   data.collection("users").findOne({ id: req.body.regis_id }, (err, result) => {
     if (result) {
-      // res.write('<script>alert("The ID you typed in already exsisted. Try other ID");window.location="/signup";</script>');
-      // res.write('<script>window.location="/signup"</script>');
       res.render("signup.ejs",{sameID:true})
     } else {
       data.collection("count").findOne({ name: "userNum" }, (err, result) => {
@@ -129,7 +127,9 @@ app.post("/register", (req, res) => {
                     },
               email: req.body.email,
               user_pic: 0,
-              plan:0, // replace 0 with req.body.(name)
+              plan:parseInt(req.body.plan),
+              planStart:req.body.today,
+              planEnd:req.body.expiration,
               course:{ currentM:1,
                        currentSubM:1,
                        progress:0,
@@ -156,6 +156,7 @@ app.post("/register", (req, res) => {
             }
           );
       });
+
       // Welcome Email Send
       const transporter = nodemailer.createTransport({
         service: "gmail",
@@ -199,7 +200,8 @@ app.get("/logout", (req, res) => {
 });
 // COURSE (GET) USER
 app.get("/course/:moduleID", verify_login, (req, res) => {
-  res.render(`./modules/${req.params.moduleID}`, { user_render: req.user,videoURL:'http://dev.saitnewmedia.ca/~spark/tremolo/' });
+  res.render(`./modules/${req.params.moduleID}`, { user_render: req.user,videoURL:'https://zacharyhowell.ca/video/' });
+  // res.render(`./modules/${req.params.moduleID}`, { user_render: req.user,videoURL:'http://dev.saitnewmedia.ca/~spark/tremolo/' });
 });
 app.get("/course", verify_login, (req, res) => {
   res.render(`course.ejs`, { user_render: req.user });
@@ -261,17 +263,37 @@ app.get("/list", (req, res) => {
 // ***************************************************************************
 // ASSESSEMENT TEST PROCESSING
 app.post('/recordAssess',(req, res)=>{
+  let testScore = parseInt(req.body.user_score);
+  let testModule = "course.testResult.m"+req.body.moduleTest;
   data
   .collection("users")
   .updateOne(
     { id: req.body.user_id },
-    { $set: {"course.currentM":req.body.moduleNext, "course.currentSubM":1}},
+    { $set: {"course.currentM":req.body.moduleNext, "course.currentSubM":1,[testModule]:testScore}},
     (err, result) => {
       if (err) return { err };
     }
   )
   // res.render(`./modules/m${req.body.moduleNext}-1`,{ user_render: req.user });
   res.redirect(`course/m${req.body.moduleNext}-1`);
+})
+// If Final Course Passed
+app.post('/finalAssess',(req, res)=>{
+  let testScore = parseInt(req.body.user_score);
+  let testModule = "course.testResult.m"+req.body.moduleTest;
+  data
+  .collection("users")
+  .updateOne(
+    { id: req.body.user_id },
+    { $set: {"course.currentM":4, "course.currentSubM":4,[testModule]:testScore}},
+    (err, result) => {
+      if (err) return { err };
+    }
+  )
+  res.render(`final.ejs`, { user_render: req.user, login:true });
+})
+app.get('/certificate',(req,res)=>{
+  res.render(`final.ejs`, { user_render: req.user, login:true });
 })
 // Checkout each module
 app.post('/progressCheck',(req,res)=>{
@@ -336,14 +358,12 @@ app.listen(8080, () => {
 // gcloud init
 // gcloud app deploy
 
+
+
 // TODO LIST
 
 // FINAL Test -> Certificate
-// Plan -Remaining Days
-// Proficiency
-// Interaction in main page
+// Plan  Remaining Days
+// INDEX Testimonials
 
-// Course - one more photo for last
-
-
-// SignUp debug
+// OAuth Google

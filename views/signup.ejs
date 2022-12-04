@@ -15,33 +15,49 @@
     <section class="signup">
       <h3>Sign up Tremolo to start your guitar journey !</h3>
       <img src="images/logo.png" alt="Tremolo logo" width="120" height="auto" />
-      <form action="/register" method="POST" class="signup">
+      <form action="/register" method="POST" class="signup" id="signupForm">
         <label for="regis_id">User ID</label>
-        <input type="text" placeholder="ID" name="regis_id" id="regis_id" />
+        <input type="text" placeholder="ID" name="regis_id" id="regis_id" required/>
 
         <label for="regis_pwd">Password</label>
         <input
           type="password"
-          placeholder="Passowrd"
+          placeholder="Password"
           name="regis_pwd"
           id="regis_pwd"
+          required
         />
 
         <label for="fname">First name</label>
-        <input type="text" placeholder="First name" name="fname" id="fname" />
+        <input type="text" placeholder="First name" name="fname" id="fname" required>
 
         <label for="lname">Last name</label>
-        <input type="text" placeholder="Last name" name="lname" id="lname" />
+        <input type="text" placeholder="Last name" name="lname" id="lname" required>
 
-        <label for="email">email</label>
+        <label for="email">Email</label>
         <input
           type="email"
           placeholder="Email address"
           name="email"
           id="email"
+          required
         />
+        <p class="plan">Plan</p>
+        <div>
+          <input type="radio" name="plan" value="0" checked>
+          <label for="0">Free</label>
+          <input type="radio" name="plan" value="1">
+          <label for="1">Premium</label>
+          <input type="radio" name="plan" value="2">
+          <label for="2">Pro</label>
+        </div>
+        
+        <input type="hidden" name="today" value="" id="formToday">
+        <label for=""></label>
+        <input type="hidden" name="expiration" value="" id="expiration">
+        <label for=""></label>
 
-        <input type="submit" value="Sign up" />
+        <input type="submit" value="Sign up">
       </form>
       <a href="#"
         ><img class="google" src="images/googlelogin.png" alt="google login"
@@ -51,5 +67,41 @@
     <% if(sameID) {%>
       <script> alert("The ID you typed in already exsisted. Try another ID");</script>
     <% } %>
+    <script>
+      // Insertation to hidden values(registerd plan)
+      var today = new Date();
+      var year = today.getFullYear();
+      var month = ('0' + (today.getMonth() + 1)).slice(-2);
+      var day = ('0' + today.getDate()).slice(-2);
+      var dateString = year + '-' + month  + '-' + day;
+      formToday.value = dateString;
+      expireCalculator(7);
+      expiration.value = expired;
+      signupForm.addEventListener('change',()=>{
+        let userSelection = document.querySelector('input:checked').value;
+        if(userSelection == 0){
+          today = new Date();
+          expireCalculator(7);
+          expiration.value = expired;
+        } else if (userSelection == 1){
+          today = new Date();
+          expireCalculator(30)
+          expiration.value = expired;
+        } else if(userSelection == 2){
+          today = new Date();
+          expireCalculator(90)
+          expiration.value = expired;
+        }
+      })
+
+      function expireCalculator(day){
+        var expire = new Date(today.setDate(today.getDate() + day));
+        var year2 = expire.getFullYear();
+        var month2 = ('0' + (expire.getMonth() + 1)).slice(-2);
+        var day2 = ('0' + expire.getDate()).slice(-2);
+        expired = year2+'-'+month2+'-'+ day2;
+      }
+
+    </script>
   </body>
 </html>

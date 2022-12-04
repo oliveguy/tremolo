@@ -78,22 +78,49 @@
               />
               <label for="pwd"></label>
               <input type="text" name="pwd" id="pwd" value="*******">
-              <input type="submit" value="Save Change">
+              <!-- <input type="submit" value="Save Change"> -->
             </form>
           </div>
         </article>
         <article id="user_course">
           <h3 class="account_items">Course Info</h3>
           <div class="course_info">
-            <div class="plan">
-              <img
-                src=""
-                alt="PLAN"
-                class="plan_photo"
-                width="180px"
-                height="210px"
-              />
-              <a href="#">Buy Plan</a>
+            <div class="planBuy">
+              <% if(user_render.plan == 0) {%>
+                <article id="premium">
+                  <h3>Free</h3>
+                  <h4>$ 0</h4>
+                  <ul>
+                    <li>&#10003; 7 days Free</li>
+                    <li>&#10003; Full Access</li>
+                    <li></li>
+                  </ul>
+                  <a href="#">Change Plan</a>
+                </article>
+              <% } else if(user_render.plan == 1){%>
+                <article id="premium">
+                  <h3>Premium</h3>
+                  <h4>$ 25</h4>
+                  <ul>
+                    <li>&#10003; 30 days Subscription</li>
+                    <li>&#10003; Full Access</li>
+                  </ul>
+                  <a href="#">Change Plan</a>
+                </article>
+              <% } else if(user_render.plan == 2) {%>
+                <article id="premium">
+                  <h3>Pro</h3>
+                  <h4>$ 45</h4>
+                  <ul>
+                    <li>&#10003; 90 days Subscription</li>
+                    <li>&#10003; Full Access</li>
+                    <li>&#10003; Mentoring</li>
+                    <li></li>
+                  </ul>
+                  <a href="#">Change Plan</a>
+                </article>
+              <% } %>
+            <!--  -->
             </div>
             <ul class="course_text_list">
               <li class="course_list_items">
@@ -108,19 +135,48 @@
                 </div>
               </li>
               <li class="course_list_items">
-                <span class="item_title">Remaining Days</span>
-                <span>45 Days</span>
+                <span class="item_title">Plan Period</span>
+                <span><%= user_render.planStart %> ~ <%= user_render.planEnd %></span>
               </li>
               <li class="course_list_items">
                 <span class="item_title">Proficiency</span>
-                <span>85%</span>
+                <span id="db" style="display:none;"><%= user_render.course.currentM %></span>
+                <span id="d2" style="display:none;"><%= user_render.course.currentSubM %></span>
+                <span id="test1" style="display:none;"><%= user_render.course.testResult.m1 %></span>
+                <span id="test2" style="display:none;"><%= user_render.course.testResult.m2 %></span>
+                <span id="test3" style="display:none;"><%= user_render.course.testResult.m3 %></span>
+                <span id="test4" style="display:none;"><%= user_render.course.testResult.m4 %></span>
+                <% if(user_render.course.currentM == "2") {%>
+                  <span id="proficiency"><%= user_render.course.testResult.m1 %>%</span>
+                <% } else {%>
+                  <span id="proficiency">0%</span>
+                <% } %>
               </li>
+              <% if(user_render.course.testResult.m4 > 60 && user_render.course.currentM == 4) {%>
+                <li class="course_list_items certBtn"><a href="/certificate" id="certificateBtn">View Certificate</a></li>
+              <% } %>
             </ul>
           </div>
         </article>
       </section>
     </main>
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
     <script src="js/course.js"></script>
+    <script>
+      let testTaken = parseInt(document.getElementById('db').textContent);
+      let test4Score = parseInt(document.getElementById('test4').textContent);
+      let testresult = 0;
+      if(testTaken == 3){
+        testresult = (parseInt(test1.textContent)+parseInt(test2.textContent))/200*100
+        proficiency.innerHTML = testresult+"%";
+      } else if (testTaken == 4){
+        testresult = (parseInt(test1.textContent)+parseInt(test2.textContent)+parseInt(test3.textContent))/300*100
+        proficiency.innerHTML = testresult+"%";
+      } else if(testTaken == 4 && test4Score > 1){
+        testresult = (parseInt(test1.textContent)+parseInt(test2.textContent)+parseInt(test3.textContent)+parseInt(test4.value))/400*100
+        proficiency.innerHTML = testresult+"%";
+      }
+    </script>
+
   </body>
 </html>
