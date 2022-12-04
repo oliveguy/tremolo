@@ -56,21 +56,38 @@ function slideUp(){
   let tuitionCards = document.querySelectorAll('.tuition_cards')
   let scrollY = window.scrollY;
   if(scrollY<=1925){
+    // for(element of tuitionCards){
+    //   element.style.opacity = 0;
+    // }
+  } else if(scrollY>=2300){
+    tuitionCards[0].style.opacity = 1;
+  }
+  if(scrollY>=2915){
+    tuitionCards[1].style.opacity = 1;
+  }
+  if(scrollY>3542){
+    tuitionCards[2].style.opacity = 1;
+  }
+  if(scrollY>3900){
     for(element of tuitionCards){
-      element.style.opacity = 0;
-    }
-  } else if(scrollY>=2000){
-    tuitionCards[0].style.opacity = (scrollY*0.10)/2409+0.45
-  }
-  if(scrollY>=2315){
-    tuitionCards[1].style.opacity = (scrollY*0.35)/3038+0.45
-  }
-  if(scrollY>2742){
-    tuitionCards[2].style.opacity = (scrollY*0.35)/3440+0.45
-  }
-  if(scrollY>3400){
-    for(element of tuitionCards){
-      element.style.opacity = 0.9;
+      element.style.opacity = 0.5;
     }
   }
 }
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>=1629){
+    instructorPic.style.transform= `translateX(0)`;
+    instructor_text.style.transform= `translateX(0)`;
+  }
+})
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>=3900){
+    leftComment.style.transform= `translateX(0)`;
+    rightComment.style.transform= `translateX(0)`;
+  }
+})
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>=200){
+    courseTitle.style.transform= `translateX(0)`;
+  }
+})

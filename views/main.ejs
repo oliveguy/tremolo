@@ -31,25 +31,25 @@
     <!-- COURSE -->
     <section id="course">
       <article class="courseInfo hidden_title">
-        <div class="courseItems">
+        <div class="courseItems" id="courseTitle">
           <h2 class="indexTitle">Course Information</h2>
           <p>So, you’re a beginner! That’s okay, everyone starts at zero. Tremolo is the place to be as a beginner guitar enthusiast. Our lessons will take you from absolute zero, to being able to recognize scales, chords, and everything you need to play full songs. </p>
           <p>Tremolo lessons are designed to give you the time to absorb and truly understand each concept and move forward when you’re ready.</p>
         </div>
-        <div class="courseItems">
+        <div class="courseItems" id="moduleNo1">
           <h4>Module 1</h4>
           <p>The first module will introduce you to the very basics of the guitar. It will be the beginning of 4 easy lessons that will take you from knowing absolutely nothing about the guitar, to being able to play chords, and improvise over them.</p>
           <p>You will be able to recognize different parts of the guitar, where to place your fingers and hands, know the different strings, ways to tune the guitar, and so on.</p>
         </div>
-        <div class="courseItems">
+        <div class="courseItems" id="moduleNo2">
           <h4>Module 2</h4>
           <p>You will be able to recognize different parts of the guitar, where to place your fingers and hands, know the different strings, ways to tune the guitar, and so on.</p>
         </div>
-        <div class="courseItems">
+        <div class="courseItems" id="moduleNo3">
           <h4>Module 3</h4>
           <p>In module 3, you will be learning about chords and scales. It will be quite like what you’ve been doing already in module 2. Playing individual notes, in order. However, this section will apply a bit more of a melodic sensibility to it. You will be starting off with the box system, a simple way to think about the fret board.</p>
         </div>
-        <div class="courseItems">
+        <div class="courseItems" id="moduleNo4">
           <h4>Module 4</h4>
           <p>In module 4, you will take everything that you’ve learned so far, and add some musicality to it. Learn how to strum chords in rhythm, improvise, and combine them. The goal is to make some original music! This is your chance to really have fun with it and put all that knowledge to work. Goodluck.</p>
         </div>
@@ -66,8 +66,8 @@
     <section id="instructor">
       <h2 class="otherTitles">Instructors</h2>
       <article>
-        <img src="/images/instructor.jpg" alt="instructor photo"width="350" height="200">
-        <div class="instructor_text">
+        <img src="/images/instructor.jpg" alt="instructor photo"width="350" height="200" id="instructorPic">
+        <div class="instructor_text" id="instructor_text">
           <p id="instr_p">Tremolo partners with the best guitar instructors in the world.</p>
           <p> Having an online platform means we can branch out to the many corners of the globe to highlight and recruit our instructors. 
           </p>
@@ -123,11 +123,37 @@
     <section id="testimonial">
       <h2 class="otherTitles">Testimonials</h2>
       <div class="testimonial_contents">
-        <div></div>
-        <div></div>
+        <div class="comment" id="leftComment">
+          <div>
+            <img src="../images/comment1.jpg" alt="laura" width="60px" height="60px">
+            <h3>Laura</h3>
+          </div>
+          <p>The guitar lessons have improved my understanding and appreciation of the guitar.</p>
+        </div>
+        <div class="comment" id="rightComment">
+          <div>
+            <img src="../images/comment2.jpg" alt="Kristen" width="60px" height="60px">
+            <h3>Kristen</h3>
+          </div>
+          <p>When listening to a song I am able to understand what is being played and how.</p>
+        </div>
       </div>
     </section>
     <footer>
+      <div class="footerWrapper">
+        <ul>
+          <li>About</li>
+          <li>Copyrights</li>
+          <li>Contact
+            <span>admin@tremolo.com</span><span>+1(403)472-2948</span><span>3254 Tremolo way NW, Calgary, AB</span>
+          </li>
+        </ul>
+        <div class="tremoloSet">
+          <a href="/"><img src="../images/logo.png" alt="tremolo logo" width="120" height="auto"></a>
+          <p>2022 Tremolo. All rights Reserved</p>
+          <p>&copy; Tremolo</p>
+        </div>
+      </div>
     </footer>
     <script src="js/main.js"></script>
     <!-- <script src="js/course.js"></script> -->

@@ -260,6 +260,7 @@ section#course{
   margin:0 auto;
   position:relative;
   display:flex;
+  // overflow: hidden;
   article.courseInfo{
     margin: 0 auto;
     width:100%;
@@ -284,8 +285,6 @@ section#course{
     opacity:1;
   }
   div.courseItems{
-    // margin-top: 10rem;
-    // position: sticky;
     min-height:19rem;
     top:110px;
     opacity:0;
@@ -297,9 +296,6 @@ section#course{
   div.show_course{
     opacity:1;
   }
-  // div.courseItems:nth-child(1){
-  //   margin-top: 0;
-  // }
   img.courseInfo{
     float: right;
     position: sticky;
@@ -311,6 +307,7 @@ section#instructor{
   // height:300px;
   padding:2rem 0;
   position:relative;
+  overflow: hidden;
   h2{
     text-align: center;
     z-index: 10;
@@ -335,9 +332,15 @@ section#instructor{
     div.instructor_text{
       max-width: 40ch;
       margin-left: 2rem;
+      transform: translateX(-2000px);
+      transition: all 0.75s ease-in-out;
       p#instr_p{
         margin-top: 0;
       }
+    }
+    img#instructorPic{
+      transform: translateX(-1000px);
+      transition: all 0.5s ease-in-out;
     }
   }
 }
@@ -360,6 +363,7 @@ section#tuition{
       top:150px;
       margin:7.5rem 5rem;
       opacity:0.1;
+      transition: all .5s ease-in-out;
       &:nth-of-type(1){
         margin-inline-end:auto;
       }
@@ -441,25 +445,85 @@ section#tuition{
 }
 section#testimonial{
   width:100%;
-  height:500px;
-  padding-top: 2rem;
-  position:relative;
+  margin: 2rem auto;
+  overflow: hidden;
   h2{
     text-align: center;
   }
   div.testimonial_contents{
     display:flex;
-    justify-content: space-between;
-    width:100%;
-    height:180px;
+    justify-content: center;
     max-width: $view_max;
     margin:0 auto;
-    div{
-      border: 1px solid white;
+    // top:200px;
+    div.comment{
+      max-width:50ch;
       border-radius: 10px;
+      padding:2rem;
       width:100%;
       height:100%;
-      margin:.5rem;
+      margin: 1rem;
+      background: url(../images/comment.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      div{
+        display:flex;
+        img{
+          border-radius: 50%;
+        }
+        h3{
+          margin-left: 2rem;
+        }
+      }
+    }
+    div#leftComment{
+      transform: translateX(-1000px);
+      transition: all .75s ease-in-out;
+    }
+    div#rightComment{
+      transform: translateX(1000px);
+      transition: all .75s ease-in-out;
+    }
+  }
+}
+footer{
+  width: 100%;
+  background-color: $box_tran_bg;
+  padding: 1rem;
+  padding-top: 5rem;
+  height: 20rem;
+  div.footerWrapper{
+    margin:0 auto;
+    max-width: $view_max;
+    display:flex;
+    justify-content: space-between;
+    ul{
+      display: flex;
+      width:100%;
+      padding:0;
+      li{
+        list-style-type: none;
+        font-style: italic;
+        margin-right: 8rem;
+        text-decoration: underline;
+      &:nth-of-type(3){
+        margin-right:0;
+        width:100%;
+        span{
+          display:block;
+          font-size: small;
+          text-decoration: none;
+          font-style: none;
+          margin: .5rem 0;
+          width:100%;
+        }
+      }
+      }
+    }
+    div.tremoloSet{
+      text-align: right;
+      width:100%;
     }
   }
 }
@@ -506,6 +570,7 @@ img.google {
 main.account {
   margin: 0 auto;
   max-width: 80ch;
+  margin-bottom: 4rem;
   section#account_total {
     @include bg_blur_black();
     padding: 2rem;
