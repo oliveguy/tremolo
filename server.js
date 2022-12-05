@@ -60,14 +60,14 @@ const upload = multer({ storage: storage });
 // MAIN (GET)
 app.get("/", verify_loginMain, (req, res) => {
   if (req.user) {
-    res.render("main.ejs", { user_render: req.user, login: true, tt:true });
+    res.render("main.ejs", { user_render: req.user, login: true, tt:true , newUser:false });
   }
 });
 function verify_loginMain(req, res, next) {
   if (req.user) {
     next();
   } else {
-    res.render("main.ejs", { login: false, tt:true });
+    res.render("main.ejs", { login: false, tt:true , newUser:false });
   }
 }
 // USER ACCOUNT PAGE (GET?userID=$)
@@ -179,7 +179,7 @@ app.post("/register", (req, res) => {
         transporter.close();
       });
       // Message and Redirection to main.ejs
-      res.render("main.ejs", { user_render: req.user, login: false, tt:true })
+      res.render("main.ejs", { user_render: req.user, login: false, tt:true,newUser:true })
     }
   });
 });
@@ -211,7 +211,7 @@ function verify_login(req, res, next) {
   if (req.user) {
     next();
   } else {
-    res.render("main.ejs", { user_render: req.user, login: false, tt:false })
+    res.render("main.ejs", { user_render: req.user, login: false, tt:false, newUser:false })
   }
 }
 passport.use(
