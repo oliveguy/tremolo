@@ -290,6 +290,30 @@ app.post('/finalAssess',(req, res)=>{
       if (err) return { err };
     }
   )
+  //Certificate Sent
+  // Welcome Email Send
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: { user: process.env.GMAIL_ID, pass: process.env.GMAIL_PWD },
+    host: "smtp.gmail.com",
+    port: "465",
+  });
+  const mailOption = {
+    from: "Tremolo Account Management Team<noreply@tremolo.com>",
+    to: req.body.email,
+    subject: `Congraturations for passing all modules! ${req.body.fname}`,
+    html: `<h1>Thank you for taking Tremolo course</h1><p>Dear ${req.body.fname}</p><p>you've passed all modules of Tremolo and Please find below certificate!</p>
+    <img src="/images/certificate.jpg">`,
+  };
+  transporter.sendMail(mailOption, (err, info) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(info);
+    }
+    transporter.close();
+  });
+
   res.render(`final.ejs`, { user_render: req.user, login:true });
 })
 app.get('/certificate',(req,res)=>{

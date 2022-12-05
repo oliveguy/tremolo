@@ -18,10 +18,7 @@ $t_mini: 0.75rem;
 $t-small: 0.85rem;
 $t_large: 1.5rem;
 // Font
-// $t_title :;
 $t_body: 'Inter', "times", "sans-serif";
-// $t_accent :;
-
 // Spacing //
 $view_max: 90ch;
 $view_narrow: 50ch;
@@ -70,10 +67,8 @@ header {
   position:sticky;
   top:0;
   z-index: 99;
-  // border-bottom:1px solid white ;
   div.header_wrapper{
     margin: 0 auto;
-    // padding: 1rem 0;
     max-width: $view_max;
     display: flex;
     position: relative;

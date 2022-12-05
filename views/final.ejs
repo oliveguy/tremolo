@@ -12,6 +12,9 @@
     main{
       text-align: center;
     }
+    ul.scoreBoard{
+      padding:0;
+    }
   </style>
 </head>
 <body>
@@ -19,16 +22,15 @@
     <%- include('header'); %> <% } %>
 <main>
   <h2>Congraturations!</h2>
-  <h3>축! 전 코스 수료 <%=user_render.name.fname%> 임마!</h3>
-  <p>너의 점수는 말이여,</p>
-  <ul>
+  <h3>You have passed all course modules in Tremolo</h3>
+  <ul class="scoreBoard">
     <li>Module 1: <%=user_render.course.testResult.m1%></li>
     <li>Module 2: <%=user_render.course.testResult.m2%></li>
     <li>Module 3: <%=user_render.course.testResult.m3%></li>
     <li>Module 4: <%=user_render.course.testResult.m4%></li>
   </ul>
+<img src="/images/certificate.jpg" alt="certificate" width="842" height="597">
   <p>This Certificate has been sent to your email at <b><%=user_render.email%></b></p>
-  <p>Thank you for enjoying our e-learning service!</p>
 </main>
   <script>
     let user_panel = document.querySelector('.user_panel');
