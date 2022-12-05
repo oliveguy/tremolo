@@ -14,6 +14,12 @@ body {
   background-attachment: fixed;
   color: #fff;
   margin: 0;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 a {
@@ -381,6 +387,18 @@ section#tuition div.tuitionWrapper div.tuition_cards article {
   justify-content: space-between;
   align-items: center;
 }
+section#tuition div.tuitionWrapper div.tuition_cards article:nth-of-type(1) {
+  background: rgb(68, 133, 59);
+  background: linear-gradient(120deg, rgb(68, 133, 59) 0%, rgb(33, 189, 116) 50%, rgb(17, 146, 197) 100%);
+}
+section#tuition div.tuitionWrapper div.tuition_cards article#secondTuition {
+  background: rgb(17, 70, 168);
+  background: linear-gradient(120deg, rgb(20, 204, 143) 0%, rgb(17, 153, 207) 50%, rgb(50, 18, 194) 100%);
+}
+section#tuition div.tuitionWrapper div.tuition_cards article#thirdTuition {
+  background: rgb(123, 11, 175);
+  background: linear-gradient(120deg, rgb(50, 18, 194) 0%, rgb(88, 23, 207) 50%, rgb(202, 13, 202) 100%);
+}
 section#tuition div.tuitionWrapper div.tuition_cards article h3 {
   margin-top: 0;
   padding-bottom: 0.25rem;
@@ -413,27 +431,6 @@ section#tuition div.tuitionWrapper div.tuition_cards article a {
   border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   font-size: 0.75rem;
-}
-section#tuition div.tuitionWrapper div.tuition_cards article:nth-of-type(1) {
-  background: rgb(68, 133, 59);
-  background: linear-gradient(120deg, rgb(68, 133, 59) 0%, rgb(33, 189, 116) 50%, rgb(17, 146, 197) 100%);
-}
-section#tuition div.tuitionWrapper div.tuition_cards article:nth-of-type(2) {
-  background: rgb(17, 70, 168);
-  background: linear-gradient(120deg, rgb(20, 204, 143) 0%, rgb(17, 153, 207) 50%, rgb(50, 18, 194) 100%);
-}
-section#tuition div.tuitionWrapper div.tuition_cards article:nth-of-type(3) {
-  background: rgb(123, 11, 175);
-  background: linear-gradient(120deg, rgb(50, 18, 194) 0%, rgb(88, 23, 207) 50%, rgb(202, 13, 202) 100%);
-}
-section#tuition div.tuitionWrapper div.tuition_cards article:nth-of-type(3):nth-of-type(1):hover {
-  background-color: rgb(68, 133, 59);
-}
-section#tuition div.tuitionWrapper div.tuition_cards article:nth-of-type(3):nth-of-type(2):hover {
-  background-color: rgb(17, 70, 168);
-}
-section#tuition div.tuitionWrapper div.tuition_cards article:nth-of-type(3):nth-of-type(3):hover {
-  background-color: rgb(123, 11, 175);
 }
 
 section#testimonial {
