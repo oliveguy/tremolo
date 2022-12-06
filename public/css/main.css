@@ -67,6 +67,9 @@ ul.navigation li {
   list-style-type: none;
   font-weight: bold;
 }
+ul.navigation a:hover {
+  text-decoration: underline;
+}
 ul.navigation li#loginListItem {
   position: relative;
 }
@@ -203,6 +206,10 @@ a.banner_btn {
   font-size: small;
   margin-right: 1rem;
   font-style: italic;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+a.banner_btn:hover {
+  border: 1px solid white;
 }
 
 a#resumeBtn {
@@ -340,6 +347,7 @@ section#instructor article div.instructor_text p#instr_p {
 section#instructor article img#instructorPic {
   transform: translateX(-1000px);
   transition: all 0.5s ease-in-out;
+  border-radius: 10px;
 }
 
 section#tuition {
@@ -521,6 +529,7 @@ footer div.footerWrapper div.tremoloSet {
 section.signup {
   max-width: 50ch;
   margin: 0 auto;
+  margin-top: 3rem;
   text-align: center;
 }
 
@@ -605,12 +614,6 @@ form.user_photo_field {
 }
 form.user_photo_field img.user_photo_account {
   border-radius: 50px;
-}
-form.user_photo_field input[type=file]::-webkit-file-upload-button:hover {
-  background: #7bfff4;
-}
-form.user_photo_field input[type=file]::file-selector-button:hover {
-  background: #7bfff4;
 }
 form.user_photo_field input[type=file]::-webkit-file-upload-button {
   margin-right: 20px;

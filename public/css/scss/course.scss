@@ -92,6 +92,7 @@ div.aside_top {
   }
   img#close_aside:hover{
     cursor: pointer;
+    border: 1px solid rgba(255,255,255,.5);
   }
 }
 div.progress_bar {
@@ -127,6 +128,7 @@ ul.modules {
       span.expandIcon{
         font-weight: bolder;
         font-size: 1.25rem;
+
       }
     }
   }
@@ -191,6 +193,10 @@ div.content_area{
     text-align: center;
     input#continueBtn{
       @include button();
+      &:hover{
+        background-color: $accent;
+        color:$box_t_bg;
+      }
     }
   }
 }

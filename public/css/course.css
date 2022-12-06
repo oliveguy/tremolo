@@ -57,6 +57,7 @@ div.aside_top div.progress_family span.progress_text {
 }
 div.aside_top img#close_aside:hover {
   cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 div.progress_bar {
@@ -167,6 +168,10 @@ div.content_area form#continueForm input#continueBtn {
   color: #fff;
   border: none;
   border-radius: 25px;
+}
+div.content_area form#continueForm input#continueBtn:hover {
+  background-color: #7bfff4;
+  color: rgb(71, 71, 71);
 }
 
 form#test img {

@@ -168,7 +168,7 @@ app.post("/register", (req, res) => {
         from: "Tremolo Account Management Team<noreply@tremolo.com>",
         to: req.body.email,
         subject: `Welcome to Tremolo! ${req.body.fname}`,
-        html: `<h1>Thank you for signing up Tremolo</h1><p>Dear ${req.body.fname}</p><p>We are happy to offer you our outstanding e-learning service!</p>`,
+        html: `<h1>Thank you for signing up Tremolo</h1><p>Dear ${req.body.fname}</p><p>We are happy to offer you our outstanding e-learning service! Visit us to start your guitar journey at <a href="https://tremolo-370108.wl.r.appspot.com/">Tremolo</a></p><p>Kind regards<br>Your Tremolo Team</p>`,
       };
       transporter.sendMail(mailOption, (err, info) => {
         if (err) {
@@ -285,7 +285,8 @@ app.post('/finalAssess',(req, res)=>{
   .collection("users")
   .updateOne(
     { id: req.body.user_id },
-    { $set: {"course.currentM":4, "course.currentSubM":4,[testModule]:testScore}},
+    // { $set: {"course.currentM":4, "course.currentSubM":4,[testModule]:testScore}},
+    { $set: {"course.currentM":4, "course.currentSubM":4,"course.testResult.m4":testScore}},
     (err, result) => {
       if (err) return { err };
     }

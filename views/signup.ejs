@@ -13,8 +13,8 @@
   <body>
     <%- include('header'); %>
     <section class="signup">
-      <h3>Sign up Tremolo to start your guitar journey !</h3>
       <img src="images/logo.png" alt="Tremolo logo" width="120" height="auto" />
+      <h3>Sign up Tremolo to start your guitar journey !</h3>
       <form action="/register" method="POST" class="signup" id="signupForm">
         <label for="regis_id">User ID</label>
         <input type="text" placeholder="ID" name="regis_id" id="regis_id" required/>
@@ -59,9 +59,9 @@
 
         <input type="submit" value="Sign up">
       </form>
-      <a href="#"
+      <!-- <a href="#"
         ><img class="google" src="images/googlelogin.png" alt="google login"
-      /></a>
+      /></a> -->
     </section>
     <script src="js/main.js"></script>
     <% if(sameID) {%>
