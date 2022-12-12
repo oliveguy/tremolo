@@ -153,7 +153,7 @@ app.post("/register", (req, res) => {
                     }
                   }
                 );
-            }
+              }
           );
       });
 
@@ -200,7 +200,7 @@ app.get("/logout", (req, res) => {
 });
 // COURSE (GET) USER
 app.get("/course/:moduleID", verify_login, (req, res) => {
-  res.render(`./modules/${req.params.moduleID}`, { user_render: req.user,videoURL:'https://zacharyhowell.ca/video/' });
+  res.render(`./modules/${req.params.moduleID}`, { user_render: req.user,videoURL:'https://zacharyhowell.ca/video/tremolo/' });
   // res.render(`./modules/${req.params.moduleID}`, { user_render: req.user,videoURL:'http://dev.saitnewmedia.ca/~spark/tremolo/' });
 });
 app.get("/course", verify_login, (req, res) => {
