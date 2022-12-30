@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const dotenv = require("dotenv");
 dotenv.config({ path: "conf.env" });
@@ -184,6 +185,7 @@ app.post("/register", (req, res) => {
   });
 });
 // LOGIN/OUT & COURSE ********************************************************************
+//LOCAL LOGIN
 app.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "/" }),
@@ -191,6 +193,19 @@ app.post(
     res.redirect(`/course/m${req.user.course.currentM}-${req.user.course.currentSubM}`);
   }
 );
+//GOOGLE LOGIN
+app.get(
+  "/googleLogin",
+  passport.authenticate('google',{scope:['profile','email'], accessType:'offline', prompt:'consent'})
+);
+app.get(
+  '/google-auth',
+  passport.authenticate('google', { failureRedirect: '/signup' }),
+  (req, res) => {
+    res.redirect('/');
+  },
+);
+
 app.get("/logout", (req, res) => {
   req.session.destroy(function (err) {
     if (err) throw err;
@@ -214,6 +229,7 @@ function verify_login(req, res, next) {
     res.render("main.ejs", { user_render: req.user, login: false, tt:false, newUser:false })
   }
 }
+// PASSPORT_LOCAL STRATEGY
 passport.use(
   new LocalStrategy(
     {
@@ -240,6 +256,26 @@ passport.use(
       });
     }
   )
+);
+// PASSPORT_GOOGLE STRATEGY
+passport.use(
+  new GoogleStrategy({
+      clientID:process.env.GOOGLE_OAUTH_ID,
+      clientSecret:process.env.GOOGLE_OAUTH_SECRET,
+      callbackURL:"http://localhost:8080/google-auth"
+    },
+    (accesToken, refreshToken, profile, done)=>{
+      // Check existing user
+      data.collection("users").findOne({ email: profile.emails[0].value }, function (err, result) {
+        if (err) return done(err);
+        // console.log(result);
+        return done(null, result);
+      });
+      // console.log(profile.name.familyName);
+      // console.log(profile.name.givenName);
+      // console.log(profile.emails[0].value);
+    }
+  ) 
 );
 // SESSION
 passport.serializeUser((user, done) => {
@@ -363,7 +399,7 @@ app.listen(8080, () => {
 // GOOGLE CLOUD SERVER
 // https://tremolo-370108.wl.r.appspot.com/
 
-// Shift + Alt +F -> Formatter
+// Shift + Alt + F -> Formatter
 
 // WIN -> MAC
 // % rm -rf node_modules/
@@ -372,13 +408,6 @@ app.listen(8080, () => {
 // MAC->WIN
 // > npm rebuild bcrypt --build-from-source
 
-// Updated on 11-29 : AM 02:08
-
-// GIT COMMANDS
-// git pull origin main
-// git commit -m 'messages'
-// git push origin your branch
-
 // Google Cloud Re-Deploy
 // gcloud init
 // gcloud app deploy
@@ -386,9 +415,5 @@ app.listen(8080, () => {
 
 
 // TODO LIST
-
-// FINAL Test -> Certificate V
-// Plan  Remaining Days V
-// INDEX Testimonials V
-
 // OAuth Google
+// http://localhost:8080/google-auth
