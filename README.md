@@ -34,6 +34,8 @@ e-learning website for very beginners to learn how to play the guitar
 ![tremolo_front](https://user-images.githubusercontent.com/103153516/214000940-efc0c87a-abec-417b-8d32-969d33f9ce4d.jpg)
 - Course page
 ![tremolo_course](https://user-images.githubusercontent.com/103153516/214001548-19957917-e12b-4dde-a376-3b5b2fcf4585.jpg)
+- Account page
+![tremolo_account](https://user-images.githubusercontent.com/103153516/214002277-7439739a-039b-418a-9470-a0f747506bb7.jpg)
 ## Continued development
 - Google login/Signup (Google OAuth 2.0) by using PASSPORT
 
