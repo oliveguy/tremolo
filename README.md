@@ -27,7 +27,7 @@ e-learning website for very beginners to learn how to play the guitar
 <img src="https://img.shields.io/badge/Javascript-yellow?style=for-the-badge&logo=Javascript&logoColor=000"/>
 <img src="https://img.shields.io/badge/NodeJS-white?style=for-the-badge&logo=Node.js&logoColor=green"/>
 <img src="https://img.shields.io/badge/MongoDB-blue?style=for-the-badge&logo=MongoDB&logoColor=green"/>
-<img src="https://img.shields.io/badge/Ejs-black?style=for-the-badge&logo=Ejs&logoColor=blue"/>
+<img src="https://img.shields.io/badge/Ejs-green?style=for-the-badge&logo=Ejs&logoColor=blue"/>
 </div>
 
 ## Screen Shots
