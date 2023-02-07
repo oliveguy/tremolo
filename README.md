@@ -6,7 +6,7 @@ e-learning website for very beginners to learn how to play the guitar
 ### Functionalities
 - Signup and login functions
 - Only login users can access course contents
-- All user information stored in DB(MongoDB)
+- All user information stored in DB(MongoDB) and password is encrypted by using bcrypt library
 - User information in account page which is dynamically changed depnding on user
 
 ### User Experiences
